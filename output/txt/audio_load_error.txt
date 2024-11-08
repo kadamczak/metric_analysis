@@ -1,0 +1,3 @@
+Error with track id: 99134 at index 4470
+Error with track id: 108925 at index 4903
+Error with track id: 133297 at index 6965
