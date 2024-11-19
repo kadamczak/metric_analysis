@@ -1,0 +1,8 @@
+EPOCHS: 15
+TEST results:
+accuracy: 0.9500
+f1: 0.9474
+precision: 1.0000
+recall: 0.9000
+cohen's kappa: 0.9000
+ROC-AUC: 1.0000
