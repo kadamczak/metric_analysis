@@ -1,0 +1,23 @@
+EPOCHS: 5
+TEST results:
+macro_accuracy: 0.9433
+micro_accuracy: 0.9433
+accuracy_per_class: Electronic: 0.8332 Experimental: 0.9117 Folk: 0.9009 Hip-Hop: 0.9421 Instrumental: 0.9296 International: 0.8729 Pop: 0.9518 Rock: 0.8643 Easy Listening: 0.9977 Blues: 0.9969 Soul-RnB: 0.9833 Spoken: 0.9942 Country: 0.9930 Jazz: 0.9802 Old-Time / Historic: 0.9957 Classical: 0.9452 
+macro_f1: 0.2934
+micro_f1: 0.5463
+f1_per_class: Electronic: 0.6857 Experimental: 0.2091 Folk: 0.2478 Hip-Hop: 0.5984 Instrumental: 0.1256 International: 0.2749 Pop: 0.0313 Rock: 0.7621 Easy Listening: 0.0000 Blues: 0.0000 Soul-RnB: 0.0000 Spoken: 0.1176 Country: 0.0000 Jazz: 0.3014 Old-Time / Historic: 0.9027 Classical: 0.4382 
+macro_precision: 0.3282
+micro_precision: 0.5463
+precision_per_class: Electronic: 0.6385 Experimental: 0.4839 Folk: 0.2246 Hip-Hop: 0.7351 Instrumental: 0.3939 International: 0.1777 Pop: 0.2222 Rock: 0.7384 Easy Listening: 0.0000 Blues: 0.0000 Soul-RnB: 0.0000 Spoken: 0.2000 Country: 0.0000 Jazz: 0.3235 Old-Time / Historic: 0.8226 Classical: 0.2910 
+macro_recall: 0.3371
+micro_recall: 0.5463
+recall_per_class: Electronic: 0.7405 Experimental: 0.1333 Folk: 0.2763 Hip-Hop: 0.5045 Instrumental: 0.0747 International: 0.6078 Pop: 0.0168 Rock: 0.7873 Easy Listening: 0.0000 Blues: 0.0000 Soul-RnB: 0.0000 Spoken: 0.0833 Country: 0.0000 Jazz: 0.2821 Old-Time / Historic: 1.0000 Classical: 0.8871 
+Cohen's Kappa: 0.4523
+MCC: 0.4590
+MSE: 0.0378
+LogLoss: 1.5139
+AUNu: 0.8122
+AUNp: 0.8696
+AU1u: 0.8010
+AU1p: 0.8341
+ROC-AUC_per_class_vs_rest: Electronic: 0.9021 Experimental: 0.7939 Folk: 0.7666 Hip-Hop: 0.9219 Instrumental: 0.7885 International: 0.8497 Pop: 0.7244 Rock: 0.9206 Easy Listening: 0.3492 Blues: 0.7266 Soul-RnB: 0.5535 Spoken: 0.9859 Country: 0.8304 Jazz: 0.9015 Old-Time / Historic: 1.0000 Classical: 0.9800 
