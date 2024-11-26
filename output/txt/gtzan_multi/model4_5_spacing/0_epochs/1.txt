@@ -1,0 +1,23 @@
+EPOCHS: 0
+TEST results:
+macro_accuracy: 0.8200
+micro_accuracy: 0.8200
+accuracy_per_class: Blues: 0.9000 Classical: 0.1000 Country: 0.9000 Disco: 0.9000 Hip-Hop: 0.9000 Jazz: 0.9000 Metal: 0.9000 Pop: 0.9000 Reggae: 0.9000 Rock: 0.9000 
+macro_f1: 0.0182
+micro_f1: 0.1000
+f1_per_class: Blues: 0.0000 Classical: 0.1818 Country: 0.0000 Disco: 0.0000 Hip-Hop: 0.0000 Jazz: 0.0000 Metal: 0.0000 Pop: 0.0000 Reggae: 0.0000 Rock: 0.0000 
+macro_precision: 0.0100
+micro_precision: 0.1000
+precision_per_class: Blues: 0.0000 Classical: 0.1000 Country: 0.0000 Disco: 0.0000 Hip-Hop: 0.0000 Jazz: 0.0000 Metal: 0.0000 Pop: 0.0000 Reggae: 0.0000 Rock: 0.0000 
+macro_recall: 0.1000
+micro_recall: 0.1000
+recall_per_class: Blues: 0.0000 Classical: 1.0000 Country: 0.0000 Disco: 0.0000 Hip-Hop: 0.0000 Jazz: 0.0000 Metal: 0.0000 Pop: 0.0000 Reggae: 0.0000 Rock: 0.0000 
+Cohen's Kappa: 0.0000
+MCC: 0.0000
+MSE: 0.0900
+LogLoss: 2.3028
+AUNu: 0.4717
+AUNp: 0.4717
+AU1u: 0.4717
+AU1p: 0.4717
+ROC-AUC_per_class_vs_rest: Blues: 0.5222 Classical: 0.2800 Country: 0.5700 Disco: 0.6689 Hip-Hop: 0.7044 Jazz: 0.5356 Metal: 0.1778 Pop: 0.3056 Reggae: 0.5389 Rock: 0.4133 
