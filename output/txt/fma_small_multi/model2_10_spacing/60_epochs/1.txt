@@ -1,0 +1,23 @@
+EPOCHS: 60
+TEST results:
+macro_accuracy: 0.8519
+micro_accuracy: 0.8519
+accuracy_per_class: Electronic: 0.8587 Experimental: 0.8263 Folk: 0.7912 Hip-Hop: 0.9075 Instrumental: 0.8225 International: 0.8750 Pop: 0.8313 Rock: 0.9025 
+macro_f1: 0.4108
+micro_f1: 0.4075
+f1_per_class: Electronic: 0.4840 Experimental: 0.3085 Folk: 0.2160 Hip-Hop: 0.6337 Instrumental: 0.2970 International: 0.4898 Pop: 0.3216 Rock: 0.5357 
+macro_precision: 0.4203
+micro_precision: 0.4075
+precision_per_class: Electronic: 0.4454 Experimental: 0.3069 Folk: 0.2035 Hip-Hop: 0.6275 Instrumental: 0.2941 International: 0.5000 Pop: 0.3232 Rock: 0.6618 
+macro_recall: 0.4075
+micro_recall: 0.4075
+recall_per_class: Electronic: 0.5300 Experimental: 0.3100 Folk: 0.2300 Hip-Hop: 0.6400 Instrumental: 0.3000 International: 0.4800 Pop: 0.3200 Rock: 0.4500 
+Cohen's Kappa: 0.3229
+MCC: 0.3233
+MSE: 0.1245
+LogLoss: 3.9578
+AUNu: 0.7765
+AUNp: 0.7765
+AU1u: 0.7765
+AU1p: 0.7765
+ROC-AUC_per_class_vs_rest: Electronic: 0.8322 Experimental: 0.6896 Folk: 0.7019 Hip-Hop: 0.9410 Instrumental: 0.6838 International: 0.8076 Pop: 0.7317 Rock: 0.8241 
