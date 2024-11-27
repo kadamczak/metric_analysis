@@ -1,0 +1,11 @@
+EPOCHS: 30
+TEST results:
+accuracy: 1.0000
+f1: 1.0000
+precision: 1.0000
+recall: 1.0000
+cohen's kappa: 1.0000
+MCC: 1.0000
+MSE: 0.0000
+LogLoss: 0.0000
+binary_ROC-AUC: 1.0000
