@@ -1,4 +1,8 @@
 {
+  "model name": "model1_5_spacing",
+  "dataset name": "GTZAN",
+  "classification type": "binary",
+  "test set": "test",
   "epochs": 50,
   "metrics": {
     "accuracy": 1.0,

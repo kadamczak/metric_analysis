@@ -1,4 +1,8 @@
 {
+  "model name": "model4_5_spacing",
+  "dataset name": "GTZAN",
+  "classification type": "multi",
+  "test set": "test",
   "epochs": 55,
   "metrics": {
     "macro_accuracy": 0.896,

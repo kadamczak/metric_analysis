@@ -1,4 +1,8 @@
 {
+  "model name": "model1_5_spacing",
+  "dataset name": "fma_small",
+  "classification type": "binary",
+  "test set": "test",
   "epochs": 10,
   "metrics": {
     "accuracy": 0.595,

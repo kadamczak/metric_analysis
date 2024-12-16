@@ -1,5 +1,9 @@
 {
-  "epochs": 0,
+  "model name": "model2_5_spacing",
+  "dataset name": "fma_medium",
+  "classification type": "multi",
+  "test set": "test",
+  "epochs": 5,
   "metrics": {
     "macro_accuracy": 0.9378,
     "micro_accuracy": 0.9378,

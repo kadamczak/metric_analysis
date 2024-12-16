@@ -1,4 +1,8 @@
 {
+  "model name": "model3_58_epochs",
+  "dataset name": "GTZAN",
+  "classification type": "multi",
+  "test set": "test",
   "epochs": 58,
   "metrics": {
     "macro_accuracy": 0.934,
