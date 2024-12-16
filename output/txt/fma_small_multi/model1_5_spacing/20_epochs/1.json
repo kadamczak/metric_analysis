@@ -1,0 +1,71 @@
+{
+  "epochs": 20,
+  "metrics": {
+    "macro_accuracy": 0.8331,
+    "micro_accuracy": 0.8331,
+    "accuracy_per_class": {
+      "Electronic": 0.89,
+      "Experimental": 0.8288,
+      "Folk": 0.8275,
+      "Hip-Hop": 0.7987,
+      "Instrumental": 0.8612,
+      "International": 0.865,
+      "Pop": 0.7088,
+      "Rock": 0.885
+    },
+    "macro_f1": 0.3012,
+    "micro_f1": 0.3325,
+    "f1_per_class": {
+      "Electronic": 0.3016,
+      "Experimental": 0.2431,
+      "Folk": 0.1977,
+      "Hip-Hop": 0.5251,
+      "Instrumental": 0.0672,
+      "International": 0.4316,
+      "Pop": 0.3003,
+      "Rock": 0.3429
+    },
+    "macro_precision": 0.3864,
+    "micro_precision": 0.3325,
+    "precision_per_class": {
+      "Electronic": 0.7308,
+      "Experimental": 0.2716,
+      "Folk": 0.2361,
+      "Hip-Hop": 0.3724,
+      "Instrumental": 0.2105,
+      "International": 0.4556,
+      "Pop": 0.2146,
+      "Rock": 0.6
+    },
+    "macro_recall": 0.3325,
+    "micro_recall": 0.3325,
+    "recall_per_class": {
+      "Electronic": 0.19,
+      "Experimental": 0.22,
+      "Folk": 0.17,
+      "Hip-Hop": 0.89,
+      "Instrumental": 0.04,
+      "International": 0.41,
+      "Pop": 0.5,
+      "Rock": 0.24
+    },
+    "Cohen's Kappa": 0.2371,
+    "MCC": 0.2494,
+    "MSE": 0.1227,
+    "LogLoss": 2.7784,
+    "AUNu": 0.7731,
+    "AUNp": 0.7731,
+    "AU1u": 0.7731,
+    "AU1p": 0.7731,
+    "ROC-AUC_per_class_vs_rest": {
+      "Electronic": 0.8333,
+      "Experimental": 0.7237,
+      "Folk": 0.7169,
+      "Hip-Hop": 0.9407,
+      "Instrumental": 0.7044,
+      "International": 0.7965,
+      "Pop": 0.6467,
+      "Rock": 0.8224
+    }
+  }
+}

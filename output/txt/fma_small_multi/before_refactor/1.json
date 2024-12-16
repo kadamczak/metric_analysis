@@ -1,0 +1,69 @@
+{
+  "epochs": 25,
+  "metrics": {
+    "macro_accuracy": 0.4025,
+    "micro_accuracy": 0.4025,
+    "accuracy_per_class": {
+      "Electronic": 0.55,
+      "Experimental": 0.31,
+      "Folk": 0.11,
+      "Hip-Hop": 0.5,
+      "Instrumental": 0.35,
+      "International": 0.57,
+      "Pop": 0.26,
+      "Rock": 0.57
+    },
+    "macro_f1": 0.399,
+    "micro_f1": 0.4025,
+    "f1_per_class": {
+      "Electronic": 0.4545,
+      "Experimental": 0.3131,
+      "Folk": 0.1438,
+      "Hip-Hop": 0.641,
+      "Instrumental": 0.3125,
+      "International": 0.4672,
+      "Pop": 0.2781,
+      "Rock": 0.5816
+    },
+    "macro_precision": 0.4218,
+    "micro_precision": 0.4025,
+    "precision_per_class": {
+      "Electronic": 0.3873,
+      "Experimental": 0.3163,
+      "Folk": 0.2075,
+      "Hip-Hop": 0.8929,
+      "Instrumental": 0.2823,
+      "International": 0.3958,
+      "Pop": 0.2989,
+      "Rock": 0.5938
+    },
+    "macro_recall": 0.4025,
+    "micro_recall": 0.4025,
+    "recall_per_class": {
+      "Electronic": 0.55,
+      "Experimental": 0.31,
+      "Folk": 0.11,
+      "Hip-Hop": 0.5,
+      "Instrumental": 0.35,
+      "International": 0.57,
+      "Pop": 0.26,
+      "Rock": 0.57
+    },
+    "MSE": 0.1071,
+    "LogLoss": 2.2151,
+    "AUNu": 0.7872,
+    "AUNp": 0.7872,
+    "AU1u": 0.7872,
+    "AU1p": 0.7872,
+    "ROC-AUC_per_class_vs_rest": {
+      "Electronic": 0.8305,
+      "Experimental": 0.7046,
+      "Folk": 0.7016,
+      "Hip-Hop": 0.9465,
+      "Instrumental": 0.7364,
+      "International": 0.8296,
+      "Pop": 0.7159,
+      "Rock": 0.8325
+    }
+  }
+}

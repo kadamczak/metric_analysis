@@ -1,0 +1,81 @@
+{
+  "epochs": 35,
+  "metrics": {
+    "macro_accuracy": 0.926,
+    "micro_accuracy": 0.926,
+    "accuracy_per_class": {
+      "Blues": 0.92,
+      "Classical": 0.97,
+      "Country": 0.9,
+      "Disco": 0.94,
+      "Hip-Hop": 0.89,
+      "Jazz": 0.92,
+      "Metal": 0.97,
+      "Pop": 0.96,
+      "Reggae": 0.87,
+      "Rock": 0.92
+    },
+    "macro_f1": 0.6176,
+    "micro_f1": 0.63,
+    "f1_per_class": {
+      "Blues": 0.5556,
+      "Classical": 0.8571,
+      "Country": 0.4444,
+      "Disco": 0.5714,
+      "Hip-Hop": 0.5217,
+      "Jazz": 0.6923,
+      "Metal": 0.8421,
+      "Pop": 0.7778,
+      "Reggae": 0.5806,
+      "Rock": 0.3333
+    },
+    "macro_precision": 0.716,
+    "micro_precision": 0.63,
+    "precision_per_class": {
+      "Blues": 0.625,
+      "Classical": 0.8182,
+      "Country": 0.5,
+      "Disco": 1.0,
+      "Hip-Hop": 0.4615,
+      "Jazz": 0.5625,
+      "Metal": 0.8889,
+      "Pop": 0.875,
+      "Reggae": 0.4286,
+      "Rock": 1.0
+    },
+    "macro_recall": 0.63,
+    "micro_recall": 0.63,
+    "recall_per_class": {
+      "Blues": 0.5,
+      "Classical": 0.9,
+      "Country": 0.4,
+      "Disco": 0.4,
+      "Hip-Hop": 0.6,
+      "Jazz": 0.9,
+      "Metal": 0.8,
+      "Pop": 0.7,
+      "Reggae": 0.9,
+      "Rock": 0.2
+    },
+    "Cohen's Kappa": 0.5889,
+    "MCC": 0.5983,
+    "MSE": 0.0635,
+    "LogLoss": 2.3204,
+    "AUNu": 0.9206,
+    "AUNp": 0.9206,
+    "AU1u": 0.9206,
+    "AU1p": 0.9206,
+    "ROC-AUC_per_class_vs_rest": {
+      "Blues": 0.8989,
+      "Classical": 0.9978,
+      "Country": 0.88,
+      "Disco": 0.8989,
+      "Hip-Hop": 0.8644,
+      "Jazz": 0.9544,
+      "Metal": 0.9878,
+      "Pop": 0.9633,
+      "Reggae": 0.9244,
+      "Rock": 0.8356
+    }
+  }
+}

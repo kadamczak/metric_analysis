@@ -1,0 +1,14 @@
+{
+  "epochs": 10,
+  "metrics": {
+    "accuracy": 1.0,
+    "f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "cohen's kappa": 1.0,
+    "MCC": 1.0,
+    "MSE": 0.0,
+    "LogLoss": 0.0004,
+    "binary_ROC-AUC": 1.0
+  }
+}
