@@ -1,34 +1,14 @@
-from torcheval.metrics import MulticlassPrecision
-from torcheval.metrics import MulticlassRecall
-from torcheval.metrics import MulticlassF1Score
-from torcheval.metrics import MulticlassConfusionMatrix
+from torcheval.metrics import MulticlassPrecision, MulticlassRecall, MulticlassF1Score, MulticlassConfusionMatrix
+from torcheval.metrics import BinaryAccuracy, BinaryPrecision, BinaryRecall, BinaryConfusionMatrix, BinaryF1Score
 
-from torcheval.metrics import BinaryAccuracy
-from torcheval.metrics import BinaryPrecision
-from torcheval.metrics import BinaryRecall
-from torcheval.metrics import BinaryConfusionMatrix
-from torcheval.metrics import BinaryF1Score
-
-from custom_qualitative_metrics import BinaryCohenKappa
-from custom_qualitative_metrics import MCC
-from custom_qualitative_metrics import MacroAccuracy
-from custom_qualitative_metrics import MicroAccuracy
-from custom_qualitative_metrics import AccuracyPerClass
-from custom_qualitative_metrics import MulticlassCohenKappa
-
-from custom_rank_metrics import ROCAUC
-from custom_rank_metrics import drawn_binary_ROC_curve
-from custom_rank_metrics import drawn_AUNu_curve
-from custom_rank_metrics import drawn_multi_ROC_curve
+from custom_qualitative_metrics import BinaryCohenKappa, MCC, MacroAccuracy, MicroAccuracy, AccuracyPerClass, MulticlassCohenKappa
+from custom_rank_metrics import ROCAUC, drawn_binary_ROC_curve, drawn_AUNu_curve, drawn_multi_ROC_curve
 from custom_rank_metrics import drawn_binary_ROC, drawn_multi_ROC, drawn_AUNu
-
-from custom_probabilistic_metrics import MSE
-from custom_probabilistic_metrics import LogLoss
+from custom_probabilistic_metrics import MSE, LogLoss
 
 
 # Macro - equal weight to every class
 # Micro - more samples -> bigger influence
-
 
 # Basic metric set calculated and displayed:
 # - EVERY TRAINING loop
@@ -36,22 +16,14 @@ from custom_probabilistic_metrics import LogLoss
 # Its metrics are included in the full metric set.
 def create_basic_multiclass_metrics(num_classes, device):
     return {
+        # Qualitative metrics
         "macro_accuracy": MacroAccuracy(device=device, num_classes=num_classes),
-        "macro_recall": MulticlassRecall(
-            device=device, average="macro", num_classes=num_classes
-        ),
-        "macro_precision": MulticlassPrecision(
-            device=device, average="macro", num_classes=num_classes
-        ),
-        "macro_f1": MulticlassF1Score(
-            device=device, average="macro", num_classes=num_classes
-        ),
-        "precision_per_class": MulticlassPrecision(
-            device=device, average=None, num_classes=num_classes
-        ),
-        "recall_per_class": MulticlassRecall(
-            device=device, average=None, num_classes=num_classes
-        ),
+        "macro_recall": MulticlassRecall(device=device, average="macro", num_classes=num_classes),
+        "macro_precision": MulticlassPrecision(device=device, average="macro", num_classes=num_classes),
+        "macro_f1": MulticlassF1Score(device=device, average="macro", num_classes=num_classes),
+        
+        "precision_per_class": MulticlassPrecision(device=device, average=None, num_classes=num_classes),
+        "recall_per_class": MulticlassRecall(device=device, average=None, num_classes=num_classes),
     }
 
 
@@ -62,49 +34,44 @@ def create_basic_multiclass_metrics(num_classes, device):
 # only when the results are most useful.
 def create_full_multiclass_metrics(num_classes, device):
     return {
+        # Qualitative metrics
         "macro_accuracy": MacroAccuracy(device=device, num_classes=num_classes),
         "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes),
         "accuracy_per_class": AccuracyPerClass(device=device, num_classes=num_classes),
-        "macro_f1": MulticlassF1Score(
-            device=device, average="macro", num_classes=num_classes
-        ),
+        
+        "macro_f1": MulticlassF1Score(device=device, average="macro", num_classes=num_classes),
         "micro_f1": MulticlassF1Score(device=device, average="micro"),
-        "f1_per_class": MulticlassF1Score(
-            device=device, average=None, num_classes=num_classes
-        ),
-        "macro_precision": MulticlassPrecision(
-            device=device, average="macro", num_classes=num_classes
-        ),
+        "f1_per_class": MulticlassF1Score(device=device, average=None, num_classes=num_classes),
+        
+        "macro_precision": MulticlassPrecision(device=device, average="macro", num_classes=num_classes),
         "micro_precision": MulticlassPrecision(device=device, average="micro"),
-        "precision_per_class": MulticlassPrecision(
-            device=device, average=None, num_classes=num_classes
-        ),
-        "macro_recall": MulticlassRecall(
-            device=device, average="macro", num_classes=num_classes
-        ),
+        "precision_per_class": MulticlassPrecision(device=device, average=None, num_classes=num_classes),
+        
+        "macro_recall": MulticlassRecall(device=device, average="macro", num_classes=num_classes),
         "micro_recall": MulticlassRecall(device=device, average="micro"),
-        "recall_per_class": MulticlassRecall(
-            device=device, average=None, num_classes=num_classes
-        ),
+        "recall_per_class": MulticlassRecall(device=device, average=None, num_classes=num_classes),
+        
         "Cohen's Kappa": MulticlassCohenKappa(device=device, num_classes=num_classes),
         "MCC": MCC(device=device, is_binary=False),
+        
+        
         # Probabilistic metrics
         "MSE": MSE(device=device, num_classes=num_classes),
         "LogLoss": LogLoss(device=device, num_classes=num_classes),
+        
+        
         # Rank metrics
         "AUNu": ROCAUC(device=device, multiclass="ovr", average="macro"),
         "AUNp": ROCAUC(device=device, multiclass="ovr", average="weighted"),
         "AU1u": ROCAUC(device=device, multiclass="ovo", average="macro"),
         "AU1p": ROCAUC(device=device, multiclass="ovo", average="weighted"),
-        "ROC-AUC_per_class_vs_rest": ROCAUC(
-            device=device, multiclass="ovr", average=None
-        ),
+        "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, multiclass="ovr", average=None),
         drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes),
         drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes),
+        
+        
         # Confusion matrix
-        "confusion_matrix": MulticlassConfusionMatrix(
-            device=device, num_classes=num_classes
-        ),
+        "confusion_matrix": MulticlassConfusionMatrix(device=device, num_classes=num_classes),
     }
 
 
@@ -114,7 +81,7 @@ def create_full_multiclass_metrics(num_classes, device):
 # Scikit was chosen because it has more averaging options and can be used to draw curves
 
 
-# thresholds are 0 because the outputs are logits
+# thresholds are 0 because the model outputs are logits
 def create_basic_binary_metrics(device):
     return {
         "accuracy": BinaryAccuracy(device=device, threshold=0),
@@ -129,17 +96,20 @@ def create_full_binary_metrics(device):
         "precision": BinaryPrecision(device=device, threshold=0),
         "recall": BinaryRecall(device=device, threshold=0),
         "cohen's kappa": BinaryCohenKappa(device=device, is_binary=True),
-        "MCC": MCC(device=device, is_binary=True),
+        "MCC": MCC(device=device, is_binary=True),    
+        
         # Probabilistic metrics
         "MSE": MSE(device=device, num_classes=2),
-        "LogLoss": LogLoss(device=device, num_classes=2),
+        "LogLoss": LogLoss(device=device, num_classes=2),    
+        
         # Rank metrics
         "binary_ROC-AUC": ROCAUC(device=device, multiclass="raise", average="macro"),
         drawn_binary_ROC: drawn_binary_ROC_curve(device=device),
+              
         # Confusion matrix
         "confusion_matrix": BinaryConfusionMatrix(device=device, threshold=0),
     }
-    # PyEval:
+    # TorchEval:
     # "ROC-AUC": BinaryAUROC(device=device)
 
 
