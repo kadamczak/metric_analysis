@@ -3,6 +3,8 @@ from torcheval.metrics.metric import Metric
 from sklearn.metrics import cohen_kappa_score
 from sklearn.metrics import matthews_corrcoef
 from torcheval.metrics import MulticlassConfusionMatrix
+import sys
+import os
 
 from helpers import get_predicted_classes
 
@@ -184,6 +186,10 @@ class MacroAccuracy(MatrixMetric):
     @torch.inference_mode()
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
+        
+        if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
+            return None
+        
         accuracies_for_each_class = [
             (TP + TN) / (TP + FP + FN + TN)
             for TP, TN, FP, FN in zip(TPs, TNs, FPs, FNs)
@@ -198,6 +204,10 @@ class MicroAccuracy(MatrixMetric):
     @torch.inference_mode()
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
+        
+        if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
+            return None
+        
         total_TP = sum(TPs)
         total_FP = sum(FPs)
         total_FN = sum(FNs)
@@ -212,11 +222,57 @@ class AccuracyPerClass(MatrixMetric):
     @torch.inference_mode()
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
+        
+        if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
+            return None
+        
         accuracies_for_each_class = [
             (TP + TN) / (TP + FP + FN + TN)
             for TP, TN, FP, FN in zip(TPs, TNs, FPs, FNs)
         ]
         return torch.tensor(accuracies_for_each_class).to(self.device)
+
+
+################################
+## NPV
+################################
+#    TP
+# --------
+# TP + FP
+
+class NPV(MatrixMetric):
+    def __init__(self, device=None) -> None:
+        super().__init__(num_classes=2, device=device)
+        
+    @torch.inference_mode()
+    def compute(self):  
+        TP_neg, FP_neg, FN_neg, TN_neg = self.calculate_TPs_FPs_FNs_TNs_for_class(self.calculate_matrix(), 0)
+        
+        if (TP_neg + FP_neg == 0):
+            return None
+        
+        return TP_neg / (TP_neg + FP_neg)
+    
+    
+################################
+## Specificity
+################################
+#    TP
+# --------
+# TP + FN
+
+class Specificity(MatrixMetric):
+    def __init__(self, device=None) -> None:
+        super().__init__(num_classes=2, device=device)
+        
+    @torch.inference_mode()
+    def compute(self):  
+        TP_neg, FP_neg, FN_neg, TN_neg = self.calculate_TPs_FPs_FNs_TNs_for_class(self.calculate_matrix(), 0)
+        
+        if (TP_neg + FN_neg == 0):
+            return None
+        
+        return TP_neg / (TP_neg + FN_neg)
 
 
 ################################
