@@ -66,12 +66,12 @@ class ROCAUC(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def compute(self):
-        return roc_auc_score(
+        return torch.tensor(roc_auc_score(
             y_true=self.true_classes.cpu().detach().numpy(),
             y_score=self.predicted_probabilities.cpu().detach().numpy(),
             multi_class=self.multiclass,
             average=self.average,
-        )
+        )).to(self.device)
 
     @torch.inference_mode()
     def merge_state(self, metrics):
