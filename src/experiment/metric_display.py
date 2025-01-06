@@ -104,11 +104,14 @@ def draw_metrics(metrics, class_names, output=sys.stdout):
 
 def print_metric_dictionary(metric_dict):
     for key, value in metric_dict.items():
+        if value is None:
+            print(f"{key}: None")
+            continue
         if isinstance(value, dict):
             print(f"{key}:")
             print("\t", end="")
             for sub_key, sub_value in value.items():
-                print(f"{sub_key}: {sub_value:.4f},", end=" ")
+                print(f"{sub_key}: {sub_value:.4f}," if sub_value is not None else f"{sub_key}: N/A,", end=" ")
             print("")
         else:
             print(f"{key}: {value:.4f}")

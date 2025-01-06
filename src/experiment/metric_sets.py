@@ -109,12 +109,12 @@ def create_full_binary_metrics(device):
         #"f1_per_class": MulticlassF1Score(device=device, average=None),
         
         "precision": BinaryPrecision(device=device, threshold=0),
-        #"NPV": NPV(device=device),
+        "NPV": NPV(device=device),
         #"macro_precision": MulticlassPrecision(device=device, average="macro", num_classes=2, threshold=0),
         #"micro_precision": MulticlassPrecision(device=device, average="micro", threshold=0),
         
         "recall": BinaryRecall(device=device, threshold=0),
-        #"specificity": Specificity(device=device),
+        "specificity": Specificity(device=device),
         #"macro_recall": MulticlassRecall(device=device, average="macro", num_classes=2, threshold=0),
         #"micro_recall": MulticlassRecall(device=device, average="micro", threshold=0),
         

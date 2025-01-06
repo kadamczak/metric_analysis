@@ -22,6 +22,10 @@ def create_metric_dictionary(metrics, class_names):
         if name in drawn_ROC_list or name == "confusion_matrix":
             continue
 
+        if metric is None:
+            metric_dict[name] = None
+            continue
+        
         value = metric.tolist()
         if isinstance(value, list):  # one number result for each class
             metric_dict[name] = {class_names[i]: value[i] for i in range(len(value))}

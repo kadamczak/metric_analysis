@@ -1,6 +1,6 @@
 import torch
 from torcheval.metrics.metric import Metric
-from torcheval.metrics import MulticlassConfusionMatrix
+from torcheval.metrics import MulticlassConfusionMatrix, BinaryConfusionMatrix
 
 # LOGITS
 # NUMERICAL LABELS
@@ -22,7 +22,7 @@ class MatrixMetric(Metric[torch.Tensor]):
     @torch.inference_mode()
     def calculate_matrix(self):
         numerical_labels_int = self.true_classes.to(torch.int64)
-        matrix_metric = MulticlassConfusionMatrix(self.num_classes)
+        matrix_metric = MulticlassConfusionMatrix(self.num_classes) if not self.is_binary else BinaryConfusionMatrix()
         matrix_metric.update(input=self.predicted_logits, target=numerical_labels_int)
         return matrix_metric.compute()
 
