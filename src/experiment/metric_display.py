@@ -111,7 +111,7 @@ def print_metric_dictionary(metric_dict):
             print(f"{key}:")
             print("\t", end="")
             for sub_key, sub_value in value.items():
-                print(f"{sub_key}: {sub_value:.4f}," if sub_value is not None else f"{sub_key}: N/A,", end=" ")
+                print(f"{sub_key}: {sub_value:.4f}," if sub_value is not None else f"{sub_key}: None,", end=" ")
             print("")
         else:
             print(f"{key}: {value:.4f}")
