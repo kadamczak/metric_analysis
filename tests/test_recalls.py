@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from torcheval.metrics import BinaryRecall, MulticlassRecall
 from qualitative_metrics.recalls import PerClassRecall, MacroRecall, MicroRecall
 
 from metric_test_base import MetricTestBase
@@ -23,7 +22,7 @@ from sample_data import (
 )
 
 # TorchEval MulticlassRecall handles cases where TP + FN = 0 as 0
-# custom MacroRecall handles cases where TP + FN = 0 as None
+# custom MacroRecall handles cases where TP + FN = 0 as np.nan
 
 class TestMacroRecall(MetricTestBase):
     def setUp(self):

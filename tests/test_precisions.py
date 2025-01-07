@@ -2,8 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from torcheval.metrics import BinaryPrecision, MulticlassPrecision
-from qualitative_metrics.precisions import NPV, MacroPrecisionForBinary
+from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
 from metric_test_base import MetricTestBase
 from sample_data import (
@@ -23,17 +22,17 @@ from sample_data import (
 )
 
 # TorchEval MulticlassPrecision handles cases where TP + FP = 0 as 0
-# custom MacroPrecision handles cases where TP + FP = 0 as None
+# custom MacroPrecision handles cases where TP + FP = 0 as np.nan
 
 class TestMacroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_precision"
-        self.multiclass_metric_calculator = MulticlassPrecision(average="macro", num_classes=3)
-        self.binary_metric_calculator = MacroPrecisionForBinary()
+        self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
+        self.binary_metric_calculator = MacroPrecision(num_classes=2)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
-        
+          
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
         
@@ -45,19 +44,89 @@ class TestMacroPrecision(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+        
+    def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
+
+    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_8)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_9)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_10)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_11)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_12)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_13)
     
+
+
+class TestMicroPrecision(MetricTestBase):
+    def setUp(self):
+        self.metric_name = "micro_precision"
+        self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
+        self.binary_metric_calculator = MicroPrecision(num_classes=2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
+          
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+        
+    def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
+
+    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_8)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_9)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_10)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_11)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_12)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
         
-    
 
 class TestPerClassPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "precision_per_class"
-        self.multiclass_metric_calculator = MulticlassPrecision(average=None, num_classes=3)
-        
+        self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
+        self.binary_metric_calculator = PerClassPrecision(num_classes=2)
+    
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
-        
+          
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
         
@@ -69,5 +138,28 @@ class TestPerClassPrecision(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+        
+    def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
 
+    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_8)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_9)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_10)
+
+    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_11)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_12)
+        
+    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_13)
 
