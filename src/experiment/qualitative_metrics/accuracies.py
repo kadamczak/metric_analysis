@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 from qualitative_metrics.matrix_metric import MatrixMetric
 
 class MacroAccuracy(MatrixMetric):
@@ -10,7 +11,7 @@ class MacroAccuracy(MatrixMetric):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
         
         if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
-            return None
+            return np.nan
         
         accuracies_for_each_class = [
             (TP + TN) / (TP + FP + FN + TN)
@@ -29,7 +30,7 @@ class MicroAccuracy(MatrixMetric):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
         
         if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
-            return None
+            return np.nan
         
         total_TP = sum(TPs)
         total_FP = sum(FPs)
@@ -48,7 +49,7 @@ class AccuracyPerClass(MatrixMetric):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
         
         if (sum(TPs) + sum(FPs) + sum(FNs) + sum(TNs) == 0):
-            return None
+            return np.nan
         
         accuracies_for_each_class = [
             (TP + TN) / (TP + FP + FN + TN)

@@ -22,13 +22,13 @@ class MatrixMetric(Metric[torch.Tensor]):
     @torch.inference_mode()
     def calculate_matrix(self):
         numerical_labels_int = self.true_classes.to(torch.int64)
-        matrix_metric = MulticlassConfusionMatrix(self.num_classes) if not self.is_binary else BinaryConfusionMatrix()
+        matrix_metric = MulticlassConfusionMatrix(self.num_classes) if not self.is_binary else BinaryConfusionMatrix(threshold=0)
         matrix_metric.update(input=self.predicted_logits, target=numerical_labels_int)
         return matrix_metric.compute()
 
     @torch.inference_mode()
     def calculate_TPs_FPs_FNs_TNs_for_class(self, matrix, class_index):
-        TP = matrix[class_index, class_index]  # one cell
+        TP = matrix[class_index, class_index]   # one cell
         FP = matrix[:, class_index].sum() - TP  # same column without the TP
         FN = matrix[class_index, :].sum() - TP  # same row without the TP
         TN = matrix.sum() - TP - FP - FN  # rest

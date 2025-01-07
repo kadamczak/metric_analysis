@@ -1,7 +1,8 @@
 import torch
+import numpy as np
 
 class SampleData:
-    def __init__(self, logits, true_numerical_labels, accuracies, precisions):
+    def __init__(self, logits, true_numerical_labels, accuracies, precisions, recalls):
         self.logits = logits
         self.true_numerical_labels = true_numerical_labels
         
@@ -12,6 +13,10 @@ class SampleData:
         self.macro_precision = precisions['macro']
         self.precision_per_class = precisions['per_class']
         self.micro_precision = precisions['micro']
+        
+        self.macro_recall = recalls['macro']
+        self.recall_per_class = recalls['per_class']
+        self.micro_recall = recalls['micro']
         
   
 ########################################################
@@ -37,7 +42,10 @@ multiclass_unbalanced_1 = SampleData(logits=logits1,
                                                  'macro': 0.6},
                                      precisions={'micro': 0.4,
                                                  'per_class': [0.3333, 1.0, 0.3333],
-                                                 'macro': 0.5556})
+                                                 'macro': 0.5556},
+                                     recalls={'micro': 0.4,
+                                              'per_class': [0.5, 0.3333, 0.3333],
+                                              'macro': 0.3889})
 
 
 ########################################################
@@ -65,7 +73,10 @@ multiclass_balanced_2 = SampleData(logits=logits2,
                                                'macro': 0.6111},
                                    precisions={'micro': 0.4167,
                                                'per_class': [0.3333, 0.6667, 0.3333],
-                                               'macro': 0.4444})
+                                               'macro': 0.4444},
+                                   recalls={'micro': 0.4167,
+                                            'per_class': [0.5, 0.5, 0.25],
+                                            'macro': 0.4167})
 
 
 ########################################################
@@ -93,7 +104,10 @@ multiclass_balanced_3 = SampleData(logits=logits3,
                                                'macro': 0.7222},
                                    precisions={'micro': 0.5833,
                                                'per_class': [0.6667, 0.0, 0.6],
-                                               'macro': 0.4222}) # 0.0s are counted
+                                               'macro': 0.4222},
+                                   recalls={'micro': 0.5833,
+                                            'per_class': [0.6667, np.nan, 0.5],
+                                            'macro': 0.5833})
 
 
 ########################################################
@@ -120,8 +134,11 @@ multiclass_balanced_4 = SampleData(logits=logits4,
                                                'per_class': [0.3333, 0.6667, 0.6667],
                                                'macro': 0.5556},
                                    precisions={'micro': 0.3333,
-                                               'per_class': [0.25, None, 0.5],
-                                               'macro': 0.375})
+                                               'per_class': [0.25, np.nan, 0.5],
+                                               'macro': 0.375},
+                                   recalls={'micro': 0.3333,
+                                            'per_class': [0.5, 0.0, 0.5],
+                                            'macro': 0.3333})
 
 
 ########################################################
@@ -148,8 +165,11 @@ multiclass_balanced_5 = SampleData(logits=logits5,
                                                'per_class': [0.5, 1.0, 0.5],
                                                'macro': 0.6667},
                                    precisions={'micro': 0.5,
-                                               'per_class': [0.5, None, 0.5],
-                                               'macro': 0.5})
+                                               'per_class': [0.5, np.nan, 0.5],
+                                               'macro': 0.5},
+                                   recalls={'micro': 0.5,
+                                            'per_class': [0.6667, np.nan, 0.3333],
+                                            'macro': 0.5})
 
 
 ########################################################
@@ -172,7 +192,10 @@ binary_unbalanced_6 = SampleData(logits=logits6,
                                              'macro': 0.7143},
                                  precisions={'micro': 0.7143,
                                              'per_class': [1.0, 0.6667],
-                                             'macro': 0.8333})
+                                             'macro': 0.8333},
+                                 recalls={'micro': 0.7143,
+                                          'per_class': [1.0, 0.3333],
+                                          'macro': 0.6667})
 
 
 ########################################################
@@ -196,7 +219,10 @@ binary_balanced_7 = SampleData(logits=logits7,
                                            'macro': 0.75},
                                precisions={'micro': 0.75,
                                            'per_class': [1.0, 0.6667],
-                                           'macro': 0.8333})
+                                           'macro': 0.8333},
+                               recalls={'micro': 0.75,
+                                        'per_class': [1.0, 0.5],
+                                        'macro': 0.75})
 
 
 ########################################################
@@ -220,7 +246,10 @@ binary_8 = SampleData(logits=logits8,
                                   'macro': 0.75},
                       precisions={'micro': 0.75,
                                   'per_class': [0.0, 1.0],
-                                  'macro': 0.5})
+                                  'macro': 0.5},
+                      recalls={'micro': 0.75,
+                               'per_class': [0.75, np.nan],
+                               'macro': 0.75})
 
 
 
@@ -245,7 +274,10 @@ binary_9 = SampleData(logits=logits9,
                                   'macro': 0.75},
                       precisions={'micro': 0.75,
                                   'per_class': [1.0, 0.0],
-                                  'macro': 0.5})
+                                  'macro': 0.5},
+                      recalls={'micro': 0.75,
+                               'per_class': [np.nan, 0.75],
+                               'macro': 0.75})
 
 
 ########################################################
@@ -268,8 +300,11 @@ binary_10 = SampleData(logits=logits10,
                                    'per_class': [0.75, 0.75],
                                    'macro': 0.75},
                        precisions={'micro': 0.75,
-                                   'per_class': [None, 0.75],
-                                   'macro': 0.75})
+                                   'per_class': [np.nan, 0.75],
+                                   'macro': 0.75},
+                       recalls={'micro': 0.75,
+                                'per_class': [1.0, 0.0],
+                                'macro': 0.5})
 
 
 ########################################################
@@ -292,8 +327,11 @@ binary_11 = SampleData(logits=logits11,
                                    'per_class': [0.25, 0.25],
                                    'macro': 0.25},
                        precisions={'micro': 0.25,
-                                   'per_class': [0.25, None],
-                                   'macro': 0.25})
+                                   'per_class': [0.25, np.nan],
+                                   'macro': 0.25},
+                       recalls={'micro': 0.25,
+                                'per_class': [0.0, 1.0],
+                                'macro': 0.5})
 
 
 ########################################################
@@ -316,8 +354,11 @@ binary_12 = SampleData(logits=logits12,
                                    'per_class': [1.0, 1.0],
                                    'macro': 1.0},
                        precisions={'micro': 1.0,
-                                   'per_class': [None, 1.0],
-                                   'macro': 1.0})
+                                   'per_class': [np.nan, 1.0],
+                                   'macro': 1.0},
+                       recalls={'micro': 1.0,
+                                'per_class': [1.0, np.nan],
+                                'macro': 1.0})
 
 
 ########################################################
@@ -340,5 +381,8 @@ binary_13 = SampleData(logits=logits13,
                                    'per_class': [1.0, 1.0],
                                    'macro': 1.0},
                        precisions={'micro': 1.0,
-                                   'per_class': [1.0, None],
-                                   'macro': 1.0})
+                                   'per_class': [1.0, np.nan],
+                                   'macro': 1.0},
+                       recalls={'micro': 1.0,
+                               'per_class': [np.nan, 1.0],
+                               'macro': 1.0})

@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 from custom_rank_metrics import drawn_ROC_list
 
 
@@ -22,8 +23,8 @@ def create_metric_dictionary(metrics, class_names):
         if name in drawn_ROC_list or name == "confusion_matrix":
             continue
 
-        if metric is None:
-            metric_dict[name] = None
+        if metric is np.nan:
+            metric_dict[name] = np.nan
             continue
         
         value = metric.tolist()

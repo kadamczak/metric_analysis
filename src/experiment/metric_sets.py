@@ -8,7 +8,7 @@ from torcheval.metrics import BinaryAccuracy, BinaryPrecision, BinaryRecall, Bin
 
 from qualitative_metrics.accuracies import MacroAccuracy, MicroAccuracy, AccuracyPerClass
 from qualitative_metrics.recalls import Specificity, MacroRecallForBinary
-from qualitative_metrics.precisions import NPV
+from qualitative_metrics.precisions import NPV, MacroPrecisionForBinary
 from qualitative_metrics.kappas import BinaryCohenKappa, MulticlassCohenKappa
 from qualitative_metrics.mccs import MCC
 
@@ -110,7 +110,7 @@ def create_full_binary_metrics(device):
         
         "precision": BinaryPrecision(device=device, threshold=0),
         "NPV": NPV(device=device),
-        #"macro_precision": MulticlassPrecision(device=device, average="macro", num_classes=2, threshold=0),
+        "macro_precision": MacroPrecisionForBinary(device=device),
         #"micro_precision": MulticlassPrecision(device=device, average="micro", threshold=0),
         
         "recall": BinaryRecall(device=device, threshold=0),
@@ -144,3 +144,6 @@ def create_full_binary_metrics(device):
 
 
 # BCEWithLogitsLoss - turns out that it needs: outputs.squeeze(), labels.float()
+
+# standard MulticlassPrecision handles cases where TP + FP = 0 as 0
+# custom MacroPrecision etc. handles cases where TP + FP = 0 as None

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 import sys
 
 from custom_rank_metrics import (
@@ -104,14 +105,14 @@ def draw_metrics(metrics, class_names, output=sys.stdout):
 
 def print_metric_dictionary(metric_dict):
     for key, value in metric_dict.items():
-        if value is None:
-            print(f"{key}: None")
+        if value is np.nan:
+            print(f"{key}: NaN")
             continue
         if isinstance(value, dict):
             print(f"{key}:")
             print("\t", end="")
             for sub_key, sub_value in value.items():
-                print(f"{sub_key}: {sub_value:.4f}," if sub_value is not None else f"{sub_key}: None,", end=" ")
+                print(f"{sub_key}: {sub_value:.4f}," if sub_value is not np.nan else f"{sub_key}: NaN,", end=" ")
             print("")
         else:
             print(f"{key}: {value:.4f}")
