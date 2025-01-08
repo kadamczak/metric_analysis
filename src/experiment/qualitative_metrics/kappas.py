@@ -7,6 +7,12 @@ from helpers import get_predicted_classes
 
 # predicted: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
+
+# Both binary and multiclass kappa are np.nan when every entry in confusion matrix is in one diagonal cell
+# Examples:
+# 0  0  0          6  0    
+# 0  6  0          0  0
+# 0  0  0
 class BinaryCohenKappa(Metric[torch.Tensor]):
     def __init__(self, is_binary, device=None) -> None:
         super().__init__(device=device)
