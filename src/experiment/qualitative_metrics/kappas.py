@@ -9,6 +9,7 @@ from helpers import get_predicted_classes
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 
 # Both binary and multiclass kappa are np.nan when every entry in confusion matrix is in one diagonal cell
+# Default scikit implementation of kappa also behaves this way
 # Examples:
 # 0  0  0          6  0    
 # 0  6  0          0  0
