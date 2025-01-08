@@ -6,6 +6,12 @@ from helpers import get_predicted_classes
 
 # predicted: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
+
+# mcc is np.nan when all entries in confusion matrix are in one row or column
+# Examples:
+# 0  0  0       5  0  0
+# 3  2  4       3  0  0
+# 0  0  0       0  0  0
 class MCC(Metric[torch.Tensor]):
     def __init__(self, is_binary, device=None) -> None:
         super().__init__(device=device)

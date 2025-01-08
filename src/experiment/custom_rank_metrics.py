@@ -41,6 +41,8 @@ from helpers import get_binary_labels_for_class
 
 # predicted: PROBABILITIES (sigmoid for binary, softmax for multiclass)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
+
+# Is np.nan when all true samples are in one class
 class ROCAUC(Metric[torch.Tensor]):
     def __init__(self, multiclass, average, device=None) -> None:
         super().__init__(device=device)

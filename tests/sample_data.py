@@ -5,17 +5,21 @@ class SampleData:
     def get_macro_perclass_micro(self, metric):
         return metric['macro'], metric['per_class'], metric['micro']
     
-    def __init__(self, logits, true_numerical_labels, accuracies, precisions, recalls, f1s, kappa):
-        self.logits = logits
-        self.true_numerical_labels = true_numerical_labels
-        
-        self.macro_accuracy, self.accuracy_per_class, self.micro_accuracy = self.get_macro_perclass_micro(accuracies)
-        self.macro_precision, self.precision_per_class, self.micro_precision = self.get_macro_perclass_micro(precisions)
-        self.macro_recall, self.recall_per_class, self.micro_recall = self.get_macro_perclass_micro(recalls)
-        self.macro_f1, self.f1_per_class, self.micro_f1 = self.get_macro_perclass_micro(f1s)
-        
-        self.kappa = kappa
-        
+    def __init__(self, logits, true_numerical_labels, accuracies, precisions, recalls, f1s, kappa, mcc, mse, logloss, roc):
+          self.logits = logits
+          self.true_numerical_labels = true_numerical_labels
+          
+          self.macro_accuracy, self.accuracy_per_class, self.micro_accuracy = self.get_macro_perclass_micro(accuracies)
+          self.macro_precision, self.precision_per_class, self.micro_precision = self.get_macro_perclass_micro(precisions)
+          self.macro_recall, self.recall_per_class, self.micro_recall = self.get_macro_perclass_micro(recalls)
+          self.macro_f1, self.f1_per_class, self.micro_f1 = self.get_macro_perclass_micro(f1s)
+          
+          self.kappa = kappa
+          self.mcc = mcc
+          self.mse = mse
+          self.logloss = logloss
+          self.roc = roc
+          
   
 ########################################################
 ## 1 MULTICLASS, UNBALANCED
@@ -47,7 +51,14 @@ multiclass_unbalanced_1 = SampleData(logits=logits1,
                                      f1s={'micro': 0.4,
                                           'per_class': [0.4, 0.5, 0.3333],
                                           'macro': 0.4111},
-                                     kappa=0.0625)
+                                     kappa=0.0625,
+                                     mcc=0.0670,
+                                     mse=0.2707,
+                                     logloss=2.2662,
+                                     roc={"aunu": 0.4881,
+                                          "aunp": 0.4810,
+                                          "au1u": 0.5093,    
+                                          "au1p": 0.5})
 
 
 ########################################################
@@ -82,7 +93,14 @@ multiclass_balanced_2 = SampleData(logits=logits2,
                                    f1s={'micro': 0.4167,
                                         'per_class': [0.4, 0.5714, 0.2857],
                                         'macro': 0.4190},
-                                   kappa=0.125)
+                                   kappa=0.125,
+                                   mcc=0.1291,
+                                   mse=0.2454,
+                                   logloss=2.0165,
+                                   roc={"aunu": 0.5938,
+                                        "aunp": 0.5938,
+                                        "au1u": 0.5938,    
+                                        "au1p": 0.5938})
 
 
 ########################################################
@@ -117,7 +135,14 @@ multiclass_balanced_3 = SampleData(logits=logits3,
                                    f1s={'micro': 0.5833,
                                         'per_class': [0.6667, np.nan, 0.5455],
                                         'macro': 0.6061},
-                                   kappa=0.2308)
+                                   kappa=0.2308,
+                                   mcc=0.2343,
+                                   mse=0.1792,
+                                   logloss=1.5194,
+                                   roc={"aunu": 0.7083,
+                                        "aunp": 0.7083,
+                                        "au1u": 0.7083,    
+                                        "au1p": 0.7083})
 
 
 ########################################################
@@ -152,7 +177,14 @@ multiclass_balanced_4 = SampleData(logits=logits4,
                                    f1s={'micro': 0.3333,
                                         'per_class': [0.3333, 0.0, 0.5],
                                         'macro': 0.2778},
-                                   kappa=0.0)
+                                   kappa=0.0,
+                                   mcc=0.0,
+                                   mse=0.2923,
+                                   logloss=2.2526,
+                                   roc={"aunu": 0.5,
+                                        "aunp": 0.5,
+                                        "au1u": 0.5,    
+                                        "au1p": 0.5})
 
 
 ########################################################
@@ -187,7 +219,14 @@ multiclass_balanced_5 = SampleData(logits=logits5,
                                    f1s={'micro': 0.5,
                                         'per_class': [0.5714, np.nan, 0.4],
                                         'macro': 0.4857},
-                                   kappa=0.0)
+                                   kappa=0.0,
+                                   mcc=0.0,
+                                   mse=0.2541,
+                                   logloss=2.2526,
+                                   roc={"aunu": 0.4444,
+                                        "aunp": 0.4444,
+                                        "au1u": 0.4444,    
+                                        "au1p": 0.4444})
 
 
 ########################################################
@@ -217,7 +256,11 @@ binary_unbalanced_6 = SampleData(logits=logits6,
                                  f1s={'micro': 0.7143,
                                       'per_class': [0.8, 0.5],
                                       'macro': 0.65},
-                                 kappa=0.3636)
+                                 kappa=0.3636,
+                                 mcc=0.4714,
+                                 mse=0.1190,
+                                 logloss=1.2679,
+                                 roc=0.9167)
 
 
 ########################################################
@@ -248,7 +291,11 @@ binary_balanced_7 = SampleData(logits=logits7,
                                f1s={'micro': 0.75,
                                     'per_class': [0.8, 0.6667],
                                     'macro': 0.7333},
-                               kappa=0.5)
+                               kappa=0.5,
+                               mcc=0.5774,
+                               mse=0.1039,
+                               logloss=0.9436,
+                               roc=0.75)
 
 
 ########################################################
@@ -279,7 +326,11 @@ binary_8 = SampleData(logits=logits8,
                       f1s={'micro': 0.75,
                            'per_class': [0.8571, np.nan],
                            'macro': 0.8571},
-                      kappa=0.0)
+                      kappa=0.0,
+                      mcc=np.nan,
+                      mse=0.1313,
+                      logloss=1.2502,
+                      roc=np.nan)
 
 
 
@@ -311,7 +362,11 @@ binary_9 = SampleData(logits=logits9,
                       f1s={'micro': 0.75,
                            'per_class': [np.nan, 0.8571],
                            'macro': 0.8571},
-                      kappa=0.0)
+                      kappa=0.0,
+                      mcc=np.nan,
+                      mse=0.0908,
+                      logloss=0.7779,
+                      roc=np.nan)
 
 
 ########################################################
@@ -342,7 +397,11 @@ binary_10 = SampleData(logits=logits10,
                        f1s={'micro': 0.75,
                             'per_class': [0.8571, 0.0],
                             'macro': 0.4286},
-                       kappa=0.0)
+                       kappa=0.0,
+                       mcc=np.nan,
+                       mse=0.0908,
+                       logloss=0.7779,
+                       roc=0.6250)
 
 
 ########################################################
@@ -373,7 +432,11 @@ binary_11 = SampleData(logits=logits11,
                        f1s={'micro': 0.25,
                             'per_class': [0.0, 0.4],
                             'macro': 0.2},
-                       kappa=0.0)
+                       kappa=0.0,
+                       mcc=np.nan,
+                       mse=0.2127,
+                       logloss=1.6074,
+                       roc=0.6250)
 
 
 ########################################################
@@ -404,7 +467,11 @@ binary_12 = SampleData(logits=logits12,
                        f1s={'micro': 1.0,
                             'per_class': [1.0, np.nan],
                             'macro': 1.0},
-                       kappa=np.nan)
+                       kappa=np.nan,
+                       mcc=np.nan,
+                       mse=0.0434,
+                       logloss=0.4894,
+                       roc=np.nan)
 
 
 ########################################################
@@ -435,4 +502,8 @@ binary_13 = SampleData(logits=logits13,
                        f1s={'micro': 1.0,
                             'per_class': [np.nan, 1.0],
                             'macro': 1.0},
-                       kappa=np.nan)
+                       kappa=np.nan,
+                       mcc=np.nan,
+                       mse=0.0434,
+                       logloss=0.4894,
+                       roc=np.nan)

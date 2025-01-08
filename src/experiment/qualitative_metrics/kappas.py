@@ -14,9 +14,9 @@ from helpers import get_predicted_classes
 # 0  6  0          0  0
 # 0  0  0
 class BinaryCohenKappa(Metric[torch.Tensor]):
-    def __init__(self, is_binary, device=None) -> None:
+    def __init__(self, device=None) -> None:
         super().__init__(device=device)
-        self.is_binary = is_binary
+        self.is_binary = True
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_classes", torch.tensor([], device=self.device))
 
