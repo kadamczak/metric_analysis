@@ -31,9 +31,7 @@ class MSE(Metric[torch.Tensor]):
         )
 
         self.true_classes = torch.cat((self.true_classes, true))
-        self.predicted_probabilities = torch.cat(
-            (self.predicted_probabilities, probabilities)
-        )
+        self.predicted_probabilities = torch.cat((self.predicted_probabilities, probabilities))
         return self
 
     @torch.inference_mode()
@@ -79,7 +77,7 @@ class LogLoss(Metric[torch.Tensor]):
             loss = nn.BCEWithLogitsLoss()
             numerical_labels = self.true_classes
         else:
-            loss = nn.CrossEntropyLoss()
+            loss = nn.CrossEntropyLoss(reduction="mean")
             numerical_labels = self.true_classes.type(torch.LongTensor).to(self.device)
 
         return loss(self.predicted_logits, numerical_labels)

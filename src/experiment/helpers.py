@@ -6,7 +6,7 @@ import torch.nn.functional as F
 # logits -> sigmoid -> round -> predicted class indexes
 # MULTI-CLASS CLASSIFICATION (N output neurons):
 # logits -> argmax -> predicted classes indexes (softmax is optional but not necessary)
-def get_predicted_classes(predictions, is_binary):  # threshold for binary = 0.5
+def get_predicted_classes(predictions, is_binary):  # threshold for binary = 0.5 probability
     return (
         [torch.round(torch.sigmoid(pred)) for pred in predictions]
         if is_binary
