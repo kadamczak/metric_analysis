@@ -76,6 +76,7 @@ def create_full_multiclass_metrics(num_classes, device):
         "AU1u": ROCAUC(device=device, multiclass="ovo", average="macro"),
         "AU1p": ROCAUC(device=device, multiclass="ovo", average="weighted"),
         "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, multiclass="ovr", average=None),
+        
         drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes),
         drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes),
         

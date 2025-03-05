@@ -18,7 +18,15 @@ class SampleData:
           self.mcc = mcc
           self.mse = mse
           self.logloss = logloss
-          self.roc = roc
+          
+          if isinstance(roc, dict):
+               self.aunu = roc['aunu']
+               self.aunp = roc['aunp']
+               self.au1u = roc['au1u']
+               self.au1p = roc['au1p']
+               self.per_class_vs_rest = roc['per_class_vs_rest']
+          else:
+               self.roc = roc
           
   
 ########################################################
@@ -57,8 +65,9 @@ multiclass_unbalanced_1 = SampleData(logits=logits1,
                                      logloss=1.5708,
                                      roc={"aunu": 0.4881,
                                           "aunp": 0.4810,
-                                          "au1u": 0.5093,    
-                                          "au1p": 0.5})
+                                          "au1u": 0.4907,    
+                                          "au1p": 0.4875,
+                                          "per_class_vs_rest": [0.4167, 0.5714, 0.4762]})
 
 
 ########################################################
@@ -100,7 +109,8 @@ multiclass_balanced_2 = SampleData(logits=logits2,
                                    roc={"aunu": 0.5938,
                                         "aunp": 0.5938,
                                         "au1u": 0.5938,    
-                                        "au1p": 0.5938})
+                                        "au1p": 0.5938,
+                                        "per_class_vs_rest": [0.5, 0.6562, 0.6250]})
 
 
 ########################################################
@@ -142,7 +152,8 @@ multiclass_balanced_3 = SampleData(logits=logits3,
                                    roc={"aunu": 0.7083,
                                         "aunp": 0.7083,
                                         "au1u": 0.7083,    
-                                        "au1p": 0.7083})
+                                        "au1p": 0.7083,
+                                        "per_class_vs_rest": [0.6944, np.nan, 0.7222]})
 
 
 ########################################################
@@ -184,7 +195,8 @@ multiclass_balanced_4 = SampleData(logits=logits4,
                                    roc={"aunu": 0.5,
                                         "aunp": 0.5,
                                         "au1u": 0.5,    
-                                        "au1p": 0.5})
+                                        "au1p": 0.5,
+                                        "per_class_vs_rest": [0.3750, 0.4375, 0.6875]})
 
 
 ########################################################
@@ -226,7 +238,8 @@ multiclass_balanced_5 = SampleData(logits=logits5,
                                    roc={"aunu": 0.4444,
                                         "aunp": 0.4444,
                                         "au1u": 0.4444,    
-                                        "au1p": 0.4444})
+                                        "au1p": 0.4444,
+                                        "per_class_vs_rest": [0.5, np.nan, 0.3889]})
 
 
 ########################################################
@@ -260,7 +273,7 @@ binary_unbalanced_6 = SampleData(logits=logits6,
                                  mcc=0.4714,
                                  mse=0.2380,
                                  logloss=0.8789,
-                                 roc=0.9167)
+                                 roc=0.5833)
 
 
 ########################################################
@@ -436,7 +449,7 @@ binary_11 = SampleData(logits=logits11,
                        mcc=np.nan,
                        mse=0.4255,
                        logloss=1.1142,
-                       roc=0.6250)
+                       roc=0.375)
 
 
 ########################################################
