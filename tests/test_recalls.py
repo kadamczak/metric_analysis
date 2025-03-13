@@ -21,14 +21,29 @@ from sample_data import (
     binary_13
 )
 
-# TorchEval MulticlassRecall handles cases where TP + FN = 0 as 0
-# custom MacroRecall handles cases where TP + FN = 0 as np.nan
+from torcheval.metrics import BinaryRecall, MulticlassRecall
+
+#============
+# TorchEval
+#============
+
+# MACRO
+# FP+TP=0 gets 0
+# no true samples, no predicted samples -> crashes
+
+# MICRO is okay
+
+# PER CLASS
+# FP+TP=0 gets 0
+# no true samples, no predicted samples -> value NOT ignored and is displayed as 0 in the array
 
 class TestMacroRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_recall"
-        self.multiclass_metric_calculator = MacroRecall(num_classes=3)
-        self.binary_metric_calculator = MacroRecall(num_classes=2)
+        self.multiclass_metric_calculator = MulticlassRecall(average="macro", num_classes=3)
+        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        #self.multiclass_metric_calculator = MacroRecall(num_classes=3)
+        #self.binary_metric_calculator = MacroRecall(num_classes=2)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -74,8 +89,10 @@ class TestMacroRecall(MetricTestBase):
 class TestMicroRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "micro_recall"
-        self.multiclass_metric_calculator = MicroRecall(num_classes=3)
-        self.binary_metric_calculator = MicroRecall(num_classes=2)
+        self.multiclass_metric_calculator = MulticlassRecall(average="micro", num_classes=3)
+        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        #self.multiclass_metric_calculator = MicroRecall(num_classes=3)
+        #self.binary_metric_calculator = MicroRecall(num_classes=2)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -121,8 +138,10 @@ class TestMicroRecall(MetricTestBase):
 class TestPerClassRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "recall_per_class"
-        self.multiclass_metric_calculator = PerClassRecall(num_classes=3)
-        self.binary_metric_calculator = PerClassRecall(num_classes=2)
+        self.multiclass_metric_calculator = MulticlassRecall(average=None, num_classes=3)
+        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        #self.multiclass_metric_calculator = PerClassRecall(num_classes=3)
+        #self.binary_metric_calculator = PerClassRecall(num_classes=2)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)

@@ -21,12 +21,28 @@ from sample_data import (
     binary_13
 )
 
-# TorchEval MulticlassPrecision handles cases where TP + FP = 0 as 0
-# custom MacroPrecision handles cases where TP + FP = 0 as np.nan
+from torcheval.metrics import BinaryPrecision, MulticlassPrecision
+
+#============
+# TorchEval
+#============
+
+# MACRO
+# FP+TP=0 gets 0
+# no true samples, no predicted samples -> value IGNORED in macro calculation
+
+# MICRO is okay
+
+# PER CLASS
+# FP+TP=0 gets 0
+# no true samples, no predicted samples -> value NOT ignored and is displayed as 0 in the array
+
 
 class TestMacroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_precision"
+        #self.multiclass_metric_calculator = MulticlassPrecision(average="macro", num_classes=3)
+        #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
         self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
         self.binary_metric_calculator = MacroPrecision(num_classes=2)
         
@@ -74,8 +90,10 @@ class TestMacroPrecision(MetricTestBase):
 class TestMicroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "micro_precision"
-        self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
-        self.binary_metric_calculator = MicroPrecision(num_classes=2)
+        self.multiclass_metric_calculator = MulticlassPrecision(average="micro", num_classes=3)
+        self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        #self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
+        #self.binary_metric_calculator = MicroPrecision(num_classes=2)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -121,6 +139,8 @@ class TestMicroPrecision(MetricTestBase):
 class TestPerClassPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "precision_per_class"
+        #self.multiclass_metric_calculator = MulticlassPrecision(average=None, num_classes=3)
+        #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
         self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
         self.binary_metric_calculator = PerClassPrecision(num_classes=2)
     

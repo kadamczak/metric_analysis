@@ -128,5 +128,5 @@ class CustomDataset(Dataset):
 
 def prepare_dataloader_based_on_df(df, available_classes, batch_size=32, channels=3, image_size=128, device="cpu"):
     dataset = CustomDataset(df, available_classes, image_size, channels, device)
-    dataloader = DataLoader(dataset, batch_size=batch_size, num_workers=0, shuffle=True)
+    dataloader = DataLoader(dataset, batch_size=batch_size, num_workers=0, shuffle=False)
     return dataloader
