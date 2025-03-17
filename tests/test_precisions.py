@@ -28,14 +28,14 @@ from torcheval.metrics import BinaryPrecision, MulticlassPrecision
 #============
 
 # MACRO
-# FP+TP=0 gets 0
-# no true samples, no predicted samples -> value IGNORED in macro calculation
+# no predicted samples (FP + TP = 0), but some true samples -> gets 0
+# no no predicted samples, no true samples -> value IGNORED in macro calculation
 
 # MICRO is okay
 
 # PER CLASS
-# FP+TP=0 gets 0
-# no true samples, no predicted samples -> value NOT ignored and is displayed as 0 in the array
+# no predicted samples (FP + TP = 0), but some true samples -> gets 0
+# no no predicted samples, no true samples -> value NOT ignored and is displayed as 0 in the array
 
 
 class TestMacroPrecision(MetricTestBase):

@@ -2,6 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
+from qualitative_metrics.recalls import RecallSklearn
 from qualitative_metrics.recalls import PerClassRecall, MacroRecall, MicroRecall
 
 from metric_test_base import MetricTestBase
@@ -23,28 +24,56 @@ from sample_data import (
 
 from torcheval.metrics import BinaryRecall, MulticlassRecall
 
+import numpy as np
+
+
 #============
 # TorchEval
 #============
 
 # MACRO
-# FP+TP=0 gets 0
+# no true samples (FN + TP = 0), but some predicted samples -> gets 0
 # no true samples, no predicted samples -> crashes
 
 # MICRO is okay
 
 # PER CLASS
-# FP+TP=0 gets 0
+# no true samples (FN + TP = 0), but some predicted samples -> gets 0
 # no true samples, no predicted samples -> value NOT ignored and is displayed as 0 in the array
+
+
+#============
+# Sklearn
+#============
+
+#  MACRO/MICRO - depends on zero_division parameter
+#  PER CLASS - np.nan is not shown at all in the array and class indexes can be mismatched (i.e -> [0.6667, np.nan, 0.3333] -> [0.6667, 0.3333])
+
+
+#============
+# Custom
+#============
+
+# When TP + FN = 0 -> recall = np.nan in all cases
+
 
 class TestMacroRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_recall"
-        self.multiclass_metric_calculator = MulticlassRecall(average="macro", num_classes=3)
-        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # TorchEval
+        #self.multiclass_metric_calculator = MulticlassRecall(average="macro", num_classes=3)
+        #self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = RecallSklearn(average="macro", num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = RecallSklearn(average="macro", num_classes=2, zero_division=np.nan)
+        
+        # Custom
         #self.multiclass_metric_calculator = MacroRecall(num_classes=3)
         #self.binary_metric_calculator = MacroRecall(num_classes=2)
-        
+    
+
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
           
@@ -89,8 +118,16 @@ class TestMacroRecall(MetricTestBase):
 class TestMicroRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "micro_recall"
-        self.multiclass_metric_calculator = MulticlassRecall(average="micro", num_classes=3)
-        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # TorchEval
+        #self.multiclass_metric_calculator = MulticlassRecall(average="micro", num_classes=3)
+        #self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = RecallSklearn(average="micro", num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = RecallSklearn(average="micro", num_classes=2, zero_division=np.nan)
+        
+        # Custom
         #self.multiclass_metric_calculator = MicroRecall(num_classes=3)
         #self.binary_metric_calculator = MicroRecall(num_classes=2)
         
@@ -138,8 +175,16 @@ class TestMicroRecall(MetricTestBase):
 class TestPerClassRecall(MetricTestBase):
     def setUp(self):
         self.metric_name = "recall_per_class"
-        self.multiclass_metric_calculator = MulticlassRecall(average=None, num_classes=3)
-        self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # TorchEval
+        #self.multiclass_metric_calculator = MulticlassRecall(average=None, num_classes=3)
+        #self.binary_metric_calculator = BinaryRecall(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = RecallSklearn(average=None, num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = RecallSklearn(average=None, num_classes=2, zero_division=np.nan)
+        
+        # Custom
         #self.multiclass_metric_calculator = PerClassRecall(num_classes=3)
         #self.binary_metric_calculator = PerClassRecall(num_classes=2)
     
