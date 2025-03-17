@@ -1,7 +1,9 @@
 import sys
 import os
+import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
+from qualitative_metrics.precisions import PrecisionSklearn
 from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
 from metric_test_base import MetricTestBase
@@ -38,11 +40,35 @@ from torcheval.metrics import BinaryPrecision, MulticlassPrecision
 # no no predicted samples, no true samples -> value NOT ignored and is displayed as 0 in the array
 
 
+#============
+# Sklearn
+#============
+
+#  MACRO/MICRO - depends on zero_division parameter
+#  PER CLASS - np.nan IS shown in the array when no true&predicted samples in class
+
+
+#============
+# Custom
+#============
+
+# When TP + FN = 0 -> recall = np.nan in all cases
+
+
+
 class TestMacroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_precision"
+        
+        # TorchEval
         #self.multiclass_metric_calculator = MulticlassPrecision(average="macro", num_classes=3)
         #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = PrecisionSklearn(average="macro", num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = PrecisionSklearn(average="macro", num_classes=2, zero_division=np.nan)
+        
+        # Custom
         self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
         self.binary_metric_calculator = MacroPrecision(num_classes=2)
         
@@ -90,8 +116,16 @@ class TestMacroPrecision(MetricTestBase):
 class TestMicroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "micro_precision"
+        
+        # TorchEval
         self.multiclass_metric_calculator = MulticlassPrecision(average="micro", num_classes=3)
         self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = PrecisionSklearn(average="micro", num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = PrecisionSklearn(average="micro", num_classes=2, zero_division=np.nan)
+        
+        # Custom
         #self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
         #self.binary_metric_calculator = MicroPrecision(num_classes=2)
         
@@ -139,8 +173,16 @@ class TestMicroPrecision(MetricTestBase):
 class TestPerClassPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "precision_per_class"
+        
+        # TorchEval
         #self.multiclass_metric_calculator = MulticlassPrecision(average=None, num_classes=3)
         #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        
+        # Sklearn
+        self.multiclass_metric_calculator = PrecisionSklearn(average=None, num_classes=3, zero_division=np.nan)
+        self.binary_metric_calculator = PrecisionSklearn(average=None, num_classes=2, zero_division=np.nan)
+        
+        # Custom
         self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
         self.binary_metric_calculator = PerClassPrecision(num_classes=2)
     

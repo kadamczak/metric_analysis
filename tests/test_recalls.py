@@ -47,7 +47,7 @@ import numpy as np
 #============
 
 #  MACRO/MICRO - depends on zero_division parameter
-#  PER CLASS - np.nan is not shown at all in the array and class indexes can be mismatched (i.e -> [0.6667, np.nan, 0.3333] -> [0.6667, 0.3333])
+#  PER CLASS - np.nan is not shown at all in the array when a class has no true&predicted samples and in that case class indexes can be mismatched (i.e -> [0.6667, np.nan, 0.3333] -> [0.6667, 0.3333])
 
 
 #============
