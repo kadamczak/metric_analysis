@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from qualitative_metrics.precisions import PrecisionSklearn
+from qualitative_metrics.precisions import PrecisionTorchEval, PrecisionSklearn
 from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
 from metric_test_base import MetricTestBase
@@ -23,29 +23,31 @@ from sample_data import (
     binary_13
 )
 
-from torcheval.metrics import BinaryPrecision, MulticlassPrecision
+from torcheval.metrics import MulticlassPrecision
 
 #============
 # TorchEval
 #============
 
+# class-based MulticlassPrecision for binary case - does not accept binary logits (i.e [-0.5, 1.2, 0.3, 0.4, -2.3] where each number is one sample)
+
 # MACRO
 # no predicted samples (FP + TP = 0), but some true samples -> gets 0
-# no no predicted samples, no true samples -> value IGNORED in macro calculation
+# no predicted samples, no true samples -> value IGNORED in macro calculation
 
 # MICRO is okay
 
 # PER CLASS
 # no predicted samples (FP + TP = 0), but some true samples -> gets 0
-# no no predicted samples, no true samples -> value NOT ignored and is displayed as 0 in the array
+# no predicted samples, no true samples -> value NOT ignored and is displayed as 0 in the array
 
 
 #============
 # Sklearn
 #============
 
-#  MACRO/MICRO - depends on zero_division parameter
-#  PER CLASS - np.nan IS shown in the array when no true&predicted samples in class
+# MACRO/MICRO - depends on zero_division parameter
+# PER CLASS - np.nan IS shown in the array when no true&predicted samples in class
 
 
 #============
@@ -60,17 +62,21 @@ class TestMacroPrecision(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_precision"
         
-        # TorchEval
+        # TorchEval class-based
         #self.multiclass_metric_calculator = MulticlassPrecision(average="macro", num_classes=3)
-        #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        #self.binary_metric_calculator = MulticlassPrecision(average="macro", num_classes=2)
+        
+        # TorchEval function-based
+        self.multiclass_metric_calculator = PrecisionTorchEval(average="macro", num_classes=3)
+        self.binary_metric_calculator = PrecisionTorchEval(average="macro", num_classes=2)
         
         # Sklearn
-        self.multiclass_metric_calculator = PrecisionSklearn(average="macro", num_classes=3, zero_division=np.nan)
-        self.binary_metric_calculator = PrecisionSklearn(average="macro", num_classes=2, zero_division=np.nan)
+        #self.multiclass_metric_calculator = PrecisionSklearn(average="macro", num_classes=3, zero_division=np.nan)
+        #self.binary_metric_calculator = PrecisionSklearn(average="macro", num_classes=2, zero_division=np.nan)
         
         # Custom
-        self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
-        self.binary_metric_calculator = MacroPrecision(num_classes=2)
+        #self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
+        #self.binary_metric_calculator = MacroPrecision(num_classes=2)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -118,12 +124,16 @@ class TestMicroPrecision(MetricTestBase):
         self.metric_name = "micro_precision"
         
         # TorchEval
-        self.multiclass_metric_calculator = MulticlassPrecision(average="micro", num_classes=3)
-        self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        #self.multiclass_metric_calculator = MulticlassPrecision(average="micro", num_classes=3)
+        #self.binary_metric_calculator = MulticlassPrecision(average="micro", num_classes=2)
+        
+        # TorchEval function-based
+        self.multiclass_metric_calculator = PrecisionTorchEval(average="micro", num_classes=3)
+        self.binary_metric_calculator = PrecisionTorchEval(average="micro", num_classes=2)
         
         # Sklearn
-        self.multiclass_metric_calculator = PrecisionSklearn(average="micro", num_classes=3, zero_division=np.nan)
-        self.binary_metric_calculator = PrecisionSklearn(average="micro", num_classes=2, zero_division=np.nan)
+        #self.multiclass_metric_calculator = PrecisionSklearn(average="micro", num_classes=3, zero_division=np.nan)
+        #self.binary_metric_calculator = PrecisionSklearn(average="micro", num_classes=2, zero_division=np.nan)
         
         # Custom
         #self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
@@ -176,15 +186,19 @@ class TestPerClassPrecision(MetricTestBase):
         
         # TorchEval
         #self.multiclass_metric_calculator = MulticlassPrecision(average=None, num_classes=3)
-        #self.binary_metric_calculator = BinaryPrecision(threshold=0.0)
+        #self.binary_metric_calculator = MulticlassPrecision(average=None, num_classes=2)
+        
+        # TorchEval function-based
+        self.multiclass_metric_calculator = PrecisionTorchEval(average=None, num_classes=3)
+        self.binary_metric_calculator = PrecisionTorchEval(average=None, num_classes=2)
         
         # Sklearn
-        self.multiclass_metric_calculator = PrecisionSklearn(average=None, num_classes=3, zero_division=np.nan)
-        self.binary_metric_calculator = PrecisionSklearn(average=None, num_classes=2, zero_division=np.nan)
+        #self.multiclass_metric_calculator = PrecisionSklearn(average=None, num_classes=3, zero_division=np.nan)
+        #self.binary_metric_calculator = PrecisionSklearn(average=None, num_classes=2, zero_division=np.nan)
         
         # Custom
-        self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
-        self.binary_metric_calculator = PerClassPrecision(num_classes=2)
+        #self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
+        #self.binary_metric_calculator = PerClassPrecision(num_classes=2)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)

@@ -37,6 +37,12 @@ from torcheval.metrics import BinaryAccuracy, MulticlassAccuracy
 # wrongly calculates per class recall instead
 
 
+#============
+# Sklearn
+#============
+
+# does not work in multiclass context
+
 class TestMacroAccuracy(MetricTestBase):
     def setUp(self):
         self.metric_name = "macro_accuracy"
