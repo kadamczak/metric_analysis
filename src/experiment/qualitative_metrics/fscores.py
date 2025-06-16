@@ -128,8 +128,8 @@ class F1Sklearn(Metric[torch.Tensor]):
 # if both N/A count F1 np.nan (fault of test set)
 
 class F1Metric(MatrixMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def calculate_F1(self, TP, FP, FN):   
@@ -138,8 +138,8 @@ class F1Metric(MatrixMetric):
 
 
 class MacroF1(F1Metric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -155,8 +155,8 @@ class MacroF1(F1Metric):
 
 
 class MicroF1(F1Metric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -170,8 +170,8 @@ class MicroF1(F1Metric):
 
 
 class PerClassF1(F1Metric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):

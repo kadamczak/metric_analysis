@@ -6,7 +6,7 @@ from torcheval.metrics import BinaryAccuracy, BinaryPrecision, BinaryRecall, Bin
 
 #sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 
-from qualitative_metrics.accuracies import MacroAccuracy, MicroAccuracy, AccuracyPerClass
+from qualitative_metrics.accuracies import MacroAccuracy, MicroAccuracy, PerClassAccuracy
 from qualitative_metrics.recalls import Specificity, MacroRecallForBinary
 from qualitative_metrics.precisions import NPV, MacroPrecisionForBinary
 from qualitative_metrics.kappas import BinaryCohenKappa, MulticlassCohenKappa
@@ -47,7 +47,7 @@ def create_full_multiclass_metrics(num_classes, device):
         # Qualitative metrics
         "macro_accuracy": MacroAccuracy(device=device, num_classes=num_classes),
         "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes),
-        "accuracy_per_class": AccuracyPerClass(device=device, num_classes=num_classes),
+        "accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes),
         
         "macro_f1": MulticlassF1Score(device=device, average="macro", num_classes=num_classes),
         "micro_f1": MulticlassF1Score(device=device, average="micro"),

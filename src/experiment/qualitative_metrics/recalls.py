@@ -124,8 +124,8 @@ class RecallSklearn(Metric[torch.Tensor]):
 #===========
 
 class RecallMetric(MatrixMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def calculate_recall(self, TP, FN):   
@@ -134,8 +134,8 @@ class RecallMetric(MatrixMetric):
 
 
 class MacroRecall(RecallMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -152,8 +152,8 @@ class MacroRecall(RecallMetric):
 
 
 class MicroRecall(RecallMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -166,8 +166,8 @@ class MicroRecall(RecallMetric):
    
 
 class PerClassRecall(RecallMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):

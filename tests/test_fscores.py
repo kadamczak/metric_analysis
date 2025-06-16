@@ -5,6 +5,7 @@ import numpy as np
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 from qualitative_metrics.fscores import F1TorchEval, F1Sklearn
 from qualitative_metrics.fscores import PerClassF1, MacroF1, MicroF1
+from task_type import TaskType
 
 from metric_test_base import MetricTestBase
 from sample_data import (
@@ -20,7 +21,8 @@ from sample_data import (
     binary_10,
     binary_11,
     binary_12,
-    binary_13
+    binary_13,
+    multilabel_14
 )
 
 from torcheval.metrics import MulticlassF1Score
@@ -81,16 +83,17 @@ class TestMacroF1(MetricTestBase):
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average="macro")
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = F1TorchEval(average="macro", num_classes=3)
-        self.binary_metric_calculator = F1TorchEval(average="macro", num_classes=2)
+        #self.multiclass_metric_calculator = F1TorchEval(average="macro", num_classes=3)
+        #self.binary_metric_calculator = F1TorchEval(average="macro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average="macro", zero_division=np.nan)
         #self.binary_metric_calculator = F1Sklearn(num_classes=2, average="macro", zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MacroF1(num_classes=3)
-        #self.binary_metric_calculator = MacroF1(num_classes=2)
+        self.multiclass_metric_calculator = MacroF1(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MacroF1(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MacroF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -130,6 +133,9 @@ class TestMacroF1(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
 
@@ -141,17 +147,18 @@ class TestMicroF1(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassF1Score(num_classes=3, average="micro")
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average="micro")
         
-         # TorchEval function-based
-        self.multiclass_metric_calculator = F1TorchEval(average="micro", num_classes=3)
-        self.binary_metric_calculator = F1TorchEval(average="micro", num_classes=2)
+        # TorchEval function-based
+        #self.multiclass_metric_calculator = F1TorchEval(average="micro", num_classes=3)
+        #self.binary_metric_calculator = F1TorchEval(average="micro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average="micro", zero_division=np.nan)
         #self.binary_metric_calculator = F1Sklearn(num_classes=2, average="micro", zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MicroF1(num_classes=3)
-        #self.binary_metric_calculator = MicroF1(num_classes=2)
+        self.multiclass_metric_calculator = MicroF1(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MicroF1(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MicroF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -191,6 +198,9 @@ class TestMicroF1(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
 
@@ -202,17 +212,18 @@ class TestPerClassF1(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassF1Score(num_classes=3, average=None)
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average=None)
         
-                # TorchEval function-based
-        self.multiclass_metric_calculator = F1TorchEval(average=None, num_classes=3)
-        self.binary_metric_calculator = F1TorchEval(average=None, num_classes=2)
+        # TorchEval function-based
+        #self.multiclass_metric_calculator = F1TorchEval(average=None, num_classes=3)
+        #self.binary_metric_calculator = F1TorchEval(average=None, num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average=None, zero_division=np.nan)
         #self.binary_metric_calculator = F1Sklearn(num_classes=2, average=None, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = PerClassF1(num_classes=3)
-        #self.binary_metric_calculator = PerClassF1(num_classes=2)
+        self.multiclass_metric_calculator = PerClassF1(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = PerClassF1(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = PerClassF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -252,6 +263,9 @@ class TestPerClassF1(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
         
     
     

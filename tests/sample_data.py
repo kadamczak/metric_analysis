@@ -6,6 +6,8 @@ class SampleData:
         return metric['macro'], metric['per_class'], metric['micro']
     
     def __init__(self, logits, true_numerical_labels, accuracies, precisions, recalls, f1s, kappa, mcc, mse, logloss, roc):
+         
+         
           self.logits = logits
           self.true_numerical_labels = true_numerical_labels
           
@@ -520,3 +522,52 @@ binary_13 = SampleData(logits=logits13,
                        mse=0.0867,
                        logloss=0.3392,
                        roc=np.nan)
+
+########################################################
+## 14 MULTILABEL1
+########################################################
+logits14 = torch.tensor([[ 2.0, -1.0,  1.0],           #0
+                         [ 0.4,  0.8, -1.3],           #1
+                         [-1.0, -0.6,  0.2],           #2
+                         [-0.5, -0.5, -0.5],           #3
+                         [ 1.0,  0.7,  0.3],           #4
+                         [ 0.3,  1.0, -0.2],           #5     
+                         [ 0.3,  1.2,  2.1],           #6
+                         [ 0.1,  0.7,  0.2],           #7
+                         [ 1.0, -0.5,  2.0],           #8
+                         [ 0.3,  2.5, -0.1]])          #9
+
+
+labels14 = torch.tensor([
+    [1, 0, 1],
+    [1, 1, 0],
+    [1, 0, 1],
+    [0, 0, 0],
+    [1, 0, 0],
+    [1, 1, 0],
+    [1, 1, 1],
+    [1, 0, 1],
+    [0, 1, 0],
+    [0, 1, 0]
+])
+
+multilabel_14 = SampleData(logits=logits14,
+                       true_numerical_labels=labels14,
+                       accuracies={'micro': 0.7333,
+                                   'per_class': [0.7, 0.7, 0.8],
+                                   'macro': 0.7333},
+                       precisions={'micro': 0.7,
+                                   'per_class': [0.75, 0.6667, 0.6667],
+                                   'macro': 0.6944},
+                       recalls={'micro': 0.8750,
+                               'per_class': [0.8571, 0.8, 1.0],
+                               'macro': 0.8857},
+                       f1s={'micro': 0.7778,
+                            'per_class': [0.8, 0.7273, 0.8],
+                            'macro': 0.7758},
+                       kappa=np.nan,
+                       mcc=np.nan,
+                       mse=0.0867,
+                       logloss=0.3392,
+                       roc=np.nan)
+

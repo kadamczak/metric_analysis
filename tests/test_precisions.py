@@ -3,6 +3,7 @@ import os
 import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
+from task_type import TaskType
 from qualitative_metrics.precisions import PrecisionTorchEval, PrecisionSklearn
 from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
@@ -20,7 +21,8 @@ from sample_data import (
     binary_10,
     binary_11,
     binary_12,
-    binary_13
+    binary_13,
+    multilabel_14
 )
 
 from torcheval.metrics import MulticlassPrecision
@@ -67,16 +69,17 @@ class TestMacroPrecision(MetricTestBase):
         #self.binary_metric_calculator = MulticlassPrecision(average="macro", num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = PrecisionTorchEval(average="macro", num_classes=3)
-        self.binary_metric_calculator = PrecisionTorchEval(average="macro", num_classes=2)
+        #self.multiclass_metric_calculator = PrecisionTorchEval(average="macro", num_classes=3)
+        #self.binary_metric_calculator = PrecisionTorchEval(average="macro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average="macro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average="macro", num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MacroPrecision(num_classes=3)
-        #self.binary_metric_calculator = MacroPrecision(num_classes=2)
+        self.multiclass_metric_calculator = MacroPrecision(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MacroPrecision(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MacroPrecision(num_classes=3, task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -116,6 +119,9 @@ class TestMacroPrecision(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
     
 
 
@@ -128,16 +134,17 @@ class TestMicroPrecision(MetricTestBase):
         #self.binary_metric_calculator = MulticlassPrecision(average="micro", num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = PrecisionTorchEval(average="micro", num_classes=3)
-        self.binary_metric_calculator = PrecisionTorchEval(average="micro", num_classes=2)
+        #self.multiclass_metric_calculator = PrecisionTorchEval(average="micro", num_classes=3)
+        #self.binary_metric_calculator = PrecisionTorchEval(average="micro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average="micro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average="micro", num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MicroPrecision(num_classes=3)
-        #self.binary_metric_calculator = MicroPrecision(num_classes=2)
+        self.multiclass_metric_calculator = MicroPrecision(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MicroPrecision(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MicroPrecision(num_classes=3, task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -178,6 +185,9 @@ class TestMicroPrecision(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
+        
         
 
 class TestPerClassPrecision(MetricTestBase):
@@ -189,16 +199,17 @@ class TestPerClassPrecision(MetricTestBase):
         #self.binary_metric_calculator = MulticlassPrecision(average=None, num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = PrecisionTorchEval(average=None, num_classes=3)
-        self.binary_metric_calculator = PrecisionTorchEval(average=None, num_classes=2)
+        #self.multiclass_metric_calculator = PrecisionTorchEval(average=None, num_classes=3)
+        #self.binary_metric_calculator = PrecisionTorchEval(average=None, num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average=None, num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average=None, num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = PerClassPrecision(num_classes=3)
-        #self.binary_metric_calculator = PerClassPrecision(num_classes=2)
+        self.multiclass_metric_calculator = PerClassPrecision(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = PerClassPrecision(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = PerClassPrecision(num_classes=3, task_type=TaskType.MULTILABEL)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -238,4 +249,12 @@ class TestPerClassPrecision(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+        
+    def test_Compute_ShouldCalculate_WhenMultilabel_1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
+
+
+    
+
+
 

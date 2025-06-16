@@ -4,8 +4,8 @@ from qualitative_metrics.matrix_metric import MatrixMetric
 
 
 class AccuracyMetric(MatrixMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def calculate_accuracy(self, TP, FP, FN, TN):   
@@ -14,8 +14,8 @@ class AccuracyMetric(MatrixMetric):
 
 
 class MacroAccuracy(AccuracyMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
 
     @torch.inference_mode()
     def compute(self):
@@ -34,8 +34,8 @@ class MacroAccuracy(AccuracyMetric):
 
 
 class MicroAccuracy(AccuracyMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
 
     @torch.inference_mode()
     def compute(self):
@@ -49,9 +49,9 @@ class MicroAccuracy(AccuracyMetric):
     
 
 
-class AccuracyPerClass(AccuracyMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+class PerClassAccuracy(AccuracyMetric):
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
 
     @torch.inference_mode()
     def compute(self):

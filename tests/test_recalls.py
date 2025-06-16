@@ -2,6 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
+from task_type import TaskType
 from qualitative_metrics.recalls import RecallTorchEval, RecallSklearn
 from qualitative_metrics.recalls import PerClassRecall, MacroRecall, MicroRecall
 
@@ -19,7 +20,8 @@ from sample_data import (
     binary_10,
     binary_11,
     binary_12,
-    binary_13
+    binary_13,
+    multilabel_14
 )
 
 from torcheval.metrics import MulticlassRecall
@@ -68,16 +70,17 @@ class TestMacroRecall(MetricTestBase):
         #self.binary_metric_calculator = MulticlassRecall(average="macro", num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = RecallTorchEval(average="macro", num_classes=3)
-        self.binary_metric_calculator = RecallTorchEval(average="macro", num_classes=2)
+        #self.multiclass_metric_calculator = RecallTorchEval(average="macro", num_classes=3)
+        #self.binary_metric_calculator = RecallTorchEval(average="macro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = RecallSklearn(average="macro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = RecallSklearn(average="macro", num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MacroRecall(num_classes=3)
-        #self.binary_metric_calculator = MacroRecall(num_classes=2)
+        self.multiclass_metric_calculator = MacroRecall(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MacroRecall(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MacroRecall(num_classes=3, task_type=TaskType.MULTILABEL)
     
 
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
@@ -118,6 +121,9 @@ class TestMacroRecall(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+    
+    def test_Compute_ShouldCalculate_WhenMultilabel_1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
 
@@ -130,16 +136,17 @@ class TestMicroRecall(MetricTestBase):
         #self.binary_metric_calculator = MulticlassRecall(average="micro", num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = RecallTorchEval(average="micro", num_classes=3)
-        self.binary_metric_calculator = RecallTorchEval(average="micro", num_classes=2)
+        #self.multiclass_metric_calculator = RecallTorchEval(average="micro", num_classes=3)
+        #self.binary_metric_calculator = RecallTorchEval(average="micro", num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = RecallSklearn(average="micro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = RecallSklearn(average="micro", num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = MicroRecall(num_classes=3)
-        #self.binary_metric_calculator = MicroRecall(num_classes=2)
+        self.multiclass_metric_calculator = MicroRecall(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = MicroRecall(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = MicroRecall(num_classes=3, task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -179,6 +186,9 @@ class TestMicroRecall(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+    
+    def test_Compute_ShouldCalculate_WhenMultilabel_1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
 
@@ -191,16 +201,17 @@ class TestPerClassRecall(MetricTestBase):
         #self.binary_metric_calculator = MulticlassRecall(average=None, num_classes=2)
         
         # TorchEval function-based
-        self.multiclass_metric_calculator = RecallTorchEval(average=None, num_classes=3)
-        self.binary_metric_calculator = RecallTorchEval(average=None, num_classes=2)
+        #self.multiclass_metric_calculator = RecallTorchEval(average=None, num_classes=3)
+        #self.binary_metric_calculator = RecallTorchEval(average=None, num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = RecallSklearn(average=None, num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = RecallSklearn(average=None, num_classes=2, zero_division=np.nan)
         
         # Custom
-        #self.multiclass_metric_calculator = PerClassRecall(num_classes=3)
-        #self.binary_metric_calculator = PerClassRecall(num_classes=2)
+        self.multiclass_metric_calculator = PerClassRecall(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.binary_metric_calculator = PerClassRecall(num_classes=2, task_type=TaskType.BINARY)
+        self.multilabel_metric_calculator = PerClassRecall(num_classes=3, task_type=TaskType.MULTILABEL)
     
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -240,6 +251,9 @@ class TestPerClassRecall(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
+    
+    def test_Compute_ShouldCalculate_WhenMultilabel_1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
         
         

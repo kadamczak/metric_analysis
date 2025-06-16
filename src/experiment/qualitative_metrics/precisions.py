@@ -4,7 +4,6 @@ from qualitative_metrics.matrix_metric import MatrixMetric
 from torcheval.metrics.metric import Metric
 from sklearn.metrics import precision_score
 
-
 from helpers import get_predicted_classes
 from torcheval.metrics.functional import multiclass_precision
 
@@ -126,16 +125,16 @@ class PrecisionSklearn(Metric[torch.Tensor]):
 #===========
 
 class PrecisionMetric(MatrixMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def calculate_precision(self, TP, FP):   
         return TP / (TP + FP) if (TP + FP > 0) else np.nan
 
 class MacroPrecision(PrecisionMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -152,8 +151,8 @@ class MacroPrecision(PrecisionMetric):
 
 
 class MicroPrecision(PrecisionMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
@@ -166,8 +165,8 @@ class MicroPrecision(PrecisionMetric):
    
 
 class PerClassPrecision(PrecisionMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):

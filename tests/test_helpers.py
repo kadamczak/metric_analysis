@@ -2,6 +2,7 @@ import torch
 import unittest
 
 from src.experiment.helpers import get_predicted_classes, get_predicted_probabilities, get_binary_labels_for_class
+from src.experiment.task_type import TaskType
 
 class TestGetPredictedClass(unittest.TestCase):
     def test_GetPredictedClass_ShouldCalculate_WhenMulticlass(self):
@@ -14,7 +15,7 @@ class TestGetPredictedClass(unittest.TestCase):
                             0]
         
         #act
-        results = get_predicted_classes(logits, is_binary=False)
+        results = get_predicted_classes(logits, TaskType.MULTICLASS)
         
         #assert
         assert results == expected_classes
@@ -33,7 +34,7 @@ class TestGetPredictedClass(unittest.TestCase):
                             0]
         
         #act
-        results = get_predicted_classes(logits, is_binary=True)
+        results = get_predicted_classes(logits, TaskType.BINARY)
         
         #assert
         assert results == expected_classes
