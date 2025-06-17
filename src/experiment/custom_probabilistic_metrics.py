@@ -5,14 +5,15 @@ import torch.nn.functional as F
 from torcheval.metrics.functional import mean_squared_error
 
 from helpers import get_predicted_probabilities
+from task_type import TaskType
 
 
 # predicted: PROBABILITIES
 # true: 0/1 if binary, one-hot encoded if multiclass
 class MSE(Metric[torch.Tensor]):
-    def __init__(self, num_classes, device=None) -> None:
+    def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(device=device)
-        self.is_binary = num_classes == 2
+        self.task_type = task_type
         self.n_classes = num_classes
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
@@ -21,11 +22,12 @@ class MSE(Metric[torch.Tensor]):
     def update(self, prediction_logits, labels):
         true = (
             labels.float()
-            if self.is_binary
+            if self.task_type == TaskType.BINARY or self.task_type == TaskType.MULTILABEL
             else F.one_hot(labels, num_classes=self.n_classes).float()
         )
+        
         probabilities = (
-            torch.stack(get_predicted_probabilities(prediction_logits, self.is_binary))
+            torch.stack(get_predicted_probabilities(prediction_logits, self.task_type))
             .clone()
             .detach()
         )
@@ -58,10 +60,10 @@ class MSE(Metric[torch.Tensor]):
 # predicted: LOGITS
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 class LogLoss(Metric[torch.Tensor]):
-    def __init__(self, num_classes, device=None) -> None:
+    def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(device=device)
-        self.is_binary = num_classes == 2
         self.n_classes = num_classes
+        self.task_type = task_type
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_logits", torch.tensor([], device=self.device))
 
@@ -73,7 +75,7 @@ class LogLoss(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def compute(self):
-        if self.is_binary:
+        if self.task_type == TaskType.BINARY or self.task_type == TaskType.MULTILABEL:
             loss = nn.BCEWithLogitsLoss()
             numerical_labels = self.true_classes
         else:

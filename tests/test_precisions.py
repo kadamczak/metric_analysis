@@ -120,7 +120,7 @@ class TestMacroPrecision(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
     
 
@@ -185,7 +185,7 @@ class TestMicroPrecision(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
         
         
@@ -250,7 +250,7 @@ class TestPerClassPrecision(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMultilabel_1(self):
+    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 

@@ -1,6 +1,8 @@
 import sys
 import os
 
+from task_type import TaskType
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 from custom_rank_metrics import ROCAUC
 
@@ -18,13 +20,14 @@ from sample_data import (
     binary_10,
     binary_11,
     binary_12,
-    binary_13
+    binary_13,
+    multilabel_14
 )
 
 class TestBinaryROC(MetricTestBase):
     def setUp(self):
         self.metric_name = "roc"
-        self.binary_metric_calculator = ROCAUC(multiclass="raise", average="macro")
+        self.binary_metric_calculator = ROCAUC(multiclass="raise", average="macro", task_type=TaskType.BINARY)
         
     def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
@@ -49,12 +52,15 @@ class TestBinaryROC(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
-        
+
+    
+    
         
 class TestAUNU(MetricTestBase):
     def setUp(self):
         self.metric_name = "aunu"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="macro")
+        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="macro", task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average="macro", task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -70,12 +76,16 @@ class TestAUNU(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    
+    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
 class TestAUNP(MetricTestBase):
     def setUp(self):
         self.metric_name = "aunp"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="weighted")
+        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="weighted", task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average="weighted", task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -92,11 +102,14 @@ class TestAUNP(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
         
+    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
+        
 
 class TestAU1U(MetricTestBase):
     def setUp(self):
         self.metric_name = "au1u"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovo", average="macro")
+        self.multiclass_metric_calculator = ROCAUC(multiclass="ovo", average="macro", task_type=TaskType.MULTICLASS)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -117,7 +130,7 @@ class TestAU1U(MetricTestBase):
 class TestAU1P(MetricTestBase):
     def setUp(self):
         self.metric_name = "au1p"
-        self.multiclass_metric_calculator= ROCAUC(multiclass="ovo", average="weighted")
+        self.multiclass_metric_calculator= ROCAUC(multiclass="ovo", average="weighted", task_type=TaskType.MULTICLASS)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -133,12 +146,14 @@ class TestAU1P(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    
         
 
 class TestPerClassVsRest(MetricTestBase):
     def setUp(self):
         self.metric_name = "per_class_vs_rest"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average=None)
+        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average=None, task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average=None, task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -154,6 +169,9 @@ class TestPerClassVsRest(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    
+    def test_Compute_ShouldCalculate_WhenMulticlass1(self):
+        self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
         

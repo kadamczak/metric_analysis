@@ -44,11 +44,12 @@ from helpers import get_binary_labels_for_class
 
 # Is np.nan when all true samples are in one class
 class ROCAUC(Metric[torch.Tensor]):
-    def __init__(self, multiclass, average, device=None) -> None:
+    def __init__(self, multiclass, average, task_type, device=None) -> None:
         super().__init__(device=device)
-        self.is_binary = multiclass == "raise"
         self.multiclass = multiclass
         self.average = average
+        
+        self.task_type = task_type
 
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
@@ -56,7 +57,7 @@ class ROCAUC(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         probabilities = (
-            torch.stack(get_predicted_probabilities(prediction_logits, self.is_binary))
+            torch.stack(get_predicted_probabilities(prediction_logits, self.task_type))
             .clone()
             .detach()
         )

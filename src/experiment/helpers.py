@@ -17,12 +17,13 @@ def get_predicted_classes(predictions, task_type):
         return result
 
 
-def get_predicted_probabilities(predictions, is_binary):
-    return (
-        [torch.sigmoid(pred) for pred in predictions]
-        if is_binary
-        else [F.softmax(pred, dim=0) for pred in predictions]
-    )
+def get_predicted_probabilities(predictions, task_type):
+    if (task_type == TaskType.BINARY):
+        return [torch.sigmoid(pred) for pred in predictions]
+    if (task_type == TaskType.MULTICLASS):
+        return [F.softmax(pred, dim=0) for pred in predictions]
+    if (task_type == TaskType.MULTILABEL):
+        return [torch.sigmoid(pred) for pred in predictions]
 
 
 def get_binary_labels_for_class(labels, class_index):

@@ -6,8 +6,6 @@ class SampleData:
         return metric['macro'], metric['per_class'], metric['micro']
     
     def __init__(self, logits, true_numerical_labels, accuracies, precisions, recalls, f1s, kappa, mcc, mse, logloss, roc):
-         
-         
           self.logits = logits
           self.true_numerical_labels = true_numerical_labels
           
@@ -24,8 +22,13 @@ class SampleData:
           if isinstance(roc, dict):
                self.aunu = roc['aunu']
                self.aunp = roc['aunp']
-               self.au1u = roc['au1u']
-               self.au1p = roc['au1p']
+               
+               if 'au1u' in roc:
+                    self.au1u = roc['au1u']
+                    
+               if 'au1p' in roc:     
+                    self.au1p = roc['au1p']
+                    
                self.per_class_vs_rest = roc['per_class_vs_rest']
           else:
                self.roc = roc
@@ -567,7 +570,9 @@ multilabel_14 = SampleData(logits=logits14,
                             'macro': 0.7758},
                        kappa=np.nan,
                        mcc=np.nan,
-                       mse=0.0867,
-                       logloss=0.3392,
-                       roc=np.nan)
+                       mse=0.2146,
+                       logloss=0.6219,
+                       roc={"aunu": 0.7464,
+                            "aunp": 0.7188,
+                            "per_class_vs_rest": [0.5476, 0.9, 0.7917]})
 
