@@ -3,6 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 from qualitative_metrics.kappas import BinaryCohenKappa, MulticlassCohenKappa
+from task_type import TaskType
 
 from metric_test_base import MetricTestBase
 from sample_data import (
@@ -26,7 +27,7 @@ from sample_data import (
 class TestMulticlassCohenKappa(MetricTestBase):
     def setUp(self):
         self.metric_name = "kappa"
-        self.metric_calculator = MulticlassCohenKappa(num_classes=3)
+        self.metric_calculator = MulticlassCohenKappa(num_classes=3, task_type=TaskType.MULTICLASS)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.metric_calculator, multiclass_unbalanced_1)

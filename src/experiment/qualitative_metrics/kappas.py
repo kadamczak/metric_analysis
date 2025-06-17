@@ -1,5 +1,6 @@
 import torch
 from torcheval.metrics.metric import Metric
+from task_type import TaskType
 from qualitative_metrics.matrix_metric import MatrixMetric
 from sklearn.metrics import cohen_kappa_score
 
@@ -17,14 +18,14 @@ from helpers import get_predicted_classes
 class BinaryCohenKappa(Metric[torch.Tensor]):
     def __init__(self, device=None) -> None:
         super().__init__(device=device)
-        self.is_binary = True
+        self.task_type = TaskType.BINARY
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_classes", torch.tensor([], device=self.device))
 
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.is_binary), device=self.device
+            get_predicted_classes(prediction_logits, self.task_type), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))
@@ -57,8 +58,8 @@ class BinaryCohenKappa(Metric[torch.Tensor]):
  
      
 class MulticlassCohenKappa(MatrixMetric):
-    def __init__(self, num_classes, device=None) -> None:
-        super().__init__(num_classes=num_classes, device=device)
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
 
     @torch.inference_mode()
     def compute(self):
