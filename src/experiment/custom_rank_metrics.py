@@ -6,6 +6,7 @@ import numpy as np
 
 from helpers import get_predicted_probabilities
 from helpers import get_binary_labels_for_class
+from task_type import TaskType
 
 #################################################################################
 ## ROC-AUC score calculation
@@ -43,12 +44,15 @@ from helpers import get_binary_labels_for_class
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 
 # Is np.nan when all true samples are in one class
+import torch
+import numpy as np
+from sklearn.metrics import roc_auc_score
+
 class ROCAUC(Metric[torch.Tensor]):
-    def __init__(self, multiclass, average, task_type, device=None) -> None:
+    def __init__(self, comparison_method, average, task_type, device=None) -> None:
         super().__init__(device=device)
-        self.multiclass = multiclass
+        self.comparison_method = comparison_method
         self.average = average
-        
         self.task_type = task_type
 
         self._add_state("true_classes", torch.tensor([], device=self.device))
@@ -69,28 +73,78 @@ class ROCAUC(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def compute(self):
-        return torch.tensor(roc_auc_score(
-            y_true=self.true_classes.cpu().detach().numpy(),
-            y_score=self.predicted_probabilities.cpu().detach().numpy(),
-            multi_class=self.multiclass,
-            average=self.average,
-        )).to(self.device)
+        y_true = self.true_classes.cpu().numpy()
+        y_score = self.predicted_probabilities.cpu().numpy()
+
+        if self.comparison_method is not None:
+            try:
+                return torch.tensor(
+                    roc_auc_score(
+                        y_true=y_true,
+                        y_score=y_score,
+                        multi_class=self.comparison_method,
+                        average=self.average,
+                    )
+                ).to(self.device)
+            except ValueError:
+                if self.task_type == TaskType.BINARY:
+                    return np.nan
+                
+                # Fall back to safe class-wise computation
+                n_classes = y_score.shape[1]
+                per_class_aucs = []
+                class_weights = []
+
+                for i in range(n_classes):
+                    y_true_bin = (y_true == i).astype(int)
+                    y_score_i = y_score[:, i]
+
+                    n_pos = np.sum(y_true_bin == 1)
+                    n_neg = np.sum(y_true_bin == 0)
+                    class_weights.append(n_pos)
+
+                    if n_pos == 0 or n_neg == 0:
+                        per_class_aucs.append(np.nan)
+                    else:
+                        auc = roc_auc_score(y_true_bin, y_score_i)
+                        per_class_aucs.append(auc)
+
+                per_class_aucs = np.array(per_class_aucs)
+                class_weights = np.array(class_weights)
+
+                if self.average == "macro":
+                    return torch.tensor(np.nanmean(per_class_aucs)).to(self.device)
+                elif self.average == "weighted":
+                    if np.nansum(class_weights) == 0:
+                        return torch.tensor(np.nan).to(self.device)
+                    weighted_auc = np.nansum(per_class_aucs * class_weights) / np.nansum(class_weights)
+                    return torch.tensor(weighted_auc).to(self.device)
+                elif self.average is None:
+                    return torch.tensor(per_class_aucs).to(self.device)
+                else:
+                    raise ValueError(f"Unsupported average: {self.average}")
+        else:
+            try:
+                return torch.tensor(
+                    roc_auc_score(y_true=y_true, y_score=y_score)
+                ).to(self.device)
+            except ValueError:
+                return torch.tensor(np.nan).to(self.device)
 
     @torch.inference_mode()
     def merge_state(self, metrics):
-        true_classes_2 = [
-            self.true_classes,
-        ]
-        predicted_probabilities_2 = [
-            self.predicted_probabilities,
-        ]
+        true_classes_2 = [self.true_classes]
+        predicted_probabilities_2 = [self.predicted_probabilities]
 
         for metric in metrics:
-            true_classes_2.append(metric.true_classes_2)
-            predicted_probabilities_2.append(metric.predictions_2)
-            self.true_classes = torch.cat(true_classes_2)
-            self.predicted_probabilities = torch.cat(predicted_probabilities_2)
+            true_classes_2.append(metric.true_classes)
+            predicted_probabilities_2.append(metric.predicted_probabilities)
+
+        self.true_classes = torch.cat(true_classes_2)
+        self.predicted_probabilities = torch.cat(predicted_probabilities_2)
+
         return self
+
 
 
 #################################################################################

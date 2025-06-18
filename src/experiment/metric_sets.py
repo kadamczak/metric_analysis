@@ -71,11 +71,11 @@ def create_full_multiclass_metrics(num_classes, device):
         
         
         # Rank metrics
-        "AUNu": ROCAUC(device=device, multiclass="ovr", average="macro"),
-        "AUNp": ROCAUC(device=device, multiclass="ovr", average="weighted"),
-        "AU1u": ROCAUC(device=device, multiclass="ovo", average="macro"),
-        "AU1p": ROCAUC(device=device, multiclass="ovo", average="weighted"),
-        "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, multiclass="ovr", average=None),
+        "AUNu": ROCAUC(device=device, comparison_method="ovr", average="macro"),
+        "AUNp": ROCAUC(device=device, comparison_method="ovr", average="weighted"),
+        "AU1u": ROCAUC(device=device, comparison_method="ovo", average="macro"),
+        "AU1p": ROCAUC(device=device, comparison_method="ovo", average="weighted"),
+        "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, comparison_method="ovr", average=None),
         
         drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes),
         drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes),
@@ -127,7 +127,7 @@ def create_full_binary_metrics(device):
         "LogLoss": LogLoss(device=device, num_classes=2),    
         
         # Rank metrics
-        "binary_ROC-AUC": ROCAUC(device=device, multiclass="raise", average="macro"),
+        "binary_ROC-AUC": ROCAUC(device=device, comparison_method="raise", average="macro"),
         drawn_binary_ROC: drawn_binary_ROC_curve(device=device),
               
         # Confusion matrix

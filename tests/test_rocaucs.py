@@ -27,7 +27,7 @@ from sample_data import (
 class TestBinaryROC(MetricTestBase):
     def setUp(self):
         self.metric_name = "roc"
-        self.binary_metric_calculator = ROCAUC(multiclass="raise", average="macro", task_type=TaskType.BINARY)
+        self.binary_metric_calculator = ROCAUC(comparison_method="raise", average="macro", task_type=TaskType.BINARY)
         
     def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
@@ -59,8 +59,8 @@ class TestBinaryROC(MetricTestBase):
 class TestAUNU(MetricTestBase):
     def setUp(self):
         self.metric_name = "aunu"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="macro", task_type=TaskType.MULTICLASS)
-        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average="macro", task_type=TaskType.MULTILABEL)
+        self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average="macro", task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average="macro", task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -84,8 +84,8 @@ class TestAUNU(MetricTestBase):
 class TestAUNP(MetricTestBase):
     def setUp(self):
         self.metric_name = "aunp"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average="weighted", task_type=TaskType.MULTICLASS)
-        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average="weighted", task_type=TaskType.MULTILABEL)
+        self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average="weighted", task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average="weighted", task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -109,7 +109,7 @@ class TestAUNP(MetricTestBase):
 class TestAU1U(MetricTestBase):
     def setUp(self):
         self.metric_name = "au1u"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovo", average="macro", task_type=TaskType.MULTICLASS)
+        self.multiclass_metric_calculator = ROCAUC(comparison_method="ovo", average="macro", task_type=TaskType.MULTICLASS)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -130,7 +130,7 @@ class TestAU1U(MetricTestBase):
 class TestAU1P(MetricTestBase):
     def setUp(self):
         self.metric_name = "au1p"
-        self.multiclass_metric_calculator= ROCAUC(multiclass="ovo", average="weighted", task_type=TaskType.MULTICLASS)
+        self.multiclass_metric_calculator= ROCAUC(comparison_method="ovo", average="weighted", task_type=TaskType.MULTICLASS)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
@@ -152,8 +152,8 @@ class TestAU1P(MetricTestBase):
 class TestPerClassVsRest(MetricTestBase):
     def setUp(self):
         self.metric_name = "per_class_vs_rest"
-        self.multiclass_metric_calculator = ROCAUC(multiclass="ovr", average=None, task_type=TaskType.MULTICLASS)
-        self.multilabel_metric_calculator = ROCAUC(multiclass="ovr", average=None, task_type=TaskType.MULTILABEL)
+        self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average=None, task_type=TaskType.MULTICLASS)
+        self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average=None, task_type=TaskType.MULTILABEL)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
