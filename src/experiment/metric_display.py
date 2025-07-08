@@ -64,7 +64,7 @@ def draw_multi_ROC_curve(ax, roc_curve, class_names):
 
 
 def draw_AUNu_curve(ax, roc_curve):
-    ax.set_title("AU1u (one vs rest, macro average)")
+    ax.set_title("AUNU (one vs rest, macro average)")
     render_roc(ax, roc_curve)
 
 

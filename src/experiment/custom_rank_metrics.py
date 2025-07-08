@@ -188,10 +188,10 @@ drawn_ROC_list = [drawn_binary_ROC, drawn_multi_ROC, drawn_AUNu]
 # predicted: PROBABILITIES (sigmoid for binary, softmax for multiclass)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 class drawn_ROC_curve(Metric[torch.Tensor]):
-    def __init__(self, n_classes, device=None) -> None:
+    def __init__(self, n_classes, task_type, device=None) -> None:
         super().__init__(device=device)
 
-        self.is_binary = n_classes == 2
+        self.task_type = task_type
         self.n_classes = n_classes
         self._add_state("true_classes", torch.tensor([], device=self.device))
         self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
@@ -199,7 +199,7 @@ class drawn_ROC_curve(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         probabilities = (
-            torch.stack(get_predicted_probabilities(prediction_logits, self.is_binary))
+            torch.stack(get_predicted_probabilities(prediction_logits, self.task_type))
             .clone()
             .detach()
         )
@@ -212,7 +212,7 @@ class drawn_ROC_curve(Metric[torch.Tensor]):
     # FPR - x axis, TPR - y axis on the ROC curve
     @torch.inference_mode()
     def calculate_roc_FPR_TPR_pairs(self):
-        if self.is_binary:
+        if self.task_type == TaskType.BINARY:
             fprs, tprs, _ = roc_curve(
                 y_true=self.true_classes.cpu().detach().numpy(),
                 y_score=self.predicted_probabilities.cpu().detach().numpy(),
@@ -255,7 +255,7 @@ class drawn_ROC_curve(Metric[torch.Tensor]):
 
 class drawn_binary_ROC_curve(drawn_ROC_curve):
     def __init__(self, device=None) -> None:
-        super().__init__(n_classes=2, device=device)
+        super().__init__(n_classes=2, device=device, task_type=TaskType.BINARY)
 
     @torch.inference_mode()
     def compute(self):
@@ -264,8 +264,8 @@ class drawn_binary_ROC_curve(drawn_ROC_curve):
 
 # one vs rest, macro average
 class drawn_AUNu_curve(drawn_ROC_curve):
-    def __init__(self, n_classes, device=None) -> None:
-        super().__init__(n_classes=n_classes, device=device)
+    def __init__(self, n_classes, task_type, device=None) -> None:
+        super().__init__(n_classes=n_classes, task_type=task_type, device=device)
 
     @torch.inference_mode()
     def compute(self):
@@ -283,8 +283,8 @@ class drawn_AUNu_curve(drawn_ROC_curve):
 
 # one vs rest, separate AUC for each class
 class drawn_multi_ROC_curve(drawn_ROC_curve):
-    def __init__(self, n_classes, device=None) -> None:
-        super().__init__(n_classes, device)
+    def __init__(self, n_classes, task_type, device=None) -> None:
+        super().__init__(n_classes=n_classes, device=device, task_type=task_type)
 
     @torch.inference_mode()
     def compute(self):

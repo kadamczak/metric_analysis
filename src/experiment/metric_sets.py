@@ -90,8 +90,8 @@ def create_full_multiclass_metrics(num_classes, device):
         "AU1P": ROCAUC(device=device, comparison_method="ovo", average="weighted", task_type=TaskType.MULTICLASS), #
         "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, comparison_method="ovr", average=None, task_type=TaskType.MULTICLASS), #
         
-        drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes), #
-        drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes), #
+        drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTICLASS), #
+        drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTICLASS), #
         
         # Confusion matrix
         "confusion_matrix": MulticlassConfusionMatrix(device=device, num_classes=num_classes), #
@@ -160,6 +160,77 @@ def create_full_binary_metrics(device):
     }
     # TorchEval:
     # "ROC-AUC": BinaryAUROC(device=device)
+
+metrics_for_correlation_analysis = ["macro_accuracy", "micro_accuracy",
+                                    "macro_precision", "micro_precision",
+                                    "macro_recall", "micro_recall",
+                                    "macro_f1", "micro_f1",
+                                    "Kappa",
+                                    "MSE",
+                                    "LogLoss",
+                                    "AUNU", "micro_ROC-AUC",]
+
+
+def create_basic_multilabel_metrics(num_classes, device):
+    return {
+        "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        
+        "macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "MSE": MSE(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        
+        "accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+    }
+
+
+def create_full_multilabel_metrics(num_classes, device):
+    return {
+        # ========================
+        # Qualitative metrics
+        # ========================
+        
+        # Accuracy
+        "macro_accuracy": MacroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        
+        # Precision
+        "macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "micro_precision": MicroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABELS),
+        "precision_per_class": PerClassPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        
+        # Recall
+        "macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "micro_recall": MicroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "recall_per_class": PerClassRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        
+        # F1
+        "macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "micro_f1": MicroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "f1_per_class": PerClassF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL), #
+    
+        
+        # ========================
+        # Probabilistic metrics
+        # ========================
+        "MSE": MSE(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "LogLoss": LogLoss(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        
+        
+        # ========================
+        # Rank metrics
+        # ========================
+        "AUNU": ROCAUC(device=device, comparison_method="ovr", average="macro", task_type=TaskType.MULTILABEL),
+        "micro_ROC-AUC": ROCAUC(device=device, comparison_method="ovr", average="micro", task_type=TaskType.MULTILABEL),
+        
+        "AUNP": ROCAUC(device=device, comparison_method="ovr", average="weighted", task_type=TaskType.MULTILABEL), #
+        "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, comparison_method="ovr", average=None, task_type=TaskType.MULTILABEL), #
+        
+        drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
+    }
+
 
 
 # Note:

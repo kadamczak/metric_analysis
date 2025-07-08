@@ -27,7 +27,7 @@ from sample_data import (
 class TestMulticlassCohenKappa(MetricTestBase):
     def setUp(self):
         self.metric_name = "kappa"
-        self.metric_calculator = MulticlassCohenKappa(num_classes=3, task_type=TaskType.MULTICLASS)
+        self.metric_calculator = MulticlassCohenKappa(num_classes=3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
         self.expected_matches_result(self.metric_calculator, multiclass_unbalanced_1)

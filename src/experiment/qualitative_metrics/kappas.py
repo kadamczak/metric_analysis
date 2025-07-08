@@ -58,8 +58,8 @@ class BinaryCohenKappa(Metric[torch.Tensor]):
  
      
 class MulticlassCohenKappa(MatrixMetric):
-    def __init__(self, num_classes, task_type, device=None) -> None:
-        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
+    def __init__(self, num_classes, device=None) -> None:
+        super().__init__(num_classes=num_classes, device=device, task_type=TaskType.MULTICLASS)
 
     @torch.inference_mode()
     def compute(self):
