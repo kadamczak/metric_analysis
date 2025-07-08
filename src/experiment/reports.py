@@ -25,6 +25,7 @@ def write_results_report_to_new_file(output_dir_path, experiment_info, epochs, r
             "dataset name": experiment_info.dataset_name,
             "classification type": experiment_info.classification_type,
             "test set": experiment_info.test_set,
+            "index": experiment_info.index,
             "epochs": epochs,
             "metrics": create_metric_dictionary(results, experiment_info.class_names),
         }
@@ -37,10 +38,11 @@ def write_results_report_to_new_file(output_dir_path, experiment_info, epochs, r
 
 class experiment_info:
     def __init__(
-        self, model_name, dataset_name, classification_type, test_set, class_names
+        self, model_name, dataset_name, classification_type, test_set, index, class_names
     ):
         self.model_name = model_name
         self.dataset_name = dataset_name
         self.classification_type = classification_type
         self.test_set = test_set
+        self.index = index
         self.class_names = class_names
