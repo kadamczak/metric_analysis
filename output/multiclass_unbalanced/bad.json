@@ -1,0 +1,76 @@
+{
+  "model name": "cnn",
+  "dataset name": "fma_small22222",
+  "classification type": "multiclass",
+  "test set": "test",
+  "index": 1,
+  "epochs": 5,
+  "metrics": {
+    "macro_accuracy": 0.8503124713897705,
+    "micro_accuracy": 0.8503124713897705,
+    "accuracy_per_class": {
+      "Electronic": 0.8787500262260437,
+      "Experimental": 0.8237500190734863,
+      "Folk": 0.8399999737739563,
+      "Hip-Hop": 0.8262500166893005,
+      "Instrumental": 0.856249988079071,
+      "International": 0.8231250047683716,
+      "Pop": 0.8487499952316284,
+      "Rock": 0.9056249856948853
+    },
+    "macro_precision": 0.4243984818458557,
+    "micro_precision": 0.4012500047683716,
+    "precision_per_class": {
+      "Electronic": 0.5214285850524902,
+      "Experimental": 0.3136363625526428,
+      "Folk": 0.38429751992225647,
+      "Hip-Hop": 0.40441176295280457,
+      "Instrumental": 0.39436620473861694,
+      "International": 0.35836178064346313,
+      "Pop": 0.21621622145175934,
+      "Rock": 0.8024691343307495
+    },
+    "macro_recall": 0.4012499749660492,
+    "micro_recall": 0.4012500047683716,
+    "recall_per_class": {
+      "Electronic": 0.36500000953674316,
+      "Experimental": 0.3449999988079071,
+      "Folk": 0.4650000035762787,
+      "Hip-Hop": 0.824999988079071,
+      "Instrumental": 0.2800000011920929,
+      "International": 0.5249999761581421,
+      "Pop": 0.07999999821186066,
+      "Rock": 0.32499998807907104
+    },
+    "macro_f1": 0.3818039298057556,
+    "micro_f1": 0.4012500047683716,
+    "f1_per_class": {
+      "Electronic": 0.42941176891326904,
+      "Experimental": 0.3285714387893677,
+      "Folk": 0.42081448435783386,
+      "Hip-Hop": 0.5427631735801697,
+      "Instrumental": 0.3274853825569153,
+      "International": 0.42596349120140076,
+      "Pop": 0.11678832024335861,
+      "Rock": 0.4626334607601166
+    },
+    "Kappa": 0.3157142996788025,
+    "MSE": 0.09347165375947952,
+    "LogLoss": 1.6848804950714111,
+    "AUNU": 0.7977339285714287,
+    "micro_ROC-AUC": 0.7907915457589285,
+    "AUNP": 0.7977339285714287,
+    "AU1U": 0.7977339285714286,
+    "AU1P": 0.7977339285714286,
+    "ROC-AUC_per_class_vs_rest": {
+      "Electronic": 0.8189321428571428,
+      "Experimental": 0.7532428571428572,
+      "Folk": 0.8053785714285714,
+      "Hip-Hop": 0.9134678571428572,
+      "Instrumental": 0.8172785714285715,
+      "International": 0.812975,
+      "Pop": 0.5669035714285715,
+      "Rock": 0.8936928571428572
+    }
+  }
+}

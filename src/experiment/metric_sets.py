@@ -170,6 +170,8 @@ metrics_for_correlation_analysis = ["macro_accuracy", "micro_accuracy",
                                     "LogLoss",
                                     "AUNU", "micro_ROC-AUC",]
 
+metrics_for_correlation_analysis_with_kappa = metrics_for_correlation_analysis + ["Kappa"]
+
 
 def create_basic_multilabel_metrics(num_classes, device):
     return {
