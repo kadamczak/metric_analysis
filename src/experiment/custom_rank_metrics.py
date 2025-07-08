@@ -119,6 +119,32 @@ class ROCAUC(Metric[torch.Tensor]):
                         return torch.tensor(np.nan).to(self.device)
                     weighted_auc = np.nansum(per_class_aucs * class_weights) / np.nansum(class_weights)
                     return torch.tensor(weighted_auc).to(self.device)
+                elif self.average == "micro":
+                    from sklearn.preprocessing import label_binarize
+
+                    n_classes = y_score.shape[1]
+                    classes = np.arange(n_classes)
+
+                    try:
+                        y_true_bin = label_binarize(y_true, classes=classes)
+                        # If y_true was shape (n_samples,) it becomes (n_samples, n_classes)
+                        # Flatten both arrays
+                        y_true_flat = y_true_bin.ravel()
+                        y_score_flat = y_score.ravel()
+
+                        # If only one class is present in flattened true labels
+                        if np.unique(y_true_flat).size < 2:
+                            return torch.tensor(np.nan).to(self.device)
+
+                        auc = roc_auc_score(y_true_flat, y_score_flat)
+                        return torch.tensor(auc).to(self.device)
+
+                    except Exception as e:
+                        print("Micro ROC-AUC computation failed:", e)
+                        return torch.tensor(np.nan).to(self.device)
+
+
+
                 elif self.average is None:
                     return torch.tensor(per_class_aucs).to(self.device)
                 else:

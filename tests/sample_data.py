@@ -29,9 +29,13 @@ class SampleData:
                if 'au1p' in roc:     
                     self.au1p = roc['au1p']
                     
+               if 'micro' in roc:
+                    self.micro_rocauc = roc['micro']
+                    
                self.per_class_vs_rest = roc['per_class_vs_rest']
           else:
                self.roc = roc
+               self.micro_rocauc = roc
           
   
 ########################################################
@@ -72,7 +76,9 @@ multiclass_unbalanced_1 = SampleData(logits=logits1,
                                           "aunp": 0.4810,
                                           "au1u": 0.4907,    
                                           "au1p": 0.4875,
-                                          "per_class_vs_rest": [0.4167, 0.5714, 0.4762]})
+                                          "per_class_vs_rest": [0.4167, 0.5714, 0.4762],
+                                          "micro": 0.5425},
+                                        )
 
 
 ########################################################
@@ -115,7 +121,8 @@ multiclass_balanced_2 = SampleData(logits=logits2,
                                         "aunp": 0.5938,
                                         "au1u": 0.5938,    
                                         "au1p": 0.5938,
-                                        "per_class_vs_rest": [0.5, 0.6562, 0.6250]})
+                                        "per_class_vs_rest": [0.5, 0.6562, 0.6250],
+                                        "micro": 0.6198})
 
 
 ########################################################
@@ -158,7 +165,8 @@ multiclass_balanced_3 = SampleData(logits=logits3,
                                         "aunp": 0.7083,
                                         "au1u": 0.7083,    
                                         "au1p": 0.7083,
-                                        "per_class_vs_rest": [0.6944, np.nan, 0.7222]})
+                                        "per_class_vs_rest": [0.6944, np.nan, 0.7222],
+                                        "micro": 0.7639})
 
 
 ########################################################
@@ -574,5 +582,6 @@ multilabel_14 = SampleData(logits=logits14,
                        logloss=0.6219,
                        roc={"aunu": 0.7464,
                             "aunp": 0.7188,
-                            "per_class_vs_rest": [0.5476, 0.9, 0.7917]})
+                            "per_class_vs_rest": [0.5476, 0.9, 0.7917],
+                            "micro": 0.7232})
 
