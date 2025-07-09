@@ -1,7 +1,7 @@
 import json
 
-from metric_calc import create_metric_dictionary
-from metric_display import draw_metrics
+from experiment.metric_processing.metric_calc import create_metric_dictionary
+from experiment.metric_processing.metric_display import draw_metrics
 
 # file creation order: 1.json, 2.json, 3.json, ...
 def create_next_report_file_name(output_dir_path):

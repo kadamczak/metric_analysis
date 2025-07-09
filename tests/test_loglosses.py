@@ -2,8 +2,8 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from custom_probabilistic_metrics import LogLoss
-from task_type import TaskType
+from src.experiment.metrics.probabilistic.logloss import LogLoss
+from src.experiment.helpers.task_type import TaskType
 
 from tests.helpers.metric_test_base import MetricTestBase
 from tests.helpers.sample_data import (

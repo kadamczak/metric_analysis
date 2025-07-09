@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from qualitative_metrics.matrix_metric import MatrixMetric
+from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 
 
 class AccuracyMetric(MatrixMetric):

@@ -4,9 +4,9 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import numpy as np
 
-from helpers import get_predicted_probabilities
-from helpers import get_binary_labels_for_class
-from task_type import TaskType
+from src.experiment.helpers.utils import get_predicted_probabilities
+from src.experiment.helpers.utils import get_binary_labels_for_class
+from src.experiment.helpers.task_type import TaskType
 
 #################################################################################
 ## ROC-AUC score calculation

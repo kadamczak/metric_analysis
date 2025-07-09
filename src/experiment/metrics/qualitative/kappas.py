@@ -1,10 +1,10 @@
 import torch
 from torcheval.metrics.metric import Metric
-from task_type import TaskType
-from qualitative_metrics.matrix_metric import MatrixMetric
+from src.experiment.helpers.task_type import TaskType
+from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 from sklearn.metrics import cohen_kappa_score
 
-from helpers import get_predicted_classes
+from src.experiment.helpers.utils import get_predicted_classes
 
 # predicted: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)

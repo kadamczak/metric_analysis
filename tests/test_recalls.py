@@ -2,9 +2,9 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from task_type import TaskType
-from qualitative_metrics.recalls import RecallTorchEval, RecallSklearn
-from qualitative_metrics.recalls import PerClassRecall, MacroRecall, MicroRecall
+from src.experiment.helpers.task_type import TaskType
+from src.experiment.metrics.qualitative.recalls import RecallTorchEval, RecallSklearn
+from src.experiment.metrics.qualitative.recalls import PerClassRecall, MacroRecall, MicroRecall
 
 from tests.helpers.metric_test_base import MetricTestBase
 from tests.helpers.sample_data import (

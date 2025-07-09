@@ -1,10 +1,10 @@
 import sys
 import os
 
-from task_type import TaskType
+from src.experiment.helpers.task_type import TaskType
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from custom_rank_metrics import ROCAUC
+from src.experiment.metrics.rank.rocauc import ROCAUC
 
 from tests.helpers.metric_test_base import MetricTestBase
 from tests.helpers.sample_data import (

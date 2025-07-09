@@ -3,9 +3,9 @@ import os
 import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from task_type import TaskType
-from qualitative_metrics.precisions import PrecisionTorchEval, PrecisionSklearn
-from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
+from src.experiment.helpers.task_type import TaskType
+from src.experiment.metrics.qualitative.precisions import PrecisionTorchEval, PrecisionSklearn
+from src.experiment.metrics.qualitative.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
 from tests.helpers.metric_test_base import MetricTestBase
 from tests.helpers.sample_data import (

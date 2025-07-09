@@ -1,13 +1,12 @@
 import torch
 import numpy as np
-from qualitative_metrics.matrix_metric import MatrixMetric
+from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 from torcheval.metrics.metric import Metric
-from sklearn.metrics import f1_score
+from sklearn.metrics import precision_score
 
-from torcheval.metrics.functional import multiclass_f1_score
+from src.experiment.helpers.utils import get_predicted_classes
+from torcheval.metrics.functional import multiclass_precision
 
-
-from helpers import get_predicted_classes
 
 #===========
 # TorchEval functional
@@ -16,7 +15,7 @@ from helpers import get_predicted_classes
 # y_true - true numerical labels
 # y_pred - predicted numerical labels
 
-class F1TorchEval(Metric[torch.Tensor]):
+class PrecisionTorchEval(Metric[torch.Tensor]):
     def __init__(self, average, num_classes, device=None) -> None:
         super().__init__(device=device)
         self.average = average
@@ -40,7 +39,7 @@ class F1TorchEval(Metric[torch.Tensor]):
         true_classes = self.true_classes.to(torch.int64)
         predicted_classes = self.predicted_classes.to(torch.int64)
         
-        precision = multiclass_f1_score(
+        precision = multiclass_precision(
             predicted_classes,
             true_classes,
             average=self.average,
@@ -72,7 +71,10 @@ class F1TorchEval(Metric[torch.Tensor]):
 # Sklearn
 #===========
 
-class F1Sklearn(Metric[torch.Tensor]):
+# y_true - true numerical labels
+# y_pred - predicted numerical labels
+
+class PrecisionSklearn(Metric[torch.Tensor]):
     def __init__(self, average, num_classes, zero_division, device=None) -> None:
         super().__init__(device=device)
         self.average = average
@@ -93,7 +95,7 @@ class F1Sklearn(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def compute(self):
-        return torch.tensor(f1_score(
+        return torch.tensor(precision_score(
             self.true_classes.cpu().detach().numpy(),
             self.predicted_classes.cpu().detach().numpy(),
             average=self.average,
@@ -118,63 +120,56 @@ class F1Sklearn(Metric[torch.Tensor]):
 
 
 
-
 #===========
 # Custom
 #===========
 
-# if recall N/A (TP + FN = 0) count F1 as np.nan (fault of test set)
-# if precision N/A (TP + FP = 0) F1 equals 0 (fault of model)
-# if both N/A count F1 np.nan (fault of test set)
-
-class F1Metric(MatrixMetric):
+class PrecisionMetric(MatrixMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
-    def calculate_F1(self, TP, FP, FN):   
-        return (2 * TP) / (2 * TP + FP + FN) if (TP + FN > 0) else np.nan
+    def calculate_precision(self, TP, FP):   
+        return TP / (TP + FP) if (TP + FP > 0) else np.nan
 
-
-
-class MacroF1(F1Metric):
+class MacroPrecision(PrecisionMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
-        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()      
-        f1s = [self.calculate_F1(TPs[i], FPs[i], FNs[i]) for i in range(self.num_classes)]
-        calculable_f1s = [f1 for f1 in f1s if f1 is not np.nan]
+        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
         
-        if not calculable_f1s:
+        precisions = [self.calculate_precision(TPs[i], FPs[i]) for i in range(self.num_classes)]      
+        calculable_precisions = [precision for precision in precisions if precision is not np.nan]
+        
+        if not calculable_precisions:
             return np.nan
         
-        return sum(calculable_f1s) / len(calculable_f1s)
+        return sum(calculable_precisions) / len(calculable_precisions)
 
 
 
-class MicroF1(F1Metric):
+class MicroPrecision(PrecisionMetric):
+    def __init__(self, num_classes, task_type, device=None) -> None:
+        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
+        
+    @torch.inference_mode()
+    def compute(self):
+        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()     
+        TP_global = sum(TPs)
+        FP_global = sum(FPs)
+        
+        return self.calculate_precision(TP_global, FP_global)
+
+   
+
+class PerClassPrecision(PrecisionMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()      
-        global_TP = sum(TPs)
-        global_FP = sum(FPs)
-        global_FN = sum(FNs)
-         
-        return self.calculate_F1(global_TP, global_FP, global_FN)
-
-
-
-class PerClassF1(F1Metric):
-    def __init__(self, num_classes, task_type, device=None) -> None:
-        super().__init__(num_classes=num_classes, task_type=task_type, device=device)
-        
-    @torch.inference_mode()
-    def compute(self):
-        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()      
-        f1s = [self.calculate_F1(TPs[i], FPs[i], FNs[i]) for i in range(self.num_classes)]     
-        return torch.tensor(f1s).to(self.device)
+        precisions = [self.calculate_precision(TPs[i], FPs[i]) for i in range(self.num_classes)]     
+        return torch.tensor(precisions).to(self.device)

@@ -1,12 +1,11 @@
 import torch
 import numpy as np
-from qualitative_metrics.matrix_metric import MatrixMetric
+from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 from torcheval.metrics.metric import Metric
-from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
 
-from helpers import get_predicted_classes
-from torcheval.metrics.functional import multiclass_precision
-
+from src.experiment.helpers.utils import get_predicted_classes
+from torcheval.metrics.functional import multiclass_recall
 
 #===========
 # TorchEval functional
@@ -15,7 +14,7 @@ from torcheval.metrics.functional import multiclass_precision
 # y_true - true numerical labels
 # y_pred - predicted numerical labels
 
-class PrecisionTorchEval(Metric[torch.Tensor]):
+class RecallTorchEval(Metric[torch.Tensor]):
     def __init__(self, average, num_classes, device=None) -> None:
         super().__init__(device=device)
         self.average = average
@@ -39,7 +38,7 @@ class PrecisionTorchEval(Metric[torch.Tensor]):
         true_classes = self.true_classes.to(torch.int64)
         predicted_classes = self.predicted_classes.to(torch.int64)
         
-        precision = multiclass_precision(
+        precision = multiclass_recall(
             predicted_classes,
             true_classes,
             average=self.average,
@@ -74,7 +73,7 @@ class PrecisionTorchEval(Metric[torch.Tensor]):
 # y_true - true numerical labels
 # y_pred - predicted numerical labels
 
-class PrecisionSklearn(Metric[torch.Tensor]):
+class RecallSklearn(Metric[torch.Tensor]):
     def __init__(self, average, num_classes, zero_division, device=None) -> None:
         super().__init__(device=device)
         self.average = average
@@ -95,7 +94,7 @@ class PrecisionSklearn(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def compute(self):
-        return torch.tensor(precision_score(
+        return torch.tensor(recall_score(
             self.true_classes.cpu().detach().numpy(),
             self.predicted_classes.cpu().detach().numpy(),
             average=self.average,
@@ -124,15 +123,17 @@ class PrecisionSklearn(Metric[torch.Tensor]):
 # Custom
 #===========
 
-class PrecisionMetric(MatrixMetric):
+class RecallMetric(MatrixMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
-    def calculate_precision(self, TP, FP):   
-        return TP / (TP + FP) if (TP + FP > 0) else np.nan
+    def calculate_recall(self, TP, FN):   
+        return TP / (TP + FN) if (TP + FN > 0) else np.nan
 
-class MacroPrecision(PrecisionMetric):
+
+
+class MacroRecall(RecallMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
@@ -140,36 +141,36 @@ class MacroPrecision(PrecisionMetric):
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()
         
-        precisions = [self.calculate_precision(TPs[i], FPs[i]) for i in range(self.num_classes)]      
-        calculable_precisions = [precision for precision in precisions if precision is not np.nan]
+        recalls = [self.calculate_recall(TPs[i], FNs[i]) for i in range(self.num_classes)]      
+        calculable_recalls = [recall for recall in recalls if recall is not np.nan]
         
-        if not calculable_precisions:
+        if not calculable_recalls:
             return np.nan
         
-        return sum(calculable_precisions) / len(calculable_precisions)
+        return sum(calculable_recalls) / len(calculable_recalls)
 
 
 
-class MicroPrecision(PrecisionMetric):
+class MicroRecall(RecallMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
-        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()     
+        TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()        
         TP_global = sum(TPs)
-        FP_global = sum(FPs)
+        FN_global = sum(FNs)
         
-        return self.calculate_precision(TP_global, FP_global)
+        return self.calculate_recall(TP_global, FN_global)
 
    
 
-class PerClassPrecision(PrecisionMetric):
+class PerClassRecall(RecallMetric):
     def __init__(self, num_classes, task_type, device=None) -> None:
         super().__init__(num_classes=num_classes, task_type=task_type, device=device)
         
     @torch.inference_mode()
     def compute(self):
         TPs, FPs, FNs, TNs = self.calculate_TPs_FPs_FNs_TNs_for_each_class()      
-        precisions = [self.calculate_precision(TPs[i], FPs[i]) for i in range(self.num_classes)]     
-        return torch.tensor(precisions).to(self.device)
+        recalls = [self.calculate_recall(TPs[i], FNs[i]) for i in range(self.num_classes)]     
+        return torch.tensor(recalls).to(self.device)

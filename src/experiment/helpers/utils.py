@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 
-from task_type import TaskType
+from src.experiment.helpers.task_type import TaskType
 
 # BINARY CLASSIFICATION (1 output neuron):
 # logits -> sigmoid -> round -> predicted class indexes

@@ -2,8 +2,8 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from qualitative_metrics.accuracies import MacroAccuracy, MicroAccuracy, PerClassAccuracy
-from task_type import TaskType
+from src.experiment.metrics.qualitative.accuracies import MacroAccuracy, MicroAccuracy, PerClassAccuracy
+from src.experiment.helpers.task_type import TaskType
 
 from tests.helpers.metric_test_base import MetricTestBase
 from tests.helpers.sample_data import (

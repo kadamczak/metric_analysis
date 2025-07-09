@@ -2,8 +2,8 @@ import torch
 from torcheval.metrics.metric import Metric
 from torcheval.metrics import MulticlassConfusionMatrix, BinaryConfusionMatrix
 from sklearn.metrics import multilabel_confusion_matrix
-from helpers import get_predicted_classes
-from task_type import TaskType
+from src.experiment.helpers.utils import get_predicted_classes
+from src.experiment.helpers.task_type import TaskType
 
 # LOGITS
 # NUMERICAL LABELS

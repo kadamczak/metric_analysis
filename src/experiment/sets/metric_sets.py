@@ -14,7 +14,7 @@ from custom_probabilistic_metrics import MSE, LogLoss
 from custom_rank_metrics import ROCAUC, drawn_binary_ROC_curve, drawn_AUNu_curve, drawn_multi_ROC_curve
 from custom_rank_metrics import drawn_binary_ROC, drawn_multi_ROC, drawn_AUNu
 
-from task_type import TaskType
+from experiment.helpers.task_type import TaskType
 from torcheval.metrics import BinaryConfusionMatrix, MulticlassConfusionMatrix
 
 # Macro - equal weight to every class
