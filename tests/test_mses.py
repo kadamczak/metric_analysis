@@ -5,8 +5,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/
 from custom_probabilistic_metrics import MSE
 from task_type import TaskType
 
-from metric_test_base import MetricTestBase
-from sample_data import (
+from tests.helpers.metric_test_base import MetricTestBase
+from tests.helpers.sample_data import (
     multiclass_unbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,

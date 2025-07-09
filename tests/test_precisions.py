@@ -7,8 +7,8 @@ from task_type import TaskType
 from qualitative_metrics.precisions import PrecisionTorchEval, PrecisionSklearn
 from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
-from metric_test_base import MetricTestBase
-from sample_data import (
+from tests.helpers.metric_test_base import MetricTestBase
+from tests.helpers.sample_data import (
     multiclass_unbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,

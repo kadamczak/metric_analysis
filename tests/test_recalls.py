@@ -6,8 +6,8 @@ from task_type import TaskType
 from qualitative_metrics.recalls import RecallTorchEval, RecallSklearn
 from qualitative_metrics.recalls import PerClassRecall, MacroRecall, MicroRecall
 
-from metric_test_base import MetricTestBase
-from sample_data import (
+from tests.helpers.metric_test_base import MetricTestBase
+from tests.helpers.sample_data import (
     multiclass_unbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,

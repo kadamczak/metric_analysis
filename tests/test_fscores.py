@@ -7,8 +7,8 @@ from qualitative_metrics.fscores import F1TorchEval, F1Sklearn
 from qualitative_metrics.fscores import PerClassF1, MacroF1, MicroF1
 from task_type import TaskType
 
-from metric_test_base import MetricTestBase
-from sample_data import (
+from tests.helpers.metric_test_base import MetricTestBase
+from tests.helpers.sample_data import (
     multiclass_unbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,
