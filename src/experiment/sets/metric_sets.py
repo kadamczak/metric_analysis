@@ -176,14 +176,14 @@ metrics_for_correlation_analysis_with_kappa = metrics_for_correlation_analysis +
 
 def create_basic_multilabel_metrics(num_classes, device):
     return {
-        #"micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         
-        #"macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
-        #"macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
-        #"macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         "MSE": MSE(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         
-        #"accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        "accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
     }
 
 
@@ -200,7 +200,7 @@ def create_full_multilabel_metrics(num_classes, device):
         
         # Precision
         "macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
-        "micro_precision": MicroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABELS),
+        "micro_precision": MicroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         "precision_per_class": PerClassPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL), #
         
         # Recall
@@ -230,8 +230,8 @@ def create_full_multilabel_metrics(num_classes, device):
         "AUNP": ROCAUC(device=device, comparison_method="ovr", average="weighted", task_type=TaskType.MULTILABEL), #
         "ROC-AUC_per_class_vs_rest": ROCAUC(device=device, comparison_method="ovr", average=None, task_type=TaskType.MULTILABEL), #
         
-        drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
-        drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        #drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
+        #drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTILABEL), #
     }
 
 

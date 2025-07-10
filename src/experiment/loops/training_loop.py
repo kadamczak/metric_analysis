@@ -3,7 +3,7 @@ import torch.optim as optim
 
 
 from src.experiment.loops import test_loop
-from src.experiment.metric_processing.metric_calc import reset_metrics, update_metrics, compute_metrics, create_metric_dictionary
+from src.experiment.metric_processing.metric_calc import reset_metrics, update_metrics_using_logits, compute_metrics, create_metric_dictionary
 from src.experiment.metric_processing.metric_display import print_metric_dictionary
 
 
@@ -32,7 +32,7 @@ def training_loop(model, epochs, basic_metrics, class_names, train_dl, val_dl = 
                 labels = labels.float()
                      
             loss = loss_function(outputs, labels) # calculate loss (logits, numerical labels)
-            update_metrics(basic_metrics, outputs, labels)
+            update_metrics_using_logits(basic_metrics, outputs, labels)
             
             loss.backward()                 # backward pass
             optimizer.step()                # optimize weights

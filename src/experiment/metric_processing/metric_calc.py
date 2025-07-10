@@ -8,9 +8,15 @@ def reset_metrics(metrics):
 
 
 # numerical labels: 0, 1, 2, 3, ...
-def update_metrics(metrics, logits, numerical_labels):
+def update_metrics_using_logits(metrics, logits, numerical_labels):
     numerical_labels = numerical_labels.to(torch.int64)
     [metric.update(logits, numerical_labels) for metric in metrics.values()]
+    
+def update_metrics_using_probabilities(metrics, probabilities, labels):
+    probas_tensor = torch.tensor(probabilities, dtype=torch.float32)
+    labels_tensor = torch.tensor(labels, dtype=torch.float32)
+    [metric.update(probas_tensor, labels_tensor) for metric in metrics.values()]
+    
 
 
 def compute_metrics(metrics):
