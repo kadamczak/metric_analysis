@@ -3,7 +3,7 @@ import numpy as np
 
 class MetricTestBase(unittest.TestCase):
     def get_data(self, sample):
-        return (sample.logits,
+        return (sample.probs,
                 sample.true_numerical_labels,
                 getattr(sample, self.metric_name))
         
@@ -23,6 +23,6 @@ class MetricTestBase(unittest.TestCase):
         return round(value, 4)
     
     def expected_matches_result(self, metric_calculator, sample):
-        logits, true_labels, expected = self.get_data(sample)       
-        result = self.calculate_result(metric_calculator, logits, true_labels)   
+        probs, true_labels, expected = self.get_data(sample)       
+        result = self.calculate_result(metric_calculator, probs, true_labels)   
         assert np.allclose(expected, result, equal_nan=True)

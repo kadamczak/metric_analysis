@@ -18,19 +18,13 @@ class MSE(Metric[torch.Tensor]):
         self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
 
     @torch.inference_mode()
-    def update(self, prediction_logits, labels):
+    def update(self, probabilities, labels):
         true = (
             labels.float()
             if self.task_type == TaskType.BINARY or self.task_type == TaskType.MULTILABEL
             else F.one_hot(labels, num_classes=self.n_classes).float()
         )
-        
-        probabilities = (
-            torch.stack(get_predicted_probabilities(prediction_logits, self.task_type))
-            .clone()
-            .detach()
-        )
-
+    
         self.true_classes = torch.cat((self.true_classes, true))
         self.predicted_probabilities = torch.cat((self.predicted_probabilities, probabilities))
         return self

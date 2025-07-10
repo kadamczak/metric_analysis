@@ -4,7 +4,7 @@ from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 from torcheval.metrics.metric import Metric
 from sklearn.metrics import recall_score
 
-from src.experiment.helpers.utils import get_predicted_classes
+from src.experiment.helpers.utils import get_predicted_classes_from_logits
 from torcheval.metrics.functional import multiclass_recall
 
 #===========
@@ -26,7 +26,7 @@ class RecallTorchEval(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.is_binary), device=self.device
+            get_predicted_classes_from_logits(prediction_logits, self.is_binary), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))
@@ -85,7 +85,7 @@ class RecallSklearn(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.is_binary), device=self.device
+            get_predicted_classes_from_logits(prediction_logits, self.is_binary), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))

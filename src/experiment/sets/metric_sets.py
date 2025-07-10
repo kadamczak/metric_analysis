@@ -176,14 +176,14 @@ metrics_for_correlation_analysis_with_kappa = metrics_for_correlation_analysis +
 
 def create_basic_multilabel_metrics(num_classes, device):
     return {
-        "micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        #"micro_accuracy": MicroAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         
-        "macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
-        "macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
-        "macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        #"macro_precision": MacroPrecision(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        #"macro_recall": MacroRecall(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        #"macro_f1": MacroF1(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         "MSE": MSE(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
         
-        "accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
+        #"accuracy_per_class": PerClassAccuracy(device=device, num_classes=num_classes, task_type=TaskType.MULTILABEL),
     }
 
 

@@ -7,7 +7,7 @@ from src.experiment.helpers.task_type import TaskType
 # logits -> sigmoid -> round -> predicted class indexes
 # MULTI-CLASS CLASSIFICATION (N output neurons):
 # logits -> argmax -> predicted classes indexes (softmax is optional but not necessary)
-def get_predicted_classes(predictions, task_type):    
+def get_predicted_classes_from_logits(predictions, task_type):    
     if (task_type == TaskType.BINARY):
         return [torch.round(torch.sigmoid(pred)) for pred in predictions]
     if (task_type == TaskType.MULTICLASS):
@@ -16,6 +16,14 @@ def get_predicted_classes(predictions, task_type):
         result = (predictions > 0).int()
         return result
 
+def get_predicted_classes_from_probabilities(predictions, task_type):
+    if (task_type == TaskType.BINARY):
+        return [torch.round(pred) for pred in predictions]
+    if (task_type == TaskType.MULTICLASS):
+        return [torch.argmax(pred) for pred in predictions]
+    if (task_type == TaskType.MULTILABEL):
+        result = (predictions > 0.5).int()
+        return result
 
 def get_predicted_probabilities(predictions, task_type):
     if (task_type == TaskType.BINARY):

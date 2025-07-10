@@ -6,7 +6,7 @@ from sklearn.metrics import f1_score
 
 from torcheval.metrics.functional import multiclass_f1_score
 
-from src.experiment.helpers.utils import get_predicted_classes
+from src.experiment.helpers.utils import get_predicted_classes_from_logits
 
 #===========
 # TorchEval functional
@@ -27,7 +27,7 @@ class F1TorchEval(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.is_binary), device=self.device
+            get_predicted_classes_from_logits(prediction_logits, self.is_binary), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))
@@ -83,7 +83,7 @@ class F1Sklearn(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, prediction_logits, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.is_binary), device=self.device
+            get_predicted_classes_from_logits(prediction_logits, self.is_binary), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))

@@ -6,6 +6,7 @@ from src.experiment.metrics.probabilistic.mse import MSE
 from src.experiment.helpers.task_type import TaskType
 
 from helpers.metric_test_base import MetricTestBase
+import numpy as np
 from helpers.sample_data import (
     multiclass_unbalanced_1,
     multiclass_balanced_2,

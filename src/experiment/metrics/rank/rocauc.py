@@ -59,12 +59,7 @@ class ROCAUC(Metric[torch.Tensor]):
         self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
 
     @torch.inference_mode()
-    def update(self, prediction_logits, labels):
-        probabilities = (
-            torch.stack(get_predicted_probabilities(prediction_logits, self.task_type))
-            .clone()
-            .detach()
-        )
+    def update(self, probabilities, labels):
         self.true_classes = torch.cat((self.true_classes, labels))
         self.predicted_probabilities = torch.cat(
             (self.predicted_probabilities, probabilities)

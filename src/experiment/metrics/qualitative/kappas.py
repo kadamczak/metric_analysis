@@ -4,7 +4,7 @@ from src.experiment.helpers.task_type import TaskType
 from src.experiment.metrics.qualitative.matrix_metric import MatrixMetric
 from sklearn.metrics import cohen_kappa_score
 
-from src.experiment.helpers.utils import get_predicted_classes
+from src.experiment.helpers.utils import get_predicted_classes_from_probabilities
 
 # predicted: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
 # true: NUMERICAL CLASS LABELS (0, 1, 2, 3...)
@@ -23,9 +23,9 @@ class BinaryCohenKappa(Metric[torch.Tensor]):
         self._add_state("predicted_classes", torch.tensor([], device=self.device))
 
     @torch.inference_mode()
-    def update(self, prediction_logits, labels):
+    def update(self, predicted_probabilities, labels):
         predicted = torch.tensor(
-            get_predicted_classes(prediction_logits, self.task_type), device=self.device
+            get_predicted_classes_from_probabilities(predicted_probabilities, self.task_type), device=self.device
         )
 
         self.true_classes = torch.cat((self.true_classes, labels))

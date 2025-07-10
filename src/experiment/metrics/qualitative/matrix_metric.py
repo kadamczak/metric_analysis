@@ -2,7 +2,7 @@ import torch
 from torcheval.metrics.metric import Metric
 from torcheval.metrics import MulticlassConfusionMatrix, BinaryConfusionMatrix
 from sklearn.metrics import multilabel_confusion_matrix
-from src.experiment.helpers.utils import get_predicted_classes
+from src.experiment.helpers.utils import get_predicted_classes_from_probabilities
 from src.experiment.helpers.task_type import TaskType
 
 # LOGITS
@@ -16,12 +16,12 @@ class MatrixMetric(Metric[torch.Tensor]):
         self.task_type = task_type
         
         self._add_state("true_classes", torch.tensor([], device=self.device))
-        self._add_state("predicted_logits", torch.tensor([], device=self.device))
+        self._add_state("predicted_probabilities", torch.tensor([], device=self.device))
 
     @torch.inference_mode()
     def update(self, logits, numerical_labels):
         self.true_classes = torch.cat((self.true_classes, numerical_labels))
-        self.predicted_logits = torch.cat((self.predicted_logits, logits))
+        self.predicted_probabilities = torch.cat((self.predicted_probabilities, logits))
         return self
 
     @torch.inference_mode()
@@ -29,8 +29,8 @@ class MatrixMetric(Metric[torch.Tensor]):
         numerical_labels_int = self.true_classes.to(torch.int64)
         
         if (self.task_type == TaskType.MULTILABEL):
-            predicted_classes = get_predicted_classes(
-                self.predicted_logits, self.task_type
+            predicted_classes = get_predicted_classes_from_probabilities(
+                self.predicted_probabilities, self.task_type
             )
             
             matrix_results = multilabel_confusion_matrix(
@@ -39,8 +39,8 @@ class MatrixMetric(Metric[torch.Tensor]):
             )
             
         else:
-            matrix_metric = MulticlassConfusionMatrix(self.num_classes) if not self.is_binary else BinaryConfusionMatrix(threshold=0)
-            matrix_metric.update(input=self.predicted_logits, target=numerical_labels_int)
+            matrix_metric = MulticlassConfusionMatrix(self.num_classes) if not self.is_binary else BinaryConfusionMatrix(threshold=0.5)
+            matrix_metric.update(input=self.predicted_probabilities, target=numerical_labels_int)
             matrix_results = matrix_metric.compute()
         
         return matrix_results
