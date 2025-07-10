@@ -1,12 +1,25 @@
 from pathlib import Path
 
-report_output_root_dir = Path('../../output')
+# =================
+# Datasets
+# =================
 
-report_output_dirs = { 'binary_balanced': report_output_root_dir / 'binary_balanced',
-                       'binary_unbalanced': report_output_root_dir / 'binary_unbalanced',
-                       
-                       'multiclass_balanced': report_output_root_dir / 'multiclass_balanced',          
-                       'multiclass_unbalanced': report_output_root_dir / 'multiclass_unbalanced',
-                       
-                       'multilabel_balanced': report_output_root_dir / 'multilabel_balanced',
-                       'multilabel_unbalanced': report_output_root_dir / 'multilabel_unbalanced'}
+dataset_root_dir = Path('c:\VisualStudioRepositories\MUSIC_DATA\datasets')
+
+dataset_scene_dir = dataset_root_dir / 'multilabel' / 'scene'
+dataset_scene_trimmed_dir = dataset_root_dir / 'multilabel' / 'scene_trimmed'
+
+
+# =================
+# Output
+# =================
+report_output_root_dir = Path('C:\VisualStudioRepositories\MUSIC_DATA\metric_analysis\output')
+
+report_output_dirs = {
+    name: report_output_root_dir / name
+    for name in [
+        'binary_balanced', 'binary_unbalanced',
+        'multiclass_balanced', 'multiclass_unbalanced',
+        'multilabel_balanced', 'multilabel_unbalanced'
+    ]
+}

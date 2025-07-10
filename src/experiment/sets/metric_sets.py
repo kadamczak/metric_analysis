@@ -3,18 +3,19 @@ import os
 
 #sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 
-from qualitative_metrics.accuracies import MacroAccuracy, MicroAccuracy, PerClassAccuracy
-from qualitative_metrics.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
-from qualitative_metrics.recalls import MacroRecall, MicroRecall, PerClassRecall
-from qualitative_metrics.fscores import MacroF1, MicroF1, PerClassF1
-from qualitative_metrics.kappas import BinaryCohenKappa, MulticlassCohenKappa
+from src.experiment.metrics.qualitative.accuracies import MacroAccuracy, MicroAccuracy, PerClassAccuracy
+from src.experiment.metrics.qualitative.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
+from src.experiment.metrics.qualitative.recalls import MacroRecall, MicroRecall, PerClassRecall
+from src.experiment.metrics.qualitative.fscores import MacroF1, MicroF1, PerClassF1
+from src.experiment.metrics.qualitative.kappas import BinaryCohenKappa, MulticlassCohenKappa
 
-from custom_probabilistic_metrics import MSE, LogLoss
+from src.experiment.metrics.probabilistic.mse import MSE
+from src.experiment.metrics.probabilistic.logloss import LogLoss
 
-from custom_rank_metrics import ROCAUC, drawn_binary_ROC_curve, drawn_AUNu_curve, drawn_multi_ROC_curve
-from custom_rank_metrics import drawn_binary_ROC, drawn_multi_ROC, drawn_AUNu
+from src.experiment.metrics.rank.rocauc import ROCAUC, drawn_binary_ROC_curve, drawn_AUNu_curve, drawn_multi_ROC_curve
+from src.experiment.metrics.rank.rocauc import drawn_binary_ROC, drawn_multi_ROC, drawn_AUNu
 
-from experiment.helpers.task_type import TaskType
+from src.experiment.helpers.task_type import TaskType
 from torcheval.metrics import BinaryConfusionMatrix, MulticlassConfusionMatrix
 
 # Macro - equal weight to every class
