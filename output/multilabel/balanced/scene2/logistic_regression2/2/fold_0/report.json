@@ -1,0 +1,105 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "scene2",
+    "class names": [
+        "Beach",
+        "Sunset",
+        "FallFoliage",
+        "Field",
+        "Mountain",
+        "Urban"
+    ],
+    "model name": "logistic_regression2",
+    "index": 2,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": [
+            333,
+            291,
+            315,
+            335,
+            327,
+            345
+        ],
+        "test distribution": [
+            84,
+            73,
+            78,
+            84,
+            82,
+            86
+        ],
+        "train distribution pct": [
+            18.226600985221676,
+            15.92775041050903,
+            17.24137931034483,
+            18.33607006020799,
+            17.898193760262725,
+            18.88341543513957
+        ],
+        "test distribution pct": [
+            18.421052631578945,
+            16.00877192982456,
+            17.105263157894736,
+            18.421052631578945,
+            17.982456140350877,
+            18.859649122807017
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.9037008957403195,
+        "micro_accuracy": 0.9037008957403195,
+        "accuracy_per_class": {
+            "Beach": 0.8940274618818971,
+            "Sunset": 0.9588071771544099,
+            "FallFoliage": 0.9118861090051386,
+            "Field": 0.9400219021143964,
+            "Mountain": 0.8492123662707438,
+            "Urban": 0.8682503580153315
+        },
+        "macro_precision": 0.7742080335344731,
+        "micro_precision": 0.7808046534173534,
+        "precision_per_class": {
+            "Beach": 0.7526344980587909,
+            "Sunset": 0.9285714285714286,
+            "FallFoliage": 0.7798989331836047,
+            "Field": 0.8629391390400791,
+            "Mountain": 0.6256524981357197,
+            "Urban": 0.6955517042172155
+        },
+        "macro_recall": 0.6401804267531807,
+        "micro_recall": 0.6365791969649067,
+        "recall_per_class": {
+            "Beach": 0.6256339326878746,
+            "Sunset": 0.803486529318542,
+            "FallFoliage": 0.6798825256975036,
+            "Field": 0.8003671408903167,
+            "Mountain": 0.3944522802068641,
+            "Urban": 0.537260151717983
+        },
+        "macro_f1": 0.698638666060289,
+        "micro_f1": 0.7013541167762442,
+        "f1_per_class": {
+            "Beach": 0.6832829808660624,
+            "Sunset": 0.8615123194562447,
+            "FallFoliage": 0.7264644351464435,
+            "Field": 0.8304761904761905,
+            "Mountain": 0.48385236447520186,
+            "Urban": 0.6062437059415912
+        },
+        "MSE": 0.07030688226222992,
+        "LogLoss": 0.23403771221637726,
+        "AUNU": 0.9262447953224182,
+        "micro_ROC-AUC": 0.9347694516181946,
+        "AUNP": 0.9249658584594727,
+        "ROC-AUC_per_class_vs_rest": {
+            "Beach": 0.9271954307520401,
+            "Sunset": 0.982288292563767,
+            "FallFoliage": 0.9456923399654676,
+            "Field": 0.9671547262855187,
+            "Mountain": 0.8404796306846912,
+            "Urban": 0.8946585233283428
+        }
+    }
+}

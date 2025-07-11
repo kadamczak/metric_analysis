@@ -21,19 +21,23 @@ def write_results_report_to_new_file(output_dir_path, experiment_info, fold_info
     full_dict = dict()
     full_dict.update(
         {
-            "model name": experiment_info.model_name,
-            "dataset name": experiment_info.dataset_name,
-            "classification type": experiment_info.classification_type.name,
+            "classification type": experiment_info.classification_type,
             "class balance": experiment_info.class_balance,
+            
+            "dataset name": experiment_info.dataset_name,
+            "class names": experiment_info.class_names,
+            
+            "model name": experiment_info.model_name,
+            
             "index": experiment_info.index,
             "cv fold": experiment_info.cv_fold,
-            "class names": experiment_info.class_names,
             "fold info": {
                 "train distribution": fold_info.train_distribution,
                 "test distribution": fold_info.test_distribution,
                 "train distribution pct": fold_info.train_distribution_pct,
                 "test distribution pct": fold_info.test_distribution_pct,
             },
+            
             "metrics": create_metric_dictionary(results, experiment_info.class_names),
         }
     )
