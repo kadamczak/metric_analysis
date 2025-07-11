@@ -1,7 +1,7 @@
 import json
 
-from experiment.metric_processing.metric_calc import create_metric_dictionary
-from experiment.metric_processing.metric_display import draw_metrics
+from src.experiment.metric_processing.metric_calc import create_metric_dictionary
+from src.experiment.metric_processing.metric_display import draw_metrics
 
 # file creation order: 1.json, 2.json, 3.json, ...
 def create_next_report_file_name(output_dir_path):
@@ -14,7 +14,7 @@ def create_next_report_file_name(output_dir_path):
     return f"{next_number}.json"
 
 
-def write_results_report_to_new_file(output_dir_path, experiment_info, epochs, results):
+def write_results_report_to_new_file(output_dir_path, experiment_info, fold_info, results):
     output_file = output_dir_path / create_next_report_file_name(output_dir_path)
     output_dir_path.mkdir(parents=True, exist_ok=True)
 
@@ -23,11 +23,17 @@ def write_results_report_to_new_file(output_dir_path, experiment_info, epochs, r
         {
             "model name": experiment_info.model_name,
             "dataset name": experiment_info.dataset_name,
-            "classification type": experiment_info.classification_type,
-            "test set": experiment_info.test_set,
+            "classification type": experiment_info.classification_type.name,
+            "class balance": experiment_info.class_balance,
             "index": experiment_info.index,
             "cv fold": experiment_info.cv_fold,
-            "epochs": epochs,
+            "class names": experiment_info.class_names,
+            "fold info": {
+                "train distribution": fold_info.train_distribution,
+                "test distribution": fold_info.test_distribution,
+                "train distribution pct": fold_info.train_distribution_pct,
+                "test distribution pct": fold_info.test_distribution_pct,
+            },
             "metrics": create_metric_dictionary(results, experiment_info.class_names),
         }
     )
@@ -39,12 +45,22 @@ def write_results_report_to_new_file(output_dir_path, experiment_info, epochs, r
 
 class experiment_info:
     def __init__(
-        self, model_name, dataset_name, classification_type, test_set, index, cv_fold, class_names
+        self, model_name, dataset_name, classification_type, class_balance, index, cv_fold, class_names
     ):
         self.model_name = model_name
         self.dataset_name = dataset_name
         self.classification_type = classification_type
-        self.test_set = test_set
+        self.class_balance = class_balance
         self.index = index
         self.cv_fold = cv_fold
         self.class_names = class_names
+
+
+class fold_info:
+    def __init__(
+        self, train_distribution, test_distribution, train_distribution_pct, test_distribution_pct
+    ):
+        self.train_distribution = train_distribution
+        self.test_distribution = test_distribution
+        self.train_distribution_pct = train_distribution_pct
+        self.test_distribution_pct = test_distribution_pct
