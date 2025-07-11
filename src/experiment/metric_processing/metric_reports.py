@@ -4,18 +4,18 @@ from src.experiment.metric_processing.metric_calc import create_metric_dictionar
 from src.experiment.metric_processing.metric_display import draw_metrics
 
 # file creation order: 1.json, 2.json, 3.json, ...
-def create_next_report_file_name(output_dir_path):
-    existing_files = list(output_dir_path.glob("*.json"))
-    if existing_files:
-        existing_numbers = [int(f.stem) for f in existing_files if f.stem.isdigit()]
-        next_number = max(existing_numbers) + 1
-    else:
-        next_number = 1
-    return f"{next_number}.json"
+# def create_next_report_file_name(output_dir_path):
+#     existing_files = list(output_dir_path.glob("*.json"))
+#     if existing_files:
+#         existing_numbers = [int(f.stem) for f in existing_files if f.stem.isdigit()]
+#         next_number = max(existing_numbers) + 1
+#     else:
+#         next_number = 1
+#     return f"{next_number}.json"
 
 
 def write_results_report_to_new_file(output_dir_path, experiment_info, fold_info, results):
-    output_file = output_dir_path / create_next_report_file_name(output_dir_path)
+    output_file = output_dir_path / "report.json"
     output_dir_path.mkdir(parents=True, exist_ok=True)
 
     full_dict = dict()
