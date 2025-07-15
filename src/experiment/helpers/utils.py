@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+import pandas as pd
 
 from src.experiment.helpers.task_type import TaskType
 
@@ -36,3 +37,14 @@ def get_predicted_probabilities(predictions, task_type):
 
 def get_binary_labels_for_class(labels, class_index):
     return [1 if label == class_index else 0 for label in labels]
+
+
+def get_sorted_class_percentages(y):
+    y_numeric = y.apply(pd.to_numeric)
+    class_percentages = y_numeric.sum() / len(y_numeric) * 100
+    class_percentages_sorted = class_percentages.sort_values(ascending=False)
+    return class_percentages_sorted
+
+def get_cardinality(y):
+    cardinality = y.apply(pd.to_numeric).sum(axis=1).mean()
+    return cardinality
