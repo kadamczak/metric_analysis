@@ -166,7 +166,6 @@ metrics_for_correlation_analysis = ["macro_accuracy", "micro_accuracy",
                                     "macro_precision", "micro_precision",
                                     "macro_recall", "micro_recall",
                                     "macro_f1", "micro_f1",
-                                    "Kappa",
                                     "MSE",
                                     "LogLoss",
                                     "AUNU", "micro_ROC-AUC",]
