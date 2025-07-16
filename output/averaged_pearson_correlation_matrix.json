@@ -1,18 +1,8 @@
 {
-  "classification_types": [
-    "binary",
-    "multiclass",
-    "multilabel"
-  ],
-  "class_balances": [
-    "balanced",
-    "unbalanced"
-  ],
+  "classification_types": ["binary", "multiclass", "multilabel"],
+  "class_balances": ["balanced", "imbalanced"],
   "correlation_type": "pearson",
-  "datasets": [
-    "bibtex_trimmed",
-    "emotions_trimmed"
-  ],
+  "datasets": ["bibtex_trimmed", "emotions_trimmed"],
   "matrix": {
     "macro_accuracy": {
       "macro_accuracy": 1.0,

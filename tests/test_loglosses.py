@@ -7,12 +7,12 @@ from src.experiment.helpers.task_type import TaskType
 
 from helpers.metric_test_base import MetricTestBase
 from helpers.sample_data import (
-    multiclass_unbalanced_1,
+    multiclass_imbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,
     multiclass_balanced_4,
     multiclass_balanced_5,
-    binary_unbalanced_6,
+    binary_imbalanced_6,
     binary_balanced_7,
     binary_8,
     binary_9,
@@ -32,8 +32,8 @@ class TestLogLoss(MetricTestBase):
         self.binary_metric_calculator = LogLoss(num_classes=2, task_type=TaskType.BINARY)
         self.multilabel_metric_calculator = LogLoss(num_classes=3, task_type=TaskType.MULTILABEL)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_unbalanced_1)
+    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
           
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
@@ -47,8 +47,8 @@ class TestLogLoss(MetricTestBase):
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
         
-    def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
-        self.expected_matches_result(self.binary_metric_calculator, binary_unbalanced_6)
+    def test_Compute_ShouldCalculate_WhenBinaryimbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_imbalanced_6)
 
     def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)

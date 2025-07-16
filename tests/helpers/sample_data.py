@@ -39,7 +39,7 @@ class SampleData:
           
   
 ########################################################
-## 1 MULTICLASS, UNBALANCED
+## 1 MULTICLASS, imbalanced
 ########################################################
 logits1 = torch.tensor([[ 3.0,  2.0,  1.0],      #0
                         [ 2.0,  1.0,  1.0],      #1
@@ -56,7 +56,7 @@ logits1 = torch.tensor([[ 3.0,  2.0,  1.0],      #0
 probs1 = torch.softmax(logits1, dim=1)
 labels1 = torch.tensor([0, 1, 0, 0, 2, 1, 2, 0, 2, 1])
 
-multiclass_unbalanced_1 = SampleData(probs=probs1,
+multiclass_imbalanced_1 = SampleData(probs=probs1,
                                      true_numerical_labels=labels1,
                                      accuracies={'micro': 0.6,
                                                  'per_class': [0.4, 0.8, 0.6],
@@ -262,7 +262,7 @@ multiclass_balanced_5 = SampleData(probs=probs5,
 
 
 ########################################################
-## 6 BINARY, UNBALANCED
+## 6 BINARY, imbalanced
 ########################################################
 logits6 = torch.tensor([-3.0,     #0
                         -2.4,     #1
@@ -275,7 +275,7 @@ logits6 = torch.tensor([-3.0,     #0
 probs6 = torch.sigmoid(logits6)
 labels6 = torch.tensor([0, 0, 0, 0, 1, 1, 1])
 
-binary_unbalanced_6 = SampleData(probs=probs6,
+binary_imbalanced_6 = SampleData(probs=probs6,
                                  true_numerical_labels=labels6,
                                  accuracies={'micro': 0.7143,
                                              'per_class': [0.7143, 0.7143],

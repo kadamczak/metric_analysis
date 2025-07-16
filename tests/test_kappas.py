@@ -7,12 +7,12 @@ from src.experiment.helpers.task_type import TaskType
 
 from helpers.metric_test_base import MetricTestBase
 from helpers.sample_data import (
-    multiclass_unbalanced_1,
+    multiclass_imbalanced_1,
     multiclass_balanced_2,
     multiclass_balanced_3,
     multiclass_balanced_4,
     multiclass_balanced_5,
-    binary_unbalanced_6,
+    binary_imbalanced_6,
     binary_balanced_7,
     binary_8,
     binary_9,
@@ -29,8 +29,8 @@ class TestMulticlassCohenKappa(MetricTestBase):
         self.metric_name = "kappa"
         self.metric_calculator = MulticlassCohenKappa(num_classes=3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassUnbalanced(self):
-        self.expected_matches_result(self.metric_calculator, multiclass_unbalanced_1)
+    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
+        self.expected_matches_result(self.metric_calculator, multiclass_imbalanced_1)
           
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.metric_calculator, multiclass_balanced_2)
@@ -51,8 +51,8 @@ class TestBinaryCohenKappa(MetricTestBase):
         self.metric_name = "kappa"
         self.metric_calculator = BinaryCohenKappa()
         
-    def test_Compute_ShouldCalculate_WhenBinaryUnbalanced(self):
-        self.expected_matches_result(self.metric_calculator, binary_unbalanced_6)
+    def test_Compute_ShouldCalculate_WhenBinaryimbalanced(self):
+        self.expected_matches_result(self.metric_calculator, binary_imbalanced_6)
 
     def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.metric_calculator, binary_balanced_7)
