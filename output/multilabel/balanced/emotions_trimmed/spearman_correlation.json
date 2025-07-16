@@ -2,7 +2,7 @@
   "dataset_name": "emotions_trimmed",
   "classification_type": "multilabel",
   "class_balance": "balanced",
-  "correlation_type": "rank",
+  "correlation_type": "spearman",
   "correlation_matrix": {
     "macro_accuracy": {
       "macro_accuracy": 1.0,
