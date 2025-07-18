@@ -3,103 +3,103 @@
     "class balance": "balanced",
     "dataset name": "emotions_trimmed",
     "class names": [
+        "angry-aggresive",
+        "relaxing-calm",
         "amazed-suprised",
         "happy-pleased",
-        "relaxing-calm",
         "quiet-still",
-        "sad-lonely",
-        "angry-aggresive"
+        "sad-lonely"
     ],
     "model name": "logistic_regression",
     "index": 1,
     "cv fold": 3,
     "fold info": {
         "train distribution": [
+            143,
+            142,
             133,
             118,
-            141,
             119,
-            117,
-            143
+            117
         ],
         "test distribution": [
+            36,
+            35,
             33,
             30,
-            36,
             29,
-            29,
-            36
+            29
         ],
         "train distribution pct": [
-            33.16708229426434,
-            29.42643391521197,
-            35.16209476309227,
-            29.67581047381546,
-            29.177057356608476,
-            35.66084788029925
+            35.57213930348259,
+            35.32338308457712,
+            33.08457711442786,
+            29.35323383084577,
+            29.601990049751244,
+            29.1044776119403
         ],
         "test distribution pct": [
-            33.33333333333333,
-            30.303030303030305,
-            36.36363636363637,
-            29.292929292929294,
-            29.292929292929294,
-            36.36363636363637
+            36.734693877551024,
+            35.714285714285715,
+            33.6734693877551,
+            30.612244897959183,
+            29.591836734693878,
+            29.591836734693878
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7800074321813452,
-        "micro_accuracy": 0.7800074321813453,
+        "macro_accuracy": 0.7835738068812429,
+        "micro_accuracy": 0.7835738068812431,
         "accuracy_per_class": {
-            "amazed-suprised": 0.7346711259754738,
-            "happy-pleased": 0.7146042363433668,
-            "relaxing-calm": 0.738015607580825,
-            "quiet-still": 0.903010033444816,
-            "sad-lonely": 0.8071348940914158,
-            "angry-aggresive": 0.782608695652174
+            "angry-aggresive": 0.7802441731409545,
+            "relaxing-calm": 0.7469478357380688,
+            "amazed-suprised": 0.7413984461709212,
+            "happy-pleased": 0.7192008879023307,
+            "quiet-still": 0.9067702552719201,
+            "sad-lonely": 0.806881243063263
         },
-        "macro_precision": 0.6672979153536965,
-        "micro_precision": 0.6722846441947565,
+        "macro_precision": 0.6711657776698895,
+        "micro_precision": 0.6734317343173432,
         "precision_per_class": {
-            "amazed-suprised": 0.610909090909091,
-            "happy-pleased": 0.5240384615384616,
-            "relaxing-calm": 0.64,
-            "quiet-still": 0.8327137546468402,
-            "sad-lonely": 0.6973684210526315,
-            "angry-aggresive": 0.6987577639751553
+            "angry-aggresive": 0.691358024691358,
+            "relaxing-calm": 0.6461038961038961,
+            "amazed-suprised": 0.6170212765957447,
+            "happy-pleased": 0.5291479820627802,
+            "quiet-still": 0.8473282442748091,
+            "sad-lonely": 0.6960352422907489
         },
-        "macro_recall": 0.6194651085962052,
-        "micro_recall": 0.6203917050691244,
+        "macro_recall": 0.6303890136269548,
+        "micro_recall": 0.6314878892733564,
         "recall_per_class": {
-            "amazed-suprised": 0.5618729096989966,
-            "happy-pleased": 0.40977443609022557,
-            "relaxing-calm": 0.6018808777429467,
-            "quiet-still": 0.8421052631578947,
-            "sad-lonely": 0.6045627376425855,
-            "angry-aggresive": 0.6965944272445821
+            "angry-aggresive": 0.6956521739130435,
+            "relaxing-calm": 0.6257861635220126,
+            "amazed-suprised": 0.5819397993311036,
+            "happy-pleased": 0.44360902255639095,
+            "quiet-still": 0.8345864661654135,
+            "sad-lonely": 0.6007604562737643
         },
-        "macro_f1": 0.6413920524571537,
-        "micro_f1": 0.6452965847813061,
+        "macro_f1": 0.6494455223972543,
+        "micro_f1": 0.6517857142857143,
         "f1_per_class": {
-            "amazed-suprised": 0.5853658536585366,
-            "happy-pleased": 0.459915611814346,
-            "relaxing-calm": 0.6203554119547657,
-            "quiet-still": 0.8373831775700935,
-            "sad-lonely": 0.6476578411405295,
-            "angry-aggresive": 0.6976744186046512
+            "angry-aggresive": 0.6934984520123839,
+            "relaxing-calm": 0.6357827476038339,
+            "amazed-suprised": 0.5989672977624785,
+            "happy-pleased": 0.48261758691206547,
+            "quiet-still": 0.8409090909090909,
+            "sad-lonely": 0.6448979591836734
         },
-        "MSE": 0.15602020919322968,
-        "LogLoss": 0.5126984715461731,
-        "AUNU": 0.8257506489753723,
-        "micro_ROC-AUC": 0.8400751948356628,
-        "AUNP": 0.8254300951957703,
+        "MSE": 0.1543469876050949,
+        "LogLoss": 0.5074202418327332,
+        "AUNU": 0.827100932598114,
+        "micro_ROC-AUC": 0.8415623903274536,
+        "AUNP": 0.8268595337867737,
         "ROC-AUC_per_class_vs_rest": {
-            "amazed-suprised": 0.7867529445979352,
-            "happy-pleased": 0.7002430799661594,
-            "relaxing-calm": 0.8168801726849694,
-            "quiet-still": 0.9646580794299536,
-            "sad-lonely": 0.8384870038742489,
-            "angry-aggresive": 0.8474827671761901
+            "angry-aggresive": 0.8538709919651574,
+            "relaxing-calm": 0.8163370982879705,
+            "amazed-suprised": 0.7871420793564373,
+            "happy-pleased": 0.7049789828902966,
+            "quiet-still": 0.960061571250962,
+            "sad-lonely": 0.8402147871795178
         }
     }
 }

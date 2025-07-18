@@ -1,0 +1,125 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "slashdot_trimmed",
+    "class names": [
+        "YourRightsOnline",
+        "Technology",
+        "Science",
+        "Idle",
+        "Games",
+        "AskSlashdot",
+        "IT",
+        "Politics"
+    ],
+    "model name": "gradient_boosting",
+    "index": 1,
+    "cv fold": 1,
+    "fold info": {
+        "train distribution": [
+            188,
+            187,
+            184,
+            184,
+            184,
+            169,
+            156,
+            153
+        ],
+        "test distribution": [
+            47,
+            47,
+            47,
+            46,
+            46,
+            43,
+            39,
+            38
+        ],
+        "train distribution pct": [
+            14.814814814814813,
+            14.736012608353033,
+            14.49960598896769,
+            14.49960598896769,
+            14.49960598896769,
+            13.317572892040976,
+            12.293144208037825,
+            12.056737588652481
+        ],
+        "test distribution pct": [
+            15.359477124183007,
+            15.359477124183007,
+            15.359477124183007,
+            15.032679738562091,
+            15.032679738562091,
+            14.052287581699346,
+            12.745098039215685,
+            12.418300653594772
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.893001891380708,
+        "micro_accuracy": 0.893001891380708,
+        "accuracy_per_class": {
+            "YourRightsOnline": 0.8765198594974332,
+            "Technology": 0.8413266684679817,
+            "Science": 0.8818562550661984,
+            "Idle": 0.937111591461767,
+            "Games": 0.9421102404755471,
+            "AskSlashdot": 0.8780734936503648,
+            "IT": 0.8701702242637125,
+            "Politics": 0.9168467981626588
+        },
+        "macro_precision": 0.6490323080358418,
+        "micro_precision": 0.6894483233356279,
+        "precision_per_class": {
+            "YourRightsOnline": 0.6657963446475196,
+            "Technology": 0.41418764302059496,
+            "Science": 0.6633204633204633,
+            "Idle": 0.7809219534459151,
+            "Games": 0.8782608695652174,
+            "AskSlashdot": 0.5881801125703565,
+            "IT": 0.4428754813863928,
+            "Politics": 0.7587155963302752
+        },
+        "macro_recall": 0.42026214332079814,
+        "micro_recall": 0.4242662632375189,
+        "recall_per_class": {
+            "YourRightsOnline": 0.34631054775916703,
+            "Technology": 0.16462028194633924,
+            "Science": 0.39548802946593004,
+            "Idle": 0.7913968547641073,
+            "Games": 0.7007400555041629,
+            "AskSlashdot": 0.3146011038635223,
+            "IT": 0.18821603927986907,
+            "Politics": 0.46072423398328693
+        },
+        "macro_f1": 0.4999771893048055,
+        "micro_f1": 0.5252865812542145,
+        "f1_per_class": {
+            "YourRightsOnline": 0.45562835020845743,
+            "Technology": 0.2356003904978848,
+            "Science": 0.4955292760311509,
+            "Idle": 0.7861245118309212,
+            "Games": 0.7795214818626189,
+            "AskSlashdot": 0.40993788819875776,
+            "IT": 0.26416539050535986,
+            "Politics": 0.5733102253032929
+        },
+        "MSE": 0.09016528725624084,
+        "LogLoss": 3.0266072750091553,
+        "AUNU": 0.8001800179481506,
+        "micro_ROC-AUC": 0.8090449571609497,
+        "AUNP": 0.8013763427734375,
+        "ROC-AUC_per_class_vs_rest": {
+            "YourRightsOnline": 0.783334300780793,
+            "Technology": 0.671221764463635,
+            "Science": 0.810770674203432,
+            "Idle": 0.8997322150252869,
+            "Games": 0.9186385125657087,
+            "AskSlashdot": 0.7898604643220283,
+            "IT": 0.7181717594619043,
+            "Politics": 0.809710440447164
+        }
+    }
+}

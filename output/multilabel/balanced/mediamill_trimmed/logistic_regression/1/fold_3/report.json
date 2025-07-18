@@ -1,0 +1,85 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "mediamill_trimmed",
+    "class names": [
+        "Class68",
+        "Class32",
+        "Class34",
+        "Class67"
+    ],
+    "model name": "logistic_regression",
+    "index": 1,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": [
+            3557,
+            3126,
+            3123,
+            3104
+        ],
+        "test distribution": [
+            889,
+            781,
+            780,
+            776
+        ],
+        "train distribution pct": [
+            54.23082787010215,
+            47.659704223204756,
+            47.613965543527975,
+            47.32428723890837
+        ],
+        "test distribution pct": [
+            54.207317073170735,
+            47.62195121951219,
+            47.5609756097561,
+            47.3170731707317
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.7733093915164657,
+        "micro_accuracy": 0.7733093915164656,
+        "accuracy_per_class": {
+            "Class68": 0.7978723404255319,
+            "Class32": 0.7745629489090663,
+            "Class34": 0.787030762976013,
+            "Class67": 0.7337715137552514
+        },
+        "macro_precision": 0.7587242782945124,
+        "micro_precision": 0.7607725607725607,
+        "precision_per_class": {
+            "Class68": 0.7909807558543936,
+            "Class32": 0.7540106951871658,
+            "Class34": 0.762226425290462,
+            "Class67": 0.7276792368460278
+        },
+        "macro_recall": 0.784177474331933,
+        "micro_recall": 0.7865996419226002,
+        "recall_per_class": {
+            "Class68": 0.8525552917655879,
+            "Class32": 0.7819965870307167,
+            "Class34": 0.8031316725978648,
+            "Class67": 0.6990263459335624
+        },
+        "macro_f1": 0.7708932349547668,
+        "micro_f1": 0.7734705623455327,
+        "f1_per_class": {
+            "Class68": 0.8206145889710746,
+            "Class32": 0.7677486910994764,
+            "Class34": 0.782144590004852,
+            "Class67": 0.7130650697436647
+        },
+        "MSE": 0.15674206614494324,
+        "LogLoss": 0.4839674234390259,
+        "AUNU": 0.8494805097579956,
+        "micro_ROC-AUC": 0.8516188859939575,
+        "AUNP": 0.8503244519233704,
+        "ROC-AUC_per_class_vs_rest": {
+            "Class68": 0.8727398210127161,
+            "Class32": 0.8547097720799735,
+            "Class34": 0.8630945345386251,
+            "Class67": 0.8073780165977524
+        }
+    }
+}
