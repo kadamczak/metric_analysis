@@ -1,7 +1,19 @@
 from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
-    "bibtex_balanced", "bookmarks_balanced", "cal500_balanced", "emotions_balanced"
+    "bookmarks_balanced",
+    "cal500_balanced",
+    "corel16k009_balanced",
+    "delicious_balanced",
+    "emotions_balanced",
+    "imdb_balanced",
+    "mediamill_balanced",
+    "ng20",
+    "nuswidebow_balanced",
+    "scene_balanced",
+    "tmc2007500_balanced",
+    "yeast_balanced",
+    "yelp_balanced"
 ]
 
 multilabel_balanced_datasets = {
