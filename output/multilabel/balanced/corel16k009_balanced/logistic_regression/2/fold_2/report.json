@@ -1,0 +1,85 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "corel16k009_balanced",
+    "class names": [
+        "water",
+        "sky",
+        "tree",
+        "people"
+    ],
+    "model name": "logistic_regression",
+    "index": 2,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": [
+            2145,
+            1971,
+            1971,
+            1844
+        ],
+        "test distribution": [
+            537,
+            493,
+            493,
+            462
+        ],
+        "train distribution pct": [
+            36.17200674536256,
+            33.23777403035413,
+            33.23777403035413,
+            31.09612141652614
+        ],
+        "test distribution pct": [
+            35.63370935633709,
+            32.71400132714001,
+            32.71400132714001,
+            30.656934306569344
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.6961649633529473,
+        "micro_accuracy": 0.6961649633529472,
+        "accuracy_per_class": {
+            "water": 0.6634665014968515,
+            "sky": 0.7013523278620832,
+            "tree": 0.6961907711365748,
+            "people": 0.7236502529162796
+        },
+        "macro_precision": 0.5659657664815154,
+        "micro_precision": 0.5650908244061481,
+        "precision_per_class": {
+            "water": 0.5480728504870818,
+            "sky": 0.5739503816793893,
+            "tree": 0.5597426470588235,
+            "people": 0.5820971867007673
+        },
+        "macro_recall": 0.37663322691898726,
+        "micro_recall": 0.3764641998293383,
+        "recall_per_class": {
+            "water": 0.3710926297677086,
+            "sky": 0.37558538869809555,
+            "tree": 0.3802684982828598,
+            "people": 0.37958639092728486
+        },
+        "macro_f1": 0.45224603936284136,
+        "micro_f1": 0.45188323478746684,
+        "f1_per_class": {
+            "water": 0.4425444596443228,
+            "sky": 0.45404793357237216,
+            "tree": 0.45287228109314,
+            "people": 0.4595194831415304
+        },
+        "MSE": 0.2027263641357422,
+        "LogLoss": 0.5983807444572449,
+        "AUNU": 0.6917524933815002,
+        "micro_ROC-AUC": 0.6934123039245605,
+        "AUNP": 0.6906328797340393,
+        "ROC-AUC_per_class_vs_rest": {
+            "water": 0.6566659053905288,
+            "sky": 0.6990396266859628,
+            "tree": 0.6977528308593328,
+            "people": 0.7135517214795413
+        }
+    }
+}

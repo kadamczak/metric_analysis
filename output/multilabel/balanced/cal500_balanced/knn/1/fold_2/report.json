@@ -1,0 +1,115 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "cal500_balanced",
+    "class names": [
+        "Instrument_-_Male_Lead_Vocals",
+        "Song-Texture_Electric",
+        "NOT-Emotion-Angry-Agressive",
+        "NOT-Emotion-Bizarre-Weird",
+        "Song-Quality",
+        "Song-Texture_Acoustic",
+        "Instrument_-_Drum_Set"
+    ],
+    "model name": "knn",
+    "index": 1,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": [
+            240,
+            242,
+            240,
+            219,
+            217,
+            217,
+            213
+        ],
+        "test distribution": [
+            60,
+            56,
+            60,
+            54,
+            54,
+            54,
+            58
+        ],
+        "train distribution pct": [
+            64.51612903225806,
+            65.05376344086021,
+            64.51612903225806,
+            58.87096774193549,
+            58.333333333333336,
+            58.333333333333336,
+            57.25806451612904
+        ],
+        "test distribution pct": [
+            66.66666666666666,
+            62.22222222222222,
+            66.66666666666666,
+            60.0,
+            60.0,
+            60.0,
+            64.44444444444444
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.5661878881987578,
+        "micro_accuracy": 0.5661878881987578,
+        "accuracy_per_class": {
+            "Instrument_-_Male_Lead_Vocals": 0.6413043478260869,
+            "Song-Texture_Electric": 0.625,
+            "NOT-Emotion-Angry-Agressive": 0.595108695652174,
+            "NOT-Emotion-Bizarre-Weird": 0.53125,
+            "Song-Quality": 0.4986413043478261,
+            "Song-Texture_Acoustic": 0.5095108695652174,
+            "Instrument_-_Drum_Set": 0.5625
+        },
+        "macro_precision": 0.6267309938367828,
+        "micro_precision": 0.6314309811639022,
+        "precision_per_class": {
+            "Instrument_-_Male_Lead_Vocals": 0.6682242990654206,
+            "Song-Texture_Electric": 0.6553398058252428,
+            "NOT-Emotion-Angry-Agressive": 0.6834677419354839,
+            "NOT-Emotion-Bizarre-Weird": 0.5938775510204082,
+            "Song-Quality": 0.5910364145658263,
+            "Song-Texture_Acoustic": 0.5919395465994962,
+            "Instrument_-_Drum_Set": 0.6032315978456014
+        },
+        "macro_recall": 0.7039738562379316,
+        "micro_recall": 0.7085173501577287,
+        "recall_per_class": {
+            "Instrument_-_Male_Lead_Vocals": 0.89375,
+            "Song-Texture_Electric": 0.8653846153846154,
+            "NOT-Emotion-Angry-Agressive": 0.70625,
+            "NOT-Emotion-Bizarre-Weird": 0.665903890160183,
+            "Song-Quality": 0.4861751152073733,
+            "Song-Texture_Acoustic": 0.5414746543778802,
+            "Instrument_-_Drum_Set": 0.7688787185354691
+        },
+        "macro_f1": 0.6583154215485162,
+        "micro_f1": 0.6677568009513899,
+        "f1_per_class": {
+            "Instrument_-_Male_Lead_Vocals": 0.7647058823529411,
+            "Song-Texture_Electric": 0.7458563535911602,
+            "NOT-Emotion-Angry-Agressive": 0.694672131147541,
+            "NOT-Emotion-Bizarre-Weird": 0.627831715210356,
+            "Song-Quality": 0.5335018963337548,
+            "Song-Texture_Acoustic": 0.5655836341756919,
+            "Instrument_-_Drum_Set": 0.676056338028169
+        },
+        "MSE": 0.2550601661205292,
+        "LogLoss": 1.3568061590194702,
+        "AUNU": 0.5361911058425903,
+        "micro_ROC-AUC": 0.5405948758125305,
+        "AUNP": 0.5372453331947327,
+        "ROC-AUC_per_class_vs_rest": {
+            "Instrument_-_Male_Lead_Vocals": 0.58123779296875,
+            "Song-Texture_Electric": 0.5280727771399414,
+            "NOT-Emotion-Angry-Agressive": 0.5700968424479167,
+            "NOT-Emotion-Bizarre-Weird": 0.5213488133595586,
+            "Song-Quality": 0.5068247016815699,
+            "Song-Texture_Acoustic": 0.49938581499679563,
+            "Instrument_-_Drum_Set": 0.5463711991918141
+        }
+    }
+}

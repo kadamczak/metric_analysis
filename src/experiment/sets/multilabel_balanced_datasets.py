@@ -8,9 +8,8 @@ dataset_names = [
     "emotions_balanced",
     "imdb_balanced",
     "mediamill_balanced",
-    "ng20",
-    "nuswidebow_balanced",
-    "nuswidevlad_balanced"
+    "ng20_balanced",
+    "nuswidevlad_balanced",
     "scene_balanced",
     "tmc2007500_balanced",
     "yeast_balanced",
