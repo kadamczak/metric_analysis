@@ -13,73 +13,73 @@
     "cv fold": 3,
     "fold info": {
         "train distribution": [
-            151,
+            152,
             138,
-            134,
+            135,
             133
         ],
         "test distribution": [
-            38,
+            37,
             35,
-            34,
+            33,
             33
         ],
         "train distribution pct": [
-            36.385542168674704,
-            33.25301204819277,
-            32.28915662650602,
-            32.04819277108434
+            36.982968369829685,
+            33.57664233576642,
+            32.846715328467155,
+            32.360097323600975
         ],
         "test distribution pct": [
-            37.62376237623762,
-            34.65346534653465,
-            33.663366336633665,
-            32.67326732673268
+            35.23809523809524,
+            33.33333333333333,
+            31.428571428571427,
+            31.428571428571427
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7627850725639254,
-        "micro_accuracy": 0.7627850725639254,
+        "macro_accuracy": 0.7614186851211073,
+        "micro_accuracy": 0.7614186851211072,
         "accuracy_per_class": {
-            "angry-aggresive": 0.78852798894264,
-            "amazed-suprised": 0.72356599861783,
-            "sad-lonely": 0.8203178991015895,
-            "happy-pleased": 0.718728403593642
+            "angry-aggresive": 0.8006920415224914,
+            "amazed-suprised": 0.7245674740484429,
+            "sad-lonely": 0.8131487889273357,
+            "happy-pleased": 0.7072664359861591
         },
-        "macro_precision": 0.653523934871937,
-        "micro_precision": 0.6568306010928961,
+        "macro_precision": 0.6526754985770273,
+        "micro_precision": 0.6583333333333333,
         "precision_per_class": {
-            "angry-aggresive": 0.7107750472589792,
-            "amazed-suprised": 0.5917030567685589,
-            "sad-lonely": 0.7419354838709677,
-            "happy-pleased": 0.5696821515892421
+            "angry-aggresive": 0.7339805825242719,
+            "amazed-suprised": 0.5931477516059958,
+            "sad-lonely": 0.728310502283105,
+            "happy-pleased": 0.5552631578947368
         },
-        "macro_recall": 0.6144884895058491,
-        "micro_recall": 0.6173600410888547,
+        "macro_recall": 0.6045441578323885,
+        "micro_recall": 0.6080041046690611,
         "recall_per_class": {
-            "angry-aggresive": 0.7107750472589792,
-            "amazed-suprised": 0.5599173553719008,
-            "sad-lonely": 0.6851063829787234,
-            "happy-pleased": 0.5021551724137931
+            "angry-aggresive": 0.7145557655954632,
+            "amazed-suprised": 0.5711340206185567,
+            "sad-lonely": 0.6787234042553192,
+            "happy-pleased": 0.45376344086021503
         },
-        "macro_f1": 0.6330818752915102,
-        "micro_f1": 0.6364839819962933,
+        "macro_f1": 0.6270305399933906,
+        "micro_f1": 0.6321685782875434,
         "f1_per_class": {
-            "angry-aggresive": 0.7107750472589792,
-            "amazed-suprised": 0.5753715498938429,
-            "sad-lonely": 0.7123893805309734,
-            "happy-pleased": 0.5337915234822451
+            "angry-aggresive": 0.7241379310344828,
+            "amazed-suprised": 0.5819327731092437,
+            "sad-lonely": 0.7026431718061674,
+            "happy-pleased": 0.49940828402366866
         },
-        "MSE": 0.17042392492294312,
-        "LogLoss": 0.5735337138175964,
-        "AUNU": 0.7973538637161255,
-        "micro_ROC-AUC": 0.8047407269477844,
-        "AUNP": 0.7989497184753418,
+        "MSE": 0.17567741870880127,
+        "LogLoss": 0.5940905809402466,
+        "AUNU": 0.788131594657898,
+        "micro_ROC-AUC": 0.7966466546058655,
+        "AUNP": 0.7899957895278931,
         "ROC-AUC_per_class_vs_rest": {
-            "angry-aggresive": 0.8508675471869066,
-            "amazed-suprised": 0.7620684328415849,
-            "sad-lonely": 0.8530934907119058,
-            "happy-pleased": 0.7233859227558145
+            "angry-aggresive": 0.8490003384485847,
+            "amazed-suprised": 0.7625300687285224,
+            "sad-lonely": 0.838090561920349,
+            "happy-pleased": 0.7029054202326092
         }
     }
 }

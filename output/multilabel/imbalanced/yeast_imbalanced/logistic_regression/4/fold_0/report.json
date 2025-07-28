@@ -1,0 +1,95 @@
+{
+    "classification type": "multilabel",
+    "class balance": "imbalanced",
+    "dataset name": "yeast_imbalanced",
+    "class names": [
+        "Class1",
+        "Class2",
+        "Class3",
+        "Class4",
+        "Class5"
+    ],
+    "model name": "logistic_regression",
+    "index": 4,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": [
+            608,
+            831,
+            757,
+            472,
+            165
+        ],
+        "test distribution": [
+            151,
+            207,
+            190,
+            118,
+            42
+        ],
+        "train distribution pct": [
+            47.5,
+            64.921875,
+            59.140625,
+            36.875,
+            12.890625
+        ],
+        "test distribution pct": [
+            46.749226006191954,
+            64.08668730650155,
+            58.82352941176471,
+            36.53250773993808,
+            13.003095975232199
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.7653155159613957,
+        "micro_accuracy": 0.7653155159613957,
+        "accuracy_per_class": {
+            "Class1": 0.7501113585746102,
+            "Class2": 0.6726057906458798,
+            "Class3": 0.8037119524870082,
+            "Class4": 0.7397178916109873,
+            "Class5": 0.8604305864884929
+        },
+        "macro_precision": 0.667280280010154,
+        "micro_precision": 0.7385173523170648,
+        "precision_per_class": {
+            "Class1": 0.7552613713509844,
+            "Class2": 0.7189914599430662,
+            "Class3": 0.8195380173243504,
+            "Class4": 0.6585045911674683,
+            "Class5": 0.3841059602649007
+        },
+        "macro_recall": 0.621326925031058,
+        "micro_recall": 0.7254572350726197,
+        "recall_per_class": {
+            "Class1": 0.6981487292124254,
+            "Class2": 0.8111952282633632,
+            "Class3": 0.8562091503267973,
+            "Class4": 0.6077481840193705,
+            "Class5": 0.13333333333333333
+        },
+        "macro_f1": 0.631086400326078,
+        "micro_f1": 0.7319290390420949,
+        "f1_per_class": {
+            "Class1": 0.7255829121147889,
+            "Class2": 0.7623154036865366,
+            "Class3": 0.8374723383329236,
+            "Class4": 0.6321091290661071,
+            "Class5": 0.19795221843003413
+        },
+        "MSE": 0.16081887483596802,
+        "LogLoss": 0.4984488785266876,
+        "AUNU": 0.7783240079879761,
+        "micro_ROC-AUC": 0.8443385362625122,
+        "AUNP": 0.7892186641693115,
+        "ROC-AUC_per_class_vs_rest": {
+            "Class1": 0.8215255110866475,
+            "Class2": 0.7008910605635773,
+            "Class3": 0.8717031905440021,
+            "Class4": 0.8043616334905259,
+            "Class5": 0.6931385287748282
+        }
+    }
+}

@@ -13,73 +13,73 @@
     "cv fold": 0,
     "fold info": {
         "train distribution": [
-            2075,
+            2076,
             2022,
-            2007,
-            1881
+            2008,
+            1882
         ],
         "test distribution": [
-            519,
+            518,
             505,
-            502,
-            471
+            501,
+            470
         ],
         "train distribution pct": [
-            54.89417989417989,
-            53.492063492063494,
-            53.095238095238095,
-            49.76190476190476
+            55.227454110135675,
+            53.790901835594575,
+            53.418462357009844,
+            50.06650704974728
         ],
         "test distribution pct": [
-            55.330490405117274,
-            53.83795309168443,
-            53.5181236673774,
-            50.2132196162047
+            54.01459854014598,
+            52.659019812304486,
+            52.24191866527633,
+            49.00938477580814
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7705223880597014,
-        "micro_accuracy": 0.7705223880597015,
+        "macro_accuracy": 0.7781543274244005,
+        "micro_accuracy": 0.7781543274244004,
         "accuracy_per_class": {
-            "IsFoodGood": 0.7867803837953091,
-            "IsAmbianceGood": 0.7484008528784648,
-            "IsServiceGood": 0.7611940298507462,
-            "IsPriceGood": 0.7857142857142857
+            "IsFoodGood": 0.8248175182481752,
+            "IsAmbianceGood": 0.762252346193952,
+            "IsServiceGood": 0.7507820646506778,
+            "IsPriceGood": 0.7747653806047967
         },
-        "macro_precision": 0.7878992489165606,
-        "micro_precision": 0.7877406281661601,
+        "macro_precision": 0.7860842717741495,
+        "micro_precision": 0.7867536377320622,
         "precision_per_class": {
-            "IsFoodGood": 0.8133595284872298,
-            "IsAmbianceGood": 0.7930283224400871,
-            "IsServiceGood": 0.7662835249042146,
-            "IsPriceGood": 0.7789256198347108
+            "IsFoodGood": 0.833969465648855,
+            "IsAmbianceGood": 0.7797979797979798,
+            "IsServiceGood": 0.7568627450980392,
+            "IsPriceGood": 0.7737068965517241
         },
-        "macro_recall": 0.7789293294834218,
-        "micro_recall": 0.7786680020030045,
+        "macro_recall": 0.7855686620858195,
+        "micro_recall": 0.7863590772316951,
         "recall_per_class": {
-            "IsFoodGood": 0.7976878612716763,
-            "IsAmbianceGood": 0.7207920792079208,
-            "IsServiceGood": 0.796812749003984,
-            "IsPriceGood": 0.8004246284501062
+            "IsFoodGood": 0.8436293436293436,
+            "IsAmbianceGood": 0.7643564356435644,
+            "IsServiceGood": 0.7704590818363274,
+            "IsPriceGood": 0.7638297872340426
         },
-        "macro_f1": 0.782853247155085,
-        "micro_f1": 0.7831780407957694,
+        "macro_f1": 0.78577715136011,
+        "micro_f1": 0.7865563080010033,
         "f1_per_class": {
-            "IsFoodGood": 0.8054474708171206,
-            "IsAmbianceGood": 0.7551867219917012,
-            "IsServiceGood": 0.78125,
-            "IsPriceGood": 0.7895287958115184
+            "IsFoodGood": 0.8387715930902111,
+            "IsAmbianceGood": 0.772,
+            "IsServiceGood": 0.7636003956478734,
+            "IsPriceGood": 0.7687366167023555
         },
-        "MSE": 0.16615845263004303,
-        "LogLoss": 0.5408680438995361,
-        "AUNU": 0.835818350315094,
-        "micro_ROC-AUC": 0.8367394208908081,
-        "AUNP": 0.8358618021011353,
+        "MSE": 0.16558869183063507,
+        "LogLoss": 0.5458093881607056,
+        "AUNU": 0.8372182250022888,
+        "micro_ROC-AUC": 0.8378899097442627,
+        "AUNP": 0.8375660181045532,
         "ROC-AUC_per_class_vs_rest": {
-            "IsFoodGood": 0.8583194227930525,
-            "IsAmbianceGood": 0.8067088925982667,
-            "IsServiceGood": 0.8357030593223437,
-            "IsPriceGood": 0.8425419513814063
+            "IsFoodGood": 0.8862317127623249,
+            "IsAmbianceGood": 0.8188206045274131,
+            "IsServiceGood": 0.8044696632935003,
+            "IsPriceGood": 0.8393508245224732
         }
     }
 }

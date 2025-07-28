@@ -41,7 +41,14 @@ def get_binary_labels_for_class(labels, class_index):
 def get_sorted_class_percentages_label_encoded(y):
     value_counts = y.value_counts(normalize=True) * 100
     class_percentages_sorted = value_counts.sort_values(ascending=False)
+    
+    # Fix tuple indexes like (3,) → 3
+    def unwrap_index(val):
+        return val[0] if isinstance(val, tuple) and len(val) == 1 else val
+    
+    class_percentages_sorted.index = class_percentages_sorted.index.map(unwrap_index)
     return class_percentages_sorted
+
 
 def get_sorted_class_percentages(y):
     y_numeric = y.apply(pd.to_numeric)

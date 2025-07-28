@@ -25,61 +25,61 @@
             470
         ],
         "train distribution pct": [
-            55.25965379494008,
-            53.848202396804254,
-            53.44873501997337,
-            50.11984021304927
+            55.12752391073327,
+            53.71944739638682,
+            53.320935175345376,
+            50.0
         ],
         "test distribution pct": [
-            53.89408099688473,
-            52.440290758047766,
-            52.12876427829699,
-            48.80581516095535
+            54.40251572327044,
+            52.93501048218029,
+            52.620545073375254,
+            49.266247379454924
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7745734421364985,
-        "micro_accuracy": 0.7745734421364985,
+        "macro_accuracy": 0.7754874947011446,
+        "micro_accuracy": 0.7754874947011445,
         "accuracy_per_class": {
-            "IsFoodGood": 0.8061148791860958,
-            "IsAmbianceGood": 0.7465027554048326,
-            "IsServiceGood": 0.7699766850360322,
-            "IsPriceGood": 0.7756994489190335
+            "IsFoodGood": 0.8060089020771514,
+            "IsAmbianceGood": 0.7482513777024162,
+            "IsServiceGood": 0.7688639253921153,
+            "IsPriceGood": 0.7788257736328953
         },
-        "macro_precision": 0.7959340150850835,
-        "micro_precision": 0.7961378383269136,
+        "macro_precision": 0.7963673429820481,
+        "micro_precision": 0.7963937470979725,
         "precision_per_class": {
-            "IsFoodGood": 0.841415065568771,
-            "IsAmbianceGood": 0.7688345788729549,
-            "IsServiceGood": 0.7952306894764126,
-            "IsPriceGood": 0.778255726422196
+            "IsFoodGood": 0.8422876949740035,
+            "IsAmbianceGood": 0.766756299173389,
+            "IsServiceGood": 0.7949064449064449,
+            "IsPriceGood": 0.7815189328743546
         },
-        "macro_recall": 0.7710899261706559,
-        "micro_recall": 0.7713133640552995,
+        "macro_recall": 0.7730266535126492,
+        "micro_recall": 0.7732167902224003,
         "recall_per_class": {
-            "IsFoodGood": 0.7977062451811874,
-            "IsAmbianceGood": 0.7531658092599921,
-            "IsServiceGood": 0.7642487046632125,
-            "IsPriceGood": 0.7692389455782312
+            "IsFoodGood": 0.7962606013878181,
+            "IsAmbianceGood": 0.7616739216462208,
+            "IsServiceGood": 0.7619569549621363,
+            "IsPriceGood": 0.7722151360544217
         },
-        "macro_f1": 0.783262608040838,
-        "micro_f1": 0.7835290226558624,
+        "macro_f1": 0.784439140270134,
+        "micro_f1": 0.7846341525402191,
         "f1_per_class": {
-            "IsFoodGood": 0.8189778855192203,
-            "IsAmbianceGood": 0.7609195402298851,
-            "IsServiceGood": 0.7794319394339718,
-            "IsPriceGood": 0.7737210669802748
+            "IsFoodGood": 0.8186276938320535,
+            "IsAmbianceGood": 0.7642066603801677,
+            "IsServiceGood": 0.7780830280830281,
+            "IsPriceGood": 0.7768391787852865
         },
-        "MSE": 0.1659088283777237,
-        "LogLoss": 0.5458256006240845,
-        "AUNU": 0.8347418308258057,
-        "micro_ROC-AUC": 0.8360629677772522,
-        "AUNP": 0.8349583745002747,
+        "MSE": 0.16565105319023132,
+        "LogLoss": 0.5434204936027527,
+        "AUNU": 0.8350809216499329,
+        "micro_ROC-AUC": 0.8365215063095093,
+        "AUNP": 0.8352839350700378,
         "ROC-AUC_per_class_vs_rest": {
-            "IsFoodGood": 0.8708231001626963,
-            "IsAmbianceGood": 0.8039239653097529,
-            "IsServiceGood": 0.8272479429418511,
-            "IsPriceGood": 0.8369722235100718
+            "IsFoodGood": 0.8717366894140033,
+            "IsAmbianceGood": 0.8050219879974505,
+            "IsServiceGood": 0.8249901869792062,
+            "IsPriceGood": 0.8385748437688686
         }
     }
 }

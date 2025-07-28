@@ -16,70 +16,70 @@
             2075,
             2021,
             2007,
-            1882
+            1881
         ],
         "test distribution": [
             519,
             506,
             502,
-            470
+            471
         ],
         "train distribution pct": [
-            54.69161834475488,
-            53.26831839746969,
-            52.89931470743279,
-            49.60463890353189
+            54.82166446499339,
+            53.39498018494056,
+            53.02509907529722,
+            49.69616908850726
         ],
         "test distribution pct": [
-            56.16883116883117,
-            54.761904761904766,
-            54.32900432900433,
-            50.86580086580087
+            55.62700964630225,
+            54.23365487674169,
+            53.80493033226153,
+            50.482315112540185
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7736734693877549,
-        "micro_accuracy": 0.773673469387755,
+        "macro_accuracy": 0.7749612845382672,
+        "micro_accuracy": 0.7749612845382672,
         "accuracy_per_class": {
-            "IsFoodGood": 0.8064489795918367,
-            "IsAmbianceGood": 0.7443265306122449,
-            "IsServiceGood": 0.768,
-            "IsPriceGood": 0.7759183673469388
+            "IsFoodGood": 0.8077267910995191,
+            "IsAmbianceGood": 0.746434102208819,
+            "IsServiceGood": 0.7677072296030646,
+            "IsPriceGood": 0.777977015241666
         },
-        "macro_precision": 0.7959743704788963,
-        "micro_precision": 0.7962372448979592,
+        "macro_precision": 0.7953178358236491,
+        "micro_precision": 0.7954113171659534,
         "precision_per_class": {
-            "IsFoodGood": 0.8411608675300359,
-            "IsAmbianceGood": 0.7684621389539422,
-            "IsServiceGood": 0.79456,
-            "IsPriceGood": 0.7797144754316069
+            "IsFoodGood": 0.8428459734167318,
+            "IsAmbianceGood": 0.7660359944623903,
+            "IsServiceGood": 0.7929824561403509,
+            "IsPriceGood": 0.7794069192751235
         },
-        "macro_recall": 0.76943168287405,
-        "micro_recall": 0.7696694151190568,
+        "macro_recall": 0.7732184369623893,
+        "micro_recall": 0.7734067966402096,
         "recall_per_class": {
-            "IsFoodGood": 0.7993772241992882,
-            "IsAmbianceGood": 0.7490488510120226,
-            "IsServiceGood": 0.7611894543225015,
-            "IsPriceGood": 0.7681112019623876
+            "IsFoodGood": 0.7992289442467378,
+            "IsAmbianceGood": 0.7579908675799086,
+            "IsServiceGood": 0.7621091354996934,
+            "IsPriceGood": 0.7735448005232178
         },
-        "macro_f1": 0.7824386098245146,
-        "micro_f1": 0.7827279495317582,
+        "macro_f1": 0.7840386252531301,
+        "micro_f1": 0.7842547372533698,
         "f1_per_class": {
-            "IsFoodGood": 0.819736942142477,
-            "IsAmbianceGood": 0.7586313193588162,
-            "IsServiceGood": 0.7775168310630969,
-            "IsPriceGood": 0.7738693467336684
+            "IsFoodGood": 0.8204581779435269,
+            "IsAmbianceGood": 0.7619921964654579,
+            "IsServiceGood": 0.7772393309363764,
+            "IsPriceGood": 0.776464795667159
         },
-        "MSE": 0.1662662774324417,
-        "LogLoss": 0.5470045804977417,
-        "AUNU": 0.8341397047042847,
-        "micro_ROC-AUC": 0.8355290293693542,
-        "AUNP": 0.8343470096588135,
+        "MSE": 0.16629907488822937,
+        "LogLoss": 0.5473471283912659,
+        "AUNU": 0.8338241577148438,
+        "micro_ROC-AUC": 0.8352878093719482,
+        "AUNP": 0.8340413570404053,
         "ROC-AUC_per_class_vs_rest": {
-            "IsFoodGood": 0.8709457040071459,
-            "IsAmbianceGood": 0.801805807687918,
-            "IsServiceGood": 0.8267385550608377,
-            "IsPriceGood": 0.8370687868555752
+            "IsFoodGood": 0.871933369296254,
+            "IsAmbianceGood": 0.8030802487979546,
+            "IsServiceGood": 0.8231945087002854,
+            "IsPriceGood": 0.8370884206601298
         }
     }
 }

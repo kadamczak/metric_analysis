@@ -14,72 +14,72 @@
     "fold info": {
         "train distribution": [
             152,
-            139,
+            138,
             135,
             133
         ],
         "test distribution": [
             37,
-            34,
+            35,
             33,
             33
         ],
         "train distribution pct": [
             37.073170731707314,
-            33.90243902439025,
+            33.65853658536586,
             32.926829268292686,
             32.4390243902439
         ],
         "test distribution pct": [
             34.90566037735849,
-            32.075471698113205,
+            33.0188679245283,
             31.132075471698112,
             31.132075471698112
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7612540192926045,
-        "micro_accuracy": 0.7612540192926045,
+        "macro_accuracy": 0.7668810289389068,
+        "micro_accuracy": 0.7668810289389068,
         "accuracy_per_class": {
-            "angry-aggresive": 0.792604501607717,
-            "amazed-suprised": 0.72508038585209,
-            "sad-lonely": 0.815112540192926,
-            "happy-pleased": 0.7122186495176849
+            "angry-aggresive": 0.8054662379421221,
+            "amazed-suprised": 0.7331189710610932,
+            "sad-lonely": 0.8215434083601286,
+            "happy-pleased": 0.707395498392283
         },
-        "macro_precision": 0.648327761568221,
-        "micro_precision": 0.6506935687263556,
+        "macro_precision": 0.6541843445119108,
+        "micro_precision": 0.6591478696741855,
         "precision_per_class": {
-            "angry-aggresive": 0.7117903930131004,
-            "amazed-suprised": 0.5909090909090909,
-            "sad-lonely": 0.7362637362637363,
-            "happy-pleased": 0.5543478260869565
+            "angry-aggresive": 0.7333333333333333,
+            "amazed-suprised": 0.5981308411214953,
+            "sad-lonely": 0.734375,
+            "happy-pleased": 0.5508982035928144
         },
-        "macro_recall": 0.6164214525236158,
-        "micro_recall": 0.6194477791116446,
+        "macro_recall": 0.6273193015155536,
+        "micro_recall": 0.6306954436450839,
         "recall_per_class": {
-            "angry-aggresive": 0.7212389380530974,
-            "amazed-suprised": 0.5652173913043478,
-            "sad-lonely": 0.6666666666666666,
-            "happy-pleased": 0.5125628140703518
+            "angry-aggresive": 0.7300884955752213,
+            "amazed-suprised": 0.6153846153846154,
+            "sad-lonely": 0.7014925373134329,
+            "happy-pleased": 0.4623115577889447
         },
-        "macro_f1": 0.6316593183433914,
-        "micro_f1": 0.6346863468634686,
+        "macro_f1": 0.6396579701271934,
+        "micro_f1": 0.6446078431372549,
         "f1_per_class": {
-            "angry-aggresive": 0.7164835164835165,
-            "amazed-suprised": 0.5777777777777777,
-            "sad-lonely": 0.6997389033942559,
-            "happy-pleased": 0.5326370757180157
+            "angry-aggresive": 0.7317073170731707,
+            "amazed-suprised": 0.6066350710900474,
+            "sad-lonely": 0.7175572519083969,
+            "happy-pleased": 0.5027322404371585
         },
-        "MSE": 0.1726127564907074,
-        "LogLoss": 0.5759250521659851,
-        "AUNU": 0.7923180460929871,
-        "micro_ROC-AUC": 0.8005911707878113,
-        "AUNP": 0.7939509153366089,
+        "MSE": 0.1708560585975647,
+        "LogLoss": 0.5758877396583557,
+        "AUNU": 0.7919682860374451,
+        "micro_ROC-AUC": 0.8021271228790283,
+        "AUNP": 0.7938801050186157,
         "ROC-AUC_per_class_vs_rest": {
-            "angry-aggresive": 0.8478702958791454,
-            "amazed-suprised": 0.7619463360689134,
-            "sad-lonely": 0.8439394476548373,
-            "happy-pleased": 0.715516114853226
+            "angry-aggresive": 0.8538929114150353,
+            "amazed-suprised": 0.7729236343366779,
+            "sad-lonely": 0.8389288710840099,
+            "happy-pleased": 0.702127659574468
         }
     }
 }

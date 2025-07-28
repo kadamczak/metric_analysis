@@ -16,70 +16,70 @@
             151,
             139,
             135,
-            133
+            132
         ],
         "test distribution": [
             38,
             34,
             33,
-            33
+            34
         ],
         "train distribution pct": [
-            36.56174334140436,
-            33.65617433414044,
-            32.68765133171913,
-            32.20338983050847
+            36.829268292682926,
+            33.90243902439025,
+            32.926829268292686,
+            32.19512195121951
         ],
         "test distribution pct": [
-            36.89320388349515,
-            33.00970873786408,
-            32.038834951456316,
-            32.038834951456316
+            35.84905660377358,
+            32.075471698113205,
+            31.132075471698112,
+            32.075471698113205
         ]
     },
     "metrics": {
-        "macro_accuracy": 0.7600563153660498,
-        "micro_accuracy": 0.7600563153660499,
+        "macro_accuracy": 0.7613085621970921,
+        "micro_accuracy": 0.7613085621970921,
         "accuracy_per_class": {
-            "angry-aggresive": 0.7803700724054706,
-            "amazed-suprised": 0.7232502011263073,
-            "sad-lonely": 0.8189863234111022,
-            "happy-pleased": 0.7176186645213194
+            "angry-aggresive": 0.7996768982229402,
+            "amazed-suprised": 0.7253634894991923,
+            "sad-lonely": 0.8134087237479806,
+            "happy-pleased": 0.7067851373182552
         },
-        "macro_precision": 0.6478309955872814,
-        "micro_precision": 0.6507633587786259,
+        "macro_precision": 0.6519380540236837,
+        "micro_precision": 0.6576402321083172,
         "precision_per_class": {
-            "angry-aggresive": 0.7027027027027027,
-            "amazed-suprised": 0.5892857142857143,
-            "sad-lonely": 0.7335092348284961,
-            "happy-pleased": 0.5658263305322129
+            "angry-aggresive": 0.7340909090909091,
+            "amazed-suprised": 0.5939849624060151,
+            "sad-lonely": 0.725130890052356,
+            "happy-pleased": 0.5545454545454546
         },
-        "macro_recall": 0.6114481783366208,
-        "micro_recall": 0.6136772645470906,
+        "macro_recall": 0.6071324028838769,
+        "micro_recall": 0.6104129263913824,
         "recall_per_class": {
-            "angry-aggresive": 0.6887417218543046,
-            "amazed-suprised": 0.5579710144927537,
-            "sad-lonely": 0.6915422885572139,
-            "happy-pleased": 0.507537688442211
+            "angry-aggresive": 0.711453744493392,
+            "amazed-suprised": 0.5710843373493976,
+            "sad-lonely": 0.6873449131513648,
+            "happy-pleased": 0.45864661654135336
         },
-        "macro_f1": 0.6289650786791448,
-        "micro_f1": 0.6316764433467119,
+        "macro_f1": 0.6281736894636291,
+        "micro_f1": 0.633147113594041,
         "f1_per_class": {
-            "angry-aggresive": 0.6956521739130435,
-            "amazed-suprised": 0.5732009925558312,
-            "sad-lonely": 0.7119078104993598,
-            "happy-pleased": 0.5350993377483444
+            "angry-aggresive": 0.7225950782997763,
+            "amazed-suprised": 0.5823095823095823,
+            "sad-lonely": 0.7057324840764331,
+            "happy-pleased": 0.5020576131687243
         },
-        "MSE": 0.17200791835784912,
-        "LogLoss": 0.5802699327468872,
-        "AUNU": 0.7941352128982544,
-        "micro_ROC-AUC": 0.8012645840644836,
-        "AUNP": 0.7956590056419373,
+        "MSE": 0.1748824417591095,
+        "LogLoss": 0.5872166752815247,
+        "AUNU": 0.7897213101387024,
+        "micro_ROC-AUC": 0.798174262046814,
+        "AUNP": 0.7915438413619995,
         "ROC-AUC_per_class_vs_rest": {
-            "angry-aggresive": 0.8455221169698494,
-            "amazed-suprised": 0.7615018385459462,
-            "sad-lonely": 0.8531303056654893,
-            "happy-pleased": 0.7163866670631263
+            "angry-aggresive": 0.8477057673289581,
+            "amazed-suprised": 0.7681915999355867,
+            "sad-lonely": 0.8399280842780941,
+            "happy-pleased": 0.7030597948984499
         }
     }
 }
