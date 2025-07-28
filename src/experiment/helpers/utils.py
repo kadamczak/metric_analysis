@@ -38,6 +38,10 @@ def get_predicted_probabilities(predictions, task_type):
 def get_binary_labels_for_class(labels, class_index):
     return [1 if label == class_index else 0 for label in labels]
 
+def get_sorted_class_percentages_label_encoded(y):
+    value_counts = y.value_counts(normalize=True) * 100
+    class_percentages_sorted = value_counts.sort_values(ascending=False)
+    return class_percentages_sorted
 
 def get_sorted_class_percentages(y):
     y_numeric = y.apply(pd.to_numeric)
