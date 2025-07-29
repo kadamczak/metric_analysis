@@ -1,0 +1,85 @@
+{
+    "classification type": "multilabel",
+    "class balance": "balanced",
+    "dataset name": "yelp_balanced",
+    "class names": [
+        "IsFoodGood",
+        "IsAmbianceGood",
+        "IsServiceGood",
+        "IsPriceGood"
+    ],
+    "model name": "knn",
+    "index": 1,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": [
+            2075,
+            2022,
+            2007,
+            1882
+        ],
+        "test distribution": [
+            519,
+            505,
+            502,
+            470
+        ],
+        "train distribution pct": [
+            55.01060445387063,
+            53.60551431601272,
+            53.20784729586426,
+            49.89395546129374
+        ],
+        "test distribution pct": [
+            54.86257928118393,
+            53.38266384778013,
+            53.06553911205074,
+            49.68287526427061
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.665916313559322,
+        "micro_accuracy": 0.665916313559322,
+        "accuracy_per_class": {
+            "IsFoodGood": 0.7028601694915254,
+            "IsAmbianceGood": 0.628707627118644,
+            "IsServiceGood": 0.6465395480225988,
+            "IsPriceGood": 0.6855579096045198
+        },
+        "macro_precision": 0.74783942052661,
+        "micro_precision": 0.7492368569813453,
+        "precision_per_class": {
+            "IsFoodGood": 0.7959437086092715,
+            "IsAmbianceGood": 0.7139567019806541,
+            "IsServiceGood": 0.7410415671285236,
+            "IsPriceGood": 0.7404157043879908
+        },
+        "macro_recall": 0.5530234808901291,
+        "micro_recall": 0.5532643179161797,
+        "recall_per_class": {
+            "IsFoodGood": 0.6177320912303245,
+            "IsAmbianceGood": 0.5112137203166227,
+            "IsServiceGood": 0.5151112587180339,
+            "IsPriceGood": 0.5680368532955351
+        },
+        "macro_f1": 0.6355112969785104,
+        "micro_f1": 0.6365077078230802,
+        "f1_per_class": {
+            "IsFoodGood": 0.695604991861096,
+            "IsAmbianceGood": 0.5958101095521814,
+            "IsServiceGood": 0.6077586206896551,
+            "IsPriceGood": 0.6428714658111089
+        },
+        "MSE": 0.22488346695899963,
+        "LogLoss": 4.809016704559326,
+        "AUNU": 0.7380139231681824,
+        "micro_ROC-AUC": 0.7374335527420044,
+        "AUNP": 0.7382356524467468,
+        "ROC-AUC_per_class_vs_rest": {
+            "IsFoodGood": 0.7776564004995175,
+            "IsAmbianceGood": 0.7043906286339832,
+            "IsServiceGood": 0.7283889214856494,
+            "IsPriceGood": 0.741619830316838
+        }
+    }
+}
