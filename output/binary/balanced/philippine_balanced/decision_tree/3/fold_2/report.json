@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "philippine_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "decision_tree",
+    "index": 3,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 883,
+        "test distribution": 220,
+        "train distribution pct": 50.02832861189802,
+        "test distribution pct": 49.88662131519274
+    },
+    "metrics": {
+        "macro_accuracy": 0.6783154010772705,
+        "micro_accuracy": 0.6783154010772705,
+        "accuracy_per_class": {
+            "0": 0.6783154010772705,
+            "1": 0.6783154010772705
+        },
+        "macro_precision": 0.6783303022384644,
+        "micro_precision": 0.6783154010772705,
+        "precision_per_class": {
+            "0": 0.6767286658287048,
+            "1": 0.6799318790435791
+        },
+        "macro_recall": 0.6783149242401123,
+        "micro_recall": 0.6783154010772705,
+        "recall_per_class": {
+            "0": 0.6829345226287842,
+            "1": 0.6736953258514404
+        },
+        "macro_f1": 0.678308367729187,
+        "micro_f1": 0.6783154010772705,
+        "f1_per_class": {
+            "0": 0.6798174381256104,
+            "1": 0.6767992377281189
+        },
+        "MSE": 0.26494958996772766,
+        "LogLoss": 15.122486114501953,
+        "AUNU": 0.690491259098053,
+        "micro_ROC-AUC": 0.690491259098053
+    }
+}

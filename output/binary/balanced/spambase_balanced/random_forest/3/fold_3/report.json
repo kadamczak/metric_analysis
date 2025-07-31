@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "spambase_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "random_forest",
+    "index": 3,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 187,
+        "test distribution": 47,
+        "train distribution pct": 49.86666666666667,
+        "test distribution pct": 50.53763440860215
+    },
+    "metrics": {
+        "macro_accuracy": 0.9052484631538391,
+        "micro_accuracy": 0.9052484631538391,
+        "accuracy_per_class": {
+            "1": 0.9052484631538391,
+            "0": 0.9052484631538391
+        },
+        "macro_precision": 0.9052508473396301,
+        "micro_precision": 0.9052484631538391,
+        "precision_per_class": {
+            "1": 0.9042323231697083,
+            "0": 0.906269371509552
+        },
+        "macro_recall": 0.9052486419677734,
+        "micro_recall": 0.9052484631538391,
+        "recall_per_class": {
+            "1": 0.9064725637435913,
+            "0": 0.9040247797966003
+        },
+        "macro_f1": 0.9052484035491943,
+        "micro_f1": 0.9052484631538391,
+        "f1_per_class": {
+            "1": 0.9053510427474976,
+            "0": 0.9051457047462463
+        },
+        "MSE": 0.08882173150777817,
+        "LogLoss": 4.697504043579102,
+        "AUNU": 0.9111427664756775,
+        "micro_ROC-AUC": 0.9111427664756775
+    }
+}

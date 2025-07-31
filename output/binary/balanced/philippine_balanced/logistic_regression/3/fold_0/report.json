@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "philippine_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 3,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 882,
+        "test distribution": 221,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.699433445930481,
+        "micro_accuracy": 0.699433445930481,
+        "accuracy_per_class": {
+            "0": 0.699433445930481,
+            "1": 0.699433445930481
+        },
+        "macro_precision": 0.6995259523391724,
+        "micro_precision": 0.699433445930481,
+        "precision_per_class": {
+            "0": 0.6952301859855652,
+            "1": 0.7038216590881348
+        },
+        "macro_recall": 0.699433445930481,
+        "micro_recall": 0.699433445930481,
+        "recall_per_class": {
+            "0": 0.7101982831954956,
+            "1": 0.6886685490608215
+        },
+        "macro_f1": 0.6993985772132874,
+        "micro_f1": 0.699433445930481,
+        "f1_per_class": {
+            "0": 0.7026345133781433,
+            "1": 0.6961626410484314
+        },
+        "MSE": 0.20360372960567474,
+        "LogLoss": 0.6668765544891357,
+        "AUNU": 0.7715789675712585,
+        "micro_ROC-AUC": 0.7715789675712585
+    }
+}

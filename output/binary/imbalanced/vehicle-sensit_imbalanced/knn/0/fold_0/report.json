@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "vehicle-sensit_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "knn",
+    "index": 0,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 211,
+        "test distribution": 53,
+        "train distribution pct": 1.9540655676977219,
+        "test distribution pct": 1.9629629629629628
+    },
+    "metrics": {
+        "macro_accuracy": 0.9737486243247986,
+        "micro_accuracy": 0.9737486243247986,
+        "accuracy_per_class": {
+            "0": 0.9737486243247986,
+            "1": 0.9737486243247986
+        },
+        "macro_precision": 0.5355854630470276,
+        "micro_precision": 0.9737486243247986,
+        "precision_per_class": {
+            "0": 0.9810216426849365,
+            "1": 0.09014925360679626
+        },
+        "macro_recall": 0.515025794506073,
+        "micro_recall": 0.9737486243247986,
+        "recall_per_class": {
+            "0": 0.9924238324165344,
+            "1": 0.03762770816683769
+        },
+        "macro_f1": 0.5198920369148254,
+        "micro_f1": 0.9737486243247986,
+        "f1_per_class": {
+            "0": 0.9866898059844971,
+            "1": 0.05309423431754112
+        },
+        "MSE": 0.025192299857735634,
+        "LogLoss": 1.3664216995239258,
+        "AUNU": 0.7153584361076355,
+        "micro_ROC-AUC": 0.7153584361076355
+    }
+}

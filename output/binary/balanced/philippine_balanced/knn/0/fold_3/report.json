@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "philippine_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "knn",
+    "index": 0,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 882,
+        "test distribution": 221,
+        "train distribution pct": 49.97167138810198,
+        "test distribution pct": 50.11337868480725
+    },
+    "metrics": {
+        "macro_accuracy": 0.6919236779212952,
+        "micro_accuracy": 0.6919236779212952,
+        "accuracy_per_class": {
+            "0": 0.6919236779212952,
+            "1": 0.6919236779212952
+        },
+        "macro_precision": 0.6923986077308655,
+        "micro_precision": 0.6919236779212952,
+        "precision_per_class": {
+            "0": 0.6828468441963196,
+            "1": 0.7019503712654114
+        },
+        "macro_recall": 0.6919230222702026,
+        "micro_recall": 0.6919236779212952,
+        "recall_per_class": {
+            "0": 0.7167776226997375,
+            "1": 0.667068362236023
+        },
+        "macro_f1": 0.6917329430580139,
+        "micro_f1": 0.6919236779212952,
+        "f1_per_class": {
+            "0": 0.6994009017944336,
+            "1": 0.6840649843215942
+        },
+        "MSE": 0.24278376996517181,
+        "LogLoss": 11.627861022949219,
+        "AUNU": 0.7110100388526917,
+        "micro_ROC-AUC": 0.7110100388526917
+    }
+}

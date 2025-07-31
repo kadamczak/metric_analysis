@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "vehicle-sensit_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 1,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 5012,
+        "test distribution": 1252,
+        "train distribution pct": 50.004988526389305,
+        "test distribution pct": 49.98003992015968
+    },
+    "metrics": {
+        "macro_accuracy": 0.8576116561889648,
+        "micro_accuracy": 0.8576116561889648,
+        "accuracy_per_class": {
+            "0": 0.8576116561889648,
+            "1": 0.8576116561889648
+        },
+        "macro_precision": 0.8621253371238708,
+        "micro_precision": 0.8576116561889648,
+        "precision_per_class": {
+            "0": 0.9025656580924988,
+            "1": 0.8216850161552429
+        },
+        "macro_recall": 0.8576141595840454,
+        "micro_recall": 0.8576116561889648,
+        "recall_per_class": {
+            "0": 0.8017914295196533,
+            "1": 0.9134368300437927
+        },
+        "macro_f1": 0.85716712474823,
+        "micro_f1": 0.8576116561889648,
+        "f1_per_class": {
+            "0": 0.8491992950439453,
+            "1": 0.8651350140571594
+        },
+        "MSE": 0.10752522945404053,
+        "LogLoss": 0.35430577397346497,
+        "AUNU": 0.9144379496574402,
+        "micro_ROC-AUC": 0.9144379496574402
+    }
+}

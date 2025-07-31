@@ -138,7 +138,7 @@ def create_full_binary_metrics(device):
         "f1_per_class": PerClassF1(device=device, num_classes=2, task_type=TaskType.BINARY), #
         
         # Kappa
-        "Kappa": BinaryCohenKappa(device=device),
+        #"Kappa": BinaryCohenKappa(device=device),
         
         # ========================
         # Probabilistic metrics

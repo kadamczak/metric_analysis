@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "santander-customer-satisfaction_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "knn",
+    "index": 3,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 16071,
+        "test distribution": 4017,
+        "train distribution pct": 50.00155564543729,
+        "test distribution pct": 49.99377722464219
+    },
+    "metrics": {
+        "macro_accuracy": 0.6721434593200684,
+        "micro_accuracy": 0.6721434593200684,
+        "accuracy_per_class": {
+            "1": 0.6721434593200684,
+            "0": 0.6721434593200684
+        },
+        "macro_precision": 0.675521731376648,
+        "micro_precision": 0.6721434593200684,
+        "precision_per_class": {
+            "1": 0.6511706709861755,
+            "0": 0.6998727321624756
+        },
+        "macro_recall": 0.6721435785293579,
+        "micro_recall": 0.6721434593200684,
+        "recall_per_class": {
+            "1": 0.7415094375610352,
+            "0": 0.6027776598930359
+        },
+        "macro_f1": 0.6705583333969116,
+        "micro_f1": 0.6721434593200684,
+        "f1_per_class": {
+            "1": 0.6934100389480591,
+            "0": 0.6477066278457642
+        },
+        "MSE": 0.26561135053634644,
+        "LogLoss": 13.31882095336914,
+        "AUNU": 0.6743236184120178,
+        "micro_ROC-AUC": 0.6743236184120178
+    }
+}

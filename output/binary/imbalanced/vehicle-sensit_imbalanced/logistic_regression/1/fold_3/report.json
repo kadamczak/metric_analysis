@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "vehicle-sensit_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 1,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 212,
+        "test distribution": 52,
+        "train distribution pct": 1.9631447356236689,
+        "test distribution pct": 1.9266394961096702
+    },
+    "metrics": {
+        "macro_accuracy": 0.979380190372467,
+        "micro_accuracy": 0.979380190372467,
+        "accuracy_per_class": {
+            "0": 0.979380190372467,
+            "1": 0.979380190372467
+        },
+        "macro_precision": 0.5371490716934204,
+        "micro_precision": 0.979380190372467,
+        "precision_per_class": {
+            "0": 0.9805481433868408,
+            "1": 0.09375
+        },
+        "macro_recall": 0.5025492310523987,
+        "micro_recall": 0.979380190372467,
+        "recall_per_class": {
+            "0": 0.9987826347351074,
+            "1": 0.0063157896511256695
+        },
+        "macro_f1": 0.5007078647613525,
+        "micro_f1": 0.979380190372467,
+        "f1_per_class": {
+            "0": 0.9895814061164856,
+            "1": 0.011834319680929184
+        },
+        "MSE": 0.018518684431910515,
+        "LogLoss": 0.07385820895433426,
+        "AUNU": 0.8983778953552246,
+        "micro_ROC-AUC": 0.8983778953552246
+    }
+}

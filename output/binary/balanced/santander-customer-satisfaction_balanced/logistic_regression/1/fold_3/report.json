@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "santander-customer-satisfaction_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "logistic_regression",
+    "index": 1,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 16071,
+        "test distribution": 4017,
+        "train distribution pct": 50.00155564543729,
+        "test distribution pct": 49.99377722464219
+    },
+    "metrics": {
+        "macro_accuracy": 0.7763734459877014,
+        "micro_accuracy": 0.7763734459877014,
+        "accuracy_per_class": {
+            "1": 0.7763734459877014,
+            "0": 0.7763734459877014
+        },
+        "macro_precision": 0.7763807773590088,
+        "micro_precision": 0.7763734459877014,
+        "precision_per_class": {
+            "1": 0.7749559879302979,
+            "0": 0.7778055667877197
+        },
+        "macro_recall": 0.7763735055923462,
+        "micro_recall": 0.7763734459877014,
+        "recall_per_class": {
+            "1": 0.7789424061775208,
+            "0": 0.7738046050071716
+        },
+        "macro_f1": 0.7763720154762268,
+        "micro_f1": 0.7763734459877014,
+        "f1_per_class": {
+            "1": 0.776944100856781,
+            "0": 0.7757999300956726
+        },
+        "MSE": 0.1537041962146759,
+        "LogLoss": 0.46939602494239807,
+        "AUNU": 0.8574440479278564,
+        "micro_ROC-AUC": 0.8574440479278564
+    }
+}

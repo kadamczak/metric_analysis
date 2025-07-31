@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "vehicle-sensit_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "random_forest",
+    "index": 0,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 211,
+        "test distribution": 53,
+        "train distribution pct": 1.9540655676977219,
+        "test distribution pct": 1.9629629629629628
+    },
+    "metrics": {
+        "macro_accuracy": 0.9708485007286072,
+        "micro_accuracy": 0.9708485007286072,
+        "accuracy_per_class": {
+            "0": 0.9708485007286072,
+            "1": 0.9708485007286072
+        },
+        "macro_precision": 0.5354899168014526,
+        "micro_precision": 0.9708485007286072,
+        "precision_per_class": {
+            "0": 0.981266975402832,
+            "1": 0.08971291780471802
+        },
+        "macro_recall": 0.5213704705238342,
+        "micro_recall": 0.9708485007286072,
+        "recall_per_class": {
+            "0": 0.98915034532547,
+            "1": 0.0535905696451664
+        },
+        "macro_f1": 0.5261459946632385,
+        "micro_f1": 0.9708485007286072,
+        "f1_per_class": {
+            "0": 0.9851928949356079,
+            "1": 0.06709907948970795
+        },
+        "MSE": 0.02811378426849842,
+        "LogLoss": 1.882429838180542,
+        "AUNU": 0.6468570828437805,
+        "micro_ROC-AUC": 0.6468570828437805
+    }
+}

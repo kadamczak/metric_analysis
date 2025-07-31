@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "spambase_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "knn",
+    "index": 0,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": 188,
+        "test distribution": 46,
+        "train distribution pct": 50.13333333333333,
+        "test distribution pct": 49.46236559139785
+    },
+    "metrics": {
+        "macro_accuracy": 0.904113233089447,
+        "micro_accuracy": 0.904113233089447,
+        "accuracy_per_class": {
+            "1": 0.904113233089447,
+            "0": 0.904113233089447
+        },
+        "macro_precision": 0.9041852951049805,
+        "micro_precision": 0.904113233089447,
+        "precision_per_class": {
+            "1": 0.8987875580787659,
+            "0": 0.9095830917358398
+        },
+        "macro_recall": 0.9041132926940918,
+        "micro_recall": 0.904113233089447,
+        "recall_per_class": {
+            "1": 0.9107906222343445,
+            "0": 0.8974359035491943
+        },
+        "macro_f1": 0.904109001159668,
+        "micro_f1": 0.904113233089447,
+        "f1_per_class": {
+            "1": 0.9047492742538452,
+            "0": 0.903468668460846
+        },
+        "MSE": 0.0888788104057312,
+        "LogLoss": 4.351266384124756,
+        "AUNU": 0.9149585366249084,
+        "micro_ROC-AUC": 0.9149585366249084
+    }
+}

@@ -20,16 +20,16 @@ class MSE(Metric[torch.Tensor]):
     @torch.inference_mode()
     def update(self, probabilities, labels):
         
-        print(probabilities)
-        print(probabilities.dtype)
+        # print(probabilities)
+        # print(probabilities.dtype)
         
-        # convert labels to torch.int32
-        labels = labels.to(torch.int32)
+        # # convert labels to torch.int32
+        # labels = labels.to(torch.int32)
         
-        print(labels)
-        print(labels.dtype)
+        # print(labels)
+        # print(labels.dtype)
 
-        print(self.n_classes)
+        # print(self.n_classes)
 
         true = (
             labels.float()

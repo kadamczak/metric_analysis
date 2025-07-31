@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "spambase_imbalanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "logistic_regression",
+    "index": 1,
+    "cv fold": 1,
+    "fold info": {
+        "train distribution": 114,
+        "test distribution": 29,
+        "train distribution pct": 37.5,
+        "test distribution pct": 38.15789473684211
+    },
+    "metrics": {
+        "macro_accuracy": 0.8947368264198303,
+        "micro_accuracy": 0.8947368264198303,
+        "accuracy_per_class": {
+            "1": 0.8947368264198303,
+            "0": 0.8947368264198303
+        },
+        "macro_precision": 0.8950788378715515,
+        "micro_precision": 0.8947368264198303,
+        "precision_per_class": {
+            "1": 0.8939828276634216,
+            "0": 0.8961748480796814
+        },
+        "macro_recall": 0.8792592883110046,
+        "micro_recall": 0.8947368264198303,
+        "recall_per_class": {
+            "1": 0.9425981640815735,
+            "0": 0.8159204125404358
+        },
+        "macro_f1": 0.8859068751335144,
+        "micro_f1": 0.8947368264198303,
+        "f1_per_class": {
+            "1": 0.9176470637321472,
+            "0": 0.8541666865348816
+        },
+        "MSE": 0.08265914767980576,
+        "LogLoss": 0.49277782440185547,
+        "AUNU": 0.9398400783538818,
+        "micro_ROC-AUC": 0.9398400783538818
+    }
+}

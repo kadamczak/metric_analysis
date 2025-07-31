@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "philippine_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 4,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": 205,
+        "test distribution": 51,
+        "train distribution pct": 12.796504369538079,
+        "test distribution pct": 12.75
+    },
+    "metrics": {
+        "macro_accuracy": 0.8590409755706787,
+        "micro_accuracy": 0.8590409755706787,
+        "accuracy_per_class": {
+            "0": 0.8590409755706787,
+            "1": 0.8590409755706787
+        },
+        "macro_precision": 0.668125569820404,
+        "micro_precision": 0.8590409755706787,
+        "precision_per_class": {
+            "0": 0.9044093489646912,
+            "1": 0.43184182047843933
+        },
+        "macro_recall": 0.6308379173278809,
+        "micro_recall": 0.8590409755706787,
+        "recall_per_class": {
+            "0": 0.9374570250511169,
+            "1": 0.32421875
+        },
+        "macro_f1": 0.6455035209655762,
+        "micro_f1": 0.8590409755706787,
+        "f1_per_class": {
+            "0": 0.9206367135047913,
+            "1": 0.37037035822868347
+        },
+        "MSE": 0.11252050846815109,
+        "LogLoss": 0.427138090133667,
+        "AUNU": 0.7317981123924255,
+        "micro_ROC-AUC": 0.7317981123924255
+    }
+}
