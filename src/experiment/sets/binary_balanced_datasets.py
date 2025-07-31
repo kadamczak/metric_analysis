@@ -1,10 +1,11 @@
 from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
-    "philippine_balanced",
-    "santander-customer-satisfaction_balanced",
-    "spambase_balanced",
-    "vehicle-sensit_balanced",
+    "colon-0.5_balanced",
+    # "philippine_balanced",
+    # "santander-customer-satisfaction_balanced",
+    # "spambase_balanced",
+    # "vehicle-sensit_balanced",
 ]
 
 binary_balanced_datasets = {

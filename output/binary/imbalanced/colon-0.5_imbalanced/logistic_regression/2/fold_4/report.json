@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "colon-0.5_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 2,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": 229,
+        "test distribution": 58,
+        "train distribution pct": 16.739766081871345,
+        "test distribution pct": 16.95906432748538
+    },
+    "metrics": {
+        "macro_accuracy": 0.9684210419654846,
+        "micro_accuracy": 0.9684210419654846,
+        "accuracy_per_class": {
+            "0": 0.9684210419654846,
+            "1": 0.9684210419654846
+        },
+        "macro_precision": 0.957107663154602,
+        "micro_precision": 0.9684210419654846,
+        "precision_per_class": {
+            "0": 0.9734839797019958,
+            "1": 0.940731406211853
+        },
+        "macro_recall": 0.9277123808860779,
+        "micro_recall": 0.9684210419654846,
+        "recall_per_class": {
+            "0": 0.9889903664588928,
+            "1": 0.8664343953132629
+        },
+        "macro_f1": 0.9416157603263855,
+        "micro_f1": 0.9684210419654846,
+        "f1_per_class": {
+            "0": 0.9811758995056152,
+            "1": 0.9020556211471558
+        },
+        "MSE": 0.023268019780516624,
+        "LogLoss": 0.07812757790088654,
+        "AUNU": 0.9922374486923218,
+        "micro_ROC-AUC": 0.9922374486923218
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "classification type": "multiclass",
+    "class balance": "balanced",
+    "dataset name": "mfeat-karhunen_balanced",
+    "class names": [
+        0,
+        1,
+        2,
+        3
+    ],
+    "model name": "logistic_regression",
+    "index": 0,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 576,
+        "test distribution": 144,
+        "train distribution pct": 150.0,
+        "test distribution pct": 150.0
+    },
+    "metrics": {
+        "macro_accuracy": 1.0,
+        "micro_accuracy": 1.0,
+        "accuracy_per_class": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "macro_precision": 1.0,
+        "micro_precision": 1.0,
+        "precision_per_class": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "macro_recall": 1.0,
+        "micro_recall": 1.0,
+        "recall_per_class": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "macro_f1": 1.0,
+        "micro_f1": 1.0,
+        "f1_per_class": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0
+        },
+        "Kappa": 1.0,
+        "MSE": 0.0010898082982748747,
+        "LogLoss": 0.01945517770946026,
+        "AUNU": 1.0,
+        "micro_ROC-AUC": 1.0,
+        "AUNP": 1.0,
+        "AU1U": 1.0,
+        "AU1P": 1.0,
+        "ROC-AUC_per_class_vs_rest": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0
+        }
+    }
+}

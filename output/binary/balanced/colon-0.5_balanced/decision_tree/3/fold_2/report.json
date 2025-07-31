@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "colon-0.5_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "decision_tree",
+    "index": 3,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 709,
+        "test distribution": 177,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.9383858442306519,
+        "micro_accuracy": 0.9383858442306519,
+        "accuracy_per_class": {
+            "0": 0.9383858442306519,
+            "1": 0.9383858442306519
+        },
+        "macro_precision": 0.938392162322998,
+        "micro_precision": 0.9383858442306519,
+        "precision_per_class": {
+            "0": 0.9367237687110901,
+            "1": 0.9400606155395508
+        },
+        "macro_recall": 0.9383858442306519,
+        "micro_recall": 0.9383858442306519,
+        "recall_per_class": {
+            "0": 0.9402887225151062,
+            "1": 0.9364829659461975
+        },
+        "macro_f1": 0.9383856058120728,
+        "micro_f1": 0.9383858442306519,
+        "f1_per_class": {
+            "0": 0.938502848148346,
+            "1": 0.9382683634757996
+        },
+        "MSE": 0.056154120713472366,
+        "LogLoss": 4.207879066467285,
+        "AUNU": 0.9355052709579468,
+        "micro_ROC-AUC": 0.9355052709579468
+    }
+}

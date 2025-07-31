@@ -1,0 +1,68 @@
+{
+    "classification type": "multiclass",
+    "class balance": "balanced",
+    "dataset name": "mfeat-karhunen_balanced",
+    "class names": [
+        0,
+        1,
+        2,
+        3
+    ],
+    "model name": "decision_tree",
+    "index": 4,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 576,
+        "test distribution": 144,
+        "train distribution pct": 150.0,
+        "test distribution pct": 150.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.98046875,
+        "micro_accuracy": 0.98046875,
+        "accuracy_per_class": {
+            "0": 0.984375,
+            "1": 0.978515625,
+            "2": 0.9813368320465088,
+            "3": 0.9776475429534912
+        },
+        "macro_precision": 0.9610265493392944,
+        "micro_precision": 0.9609375,
+        "precision_per_class": {
+            "0": 0.9712041616439819,
+            "1": 0.948849081993103,
+            "2": 0.959482729434967,
+            "3": 0.9645704030990601
+        },
+        "macro_recall": 0.9609375,
+        "micro_recall": 0.9609375,
+        "recall_per_class": {
+            "0": 0.9661458134651184,
+            "1": 0.9661458134651184,
+            "2": 0.9661458134651184,
+            "3": 0.9453125
+        },
+        "macro_f1": 0.9609336853027344,
+        "micro_f1": 0.9609375,
+        "f1_per_class": {
+            "0": 0.9686684012413025,
+            "1": 0.9574193358421326,
+            "2": 0.9628027677536011,
+            "3": 0.9548443555831909
+        },
+        "Kappa": 0.9479166865348816,
+        "MSE": 0.01883138343691826,
+        "LogLoss": 0.6703503131866455,
+        "AUNU": 0.9685499668121338,
+        "micro_ROC-AUC": 0.9685975909233093,
+        "AUNP": 0.9685499668121338,
+        "AU1U": 0.9685499403211807,
+        "AU1P": 0.9685499403211807,
+        "ROC-AUC_per_class_vs_rest": {
+            "0": 0.9749539850180041,
+            "1": 0.9655472869245114,
+            "2": 0.9708417727623457,
+            "3": 0.9628567165798609
+        }
+    }
+}

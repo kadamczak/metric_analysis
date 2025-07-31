@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "colon-0.5_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "knn",
+    "index": 0,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": 229,
+        "test distribution": 58,
+        "train distribution pct": 16.739766081871345,
+        "test distribution pct": 16.95906432748538
+    },
+    "metrics": {
+        "macro_accuracy": 0.9478435516357422,
+        "micro_accuracy": 0.9478435516357422,
+        "accuracy_per_class": {
+            "0": 0.9478435516357422,
+            "1": 0.9478435516357422
+        },
+        "macro_precision": 0.9169383645057678,
+        "micro_precision": 0.9478435516357422,
+        "precision_per_class": {
+            "0": 0.9617864489555359,
+            "1": 0.8720902800559998
+        },
+        "macro_recall": 0.8919079303741455,
+        "micro_recall": 0.9478435516357422,
+        "recall_per_class": {
+            "0": 0.9761068224906921,
+            "1": 0.8077090382575989
+        },
+        "macro_f1": 0.9037798047065735,
+        "micro_f1": 0.9478435516357422,
+        "f1_per_class": {
+            "0": 0.9688937067985535,
+            "1": 0.8386659026145935
+        },
+        "MSE": 0.04521407559514046,
+        "LogLoss": 2.5745062828063965,
+        "AUNU": 0.9287302494049072,
+        "micro_ROC-AUC": 0.9287302494049072
+    }
+}
