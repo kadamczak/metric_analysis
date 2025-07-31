@@ -94,8 +94,6 @@ def create_full_multiclass_metrics(num_classes, device):
         drawn_AUNu: drawn_AUNu_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTICLASS), #
         drawn_multi_ROC: drawn_multi_ROC_curve(device=device, n_classes=num_classes, task_type=TaskType.MULTICLASS), #
         
-        # Confusion matrix
-        "confusion_matrix": MulticlassConfusionMatrix(device=device, num_classes=num_classes), #
     }
 
 
@@ -156,8 +154,6 @@ def create_full_binary_metrics(device):
         
         drawn_binary_ROC: drawn_binary_ROC_curve(device=device), #
               
-        # Confusion matrix
-        "confusion_matrix": BinaryConfusionMatrix(device=device, threshold=0), #
     }
     # TorchEval:
     # "ROC-AUC": BinaryAUROC(device=device)
