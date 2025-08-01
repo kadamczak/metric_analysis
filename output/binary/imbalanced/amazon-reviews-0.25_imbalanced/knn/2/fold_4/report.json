@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "amazon-reviews-0.25_imbalanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "knn",
+    "index": 2,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": 21841,
+        "test distribution": 5460,
+        "train distribution pct": 76.46338047892452,
+        "test distribution pct": 76.47058823529412
+    },
+    "metrics": {
+        "macro_accuracy": 0.8440993428230286,
+        "micro_accuracy": 0.8440993428230286,
+        "accuracy_per_class": {
+            "1": 0.8440993428230286,
+            "0": 0.8440993428230286
+        },
+        "macro_precision": 0.7998854517936707,
+        "micro_precision": 0.8440993428230286,
+        "precision_per_class": {
+            "1": 0.7327577471733093,
+            "0": 0.867013156414032
+        },
+        "macro_recall": 0.7358672618865967,
+        "micro_recall": 0.8440993428230286,
+        "recall_per_class": {
+            "1": 0.531384289264679,
+            "0": 0.9403501749038696
+        },
+        "macro_f1": 0.7591128945350647,
+        "micro_f1": 0.8440993428230286,
+        "f1_per_class": {
+            "1": 0.6160320043563843,
+            "0": 0.9021937847137451
+        },
+        "MSE": 0.1305919736623764,
+        "LogLoss": 6.85935115814209,
+        "AUNU": 0.7971286773681641,
+        "micro_ROC-AUC": 0.7971286773681641
+    }
+}

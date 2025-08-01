@@ -1,7 +1,8 @@
 from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
-    "colon-0.5_imbalanced",
+    "amazon-reviews-0.25_imbalanced",
+    #"colon-0.5_imbalanced",
     # "philippine_imbalanced",
     # "santander-customer-satisfaction_imbalanced",
     # "spambase_imbalanced",

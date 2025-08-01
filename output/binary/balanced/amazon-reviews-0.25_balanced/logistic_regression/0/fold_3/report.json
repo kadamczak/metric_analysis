@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "amazon-reviews-0.25_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 0,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 14461,
+        "test distribution": 3616,
+        "train distribution pct": 49.998271271998064,
+        "test distribution pct": 50.00691467293596
+    },
+    "metrics": {
+        "macro_accuracy": 0.8784746527671814,
+        "micro_accuracy": 0.8784746527671814,
+        "accuracy_per_class": {
+            "0": 0.8784746527671814,
+            "1": 0.8784746527671814
+        },
+        "macro_precision": 0.8784779906272888,
+        "micro_precision": 0.8784746527671814,
+        "precision_per_class": {
+            "0": 0.8796033263206482,
+            "1": 0.8773526549339294
+        },
+        "macro_recall": 0.8784745931625366,
+        "micro_recall": 0.8784746527671814,
+        "recall_per_class": {
+            "0": 0.8769879937171936,
+            "1": 0.8799612522125244
+        },
+        "macro_f1": 0.8784743547439575,
+        "micro_f1": 0.8784746527671814,
+        "f1_per_class": {
+            "0": 0.8782936930656433,
+            "1": 0.8786550164222717
+        },
+        "MSE": 0.09029494225978851,
+        "LogLoss": 0.29847219586372375,
+        "AUNU": 0.9461615085601807,
+        "micro_ROC-AUC": 0.9461615085601807
+    }
+}

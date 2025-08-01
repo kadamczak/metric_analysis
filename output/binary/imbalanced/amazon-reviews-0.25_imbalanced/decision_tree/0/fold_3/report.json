@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "amazon-reviews-0.25_imbalanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "decision_tree",
+    "index": 0,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 21841,
+        "test distribution": 5460,
+        "train distribution pct": 76.46605748695865,
+        "test distribution pct": 76.45987956868787
+    },
+    "metrics": {
+        "macro_accuracy": 0.8857178688049316,
+        "micro_accuracy": 0.8857178688049316,
+        "accuracy_per_class": {
+            "1": 0.8857178688049316,
+            "0": 0.8857178688049316
+        },
+        "macro_precision": 0.8501874208450317,
+        "micro_precision": 0.8857178688049316,
+        "precision_per_class": {
+            "1": 0.7890477180480957,
+            "0": 0.911327064037323
+        },
+        "macro_recall": 0.822181761264801,
+        "micro_recall": 0.8857178688049316,
+        "recall_per_class": {
+            "1": 0.702142059803009,
+            "0": 0.942221462726593
+        },
+        "macro_f1": 0.8347896337509155,
+        "micro_f1": 0.8857178688049316,
+        "f1_per_class": {
+            "1": 0.7430624961853027,
+            "0": 0.9265167713165283
+        },
+        "MSE": 0.0902676209807396,
+        "LogLoss": 2.9467265605926514,
+        "AUNU": 0.8869971632957458,
+        "micro_ROC-AUC": 0.8869971632957458
+    }
+}

@@ -2,7 +2,6 @@ from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
     "bookmarks_balanced",
-    "cal500_balanced",
     "corel16k009_balanced",
     "delicious_balanced",
     "emotions_balanced",
