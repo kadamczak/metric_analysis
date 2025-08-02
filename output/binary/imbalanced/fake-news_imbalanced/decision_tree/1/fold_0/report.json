@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "fake-news_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "decision_tree",
+    "index": 1,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 288,
+        "test distribution": 71,
+        "train distribution pct": 1.5100671140939599,
+        "test distribution pct": 1.4890939597315436
+    },
+    "metrics": {
+        "macro_accuracy": 0.9988769292831421,
+        "micro_accuracy": 0.9988769292831421,
+        "accuracy_per_class": {
+            "0": 0.9988769292831421,
+            "1": 0.9988769292831421
+        },
+        "macro_precision": 0.9897750020027161,
+        "micro_precision": 0.9988769292831421,
+        "precision_per_class": {
+            "0": 0.9991487264633179,
+            "1": 0.9804012775421143
+        },
+        "macro_recall": 0.9719905853271484,
+        "micro_recall": 0.9988769292831421,
+        "recall_per_class": {
+            "0": 0.9997115135192871,
+            "1": 0.9442696571350098
+        },
+        "macro_f1": 0.9807131886482239,
+        "micro_f1": 0.9988769292831421,
+        "f1_per_class": {
+            "0": 0.9994300603866577,
+            "1": 0.96199631690979
+        },
+        "MSE": 0.0009751734905876219,
+        "LogLoss": 0.03766525909304619,
+        "AUNU": 0.9896542429924011,
+        "micro_ROC-AUC": 0.9896542429924011
+    }
+}
