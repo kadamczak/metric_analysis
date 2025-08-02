@@ -6,7 +6,8 @@ dataset_names = [
     #"gas-drift_balanced",
     #"gtsrb-huelist_balanced",
     #"mfeat-karhunen_balanced",
-    "news-category_balanced",
+    #"news-category_balanced",
+    "nyt-comments-april17_balanced",
     #"usps_balanced",
     #"volkert_balanced"
 ]
