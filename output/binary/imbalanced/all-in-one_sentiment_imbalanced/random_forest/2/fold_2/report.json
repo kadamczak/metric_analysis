@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "imbalanced",
+    "dataset name": "all-in-one_sentiment_imbalanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "random_forest",
+    "index": 2,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 284,
+        "test distribution": 71,
+        "train distribution pct": 2.433173406442769,
+        "test distribution pct": 2.433173406442769
+    },
+    "metrics": {
+        "macro_accuracy": 0.9645876288414001,
+        "micro_accuracy": 0.9645876288414001,
+        "accuracy_per_class": {
+            "0": 0.9645876288414001,
+            "1": 0.9645876288414001
+        },
+        "macro_precision": 0.5403233766555786,
+        "micro_precision": 0.9645876288414001,
+        "precision_per_class": {
+            "0": 0.9767961502075195,
+            "1": 0.10385064035654068
+        },
+        "macro_recall": 0.5234229564666748,
+        "micro_recall": 0.9645876288414001,
+        "recall_per_class": {
+            "0": 0.9871544241905212,
+            "1": 0.05969148129224777
+        },
+        "macro_f1": 0.5288785696029663,
+        "micro_f1": 0.9645876288414001,
+        "f1_per_class": {
+            "0": 0.9819479584693909,
+            "1": 0.07580919563770294
+        },
+        "MSE": 0.033444520086050034,
+        "LogLoss": 1.9819276332855225,
+        "AUNU": 0.6205988526344299,
+        "micro_ROC-AUC": 0.6205988526344299
+    }
+}

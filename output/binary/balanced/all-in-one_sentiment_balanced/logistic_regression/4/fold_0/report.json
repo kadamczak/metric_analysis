@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "all-in-one_sentiment_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "logistic_regression",
+    "index": 4,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 5836,
+        "test distribution": 1459,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.7901694178581238,
+        "micro_accuracy": 0.7901694178581238,
+        "accuracy_per_class": {
+            "0": 0.7901694178581238,
+            "1": 0.7901694178581238
+        },
+        "macro_precision": 0.7910974621772766,
+        "micro_precision": 0.7901694178581238,
+        "precision_per_class": {
+            "0": 0.7746609449386597,
+            "1": 0.8075339794158936
+        },
+        "macro_recall": 0.790169358253479,
+        "micro_recall": 0.7901694178581238,
+        "recall_per_class": {
+            "0": 0.8184013962745667,
+            "1": 0.7619373798370361
+        },
+        "macro_f1": 0.7900019884109497,
+        "micro_f1": 0.7901694178581238,
+        "f1_per_class": {
+            "0": 0.7959306836128235,
+            "1": 0.7840733528137207
+        },
+        "MSE": 0.14768831431865692,
+        "LogLoss": 0.4645467698574066,
+        "AUNU": 0.8693466782569885,
+        "micro_ROC-AUC": 0.8693466782569885
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "all-in-one_sentiment_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "knn",
+    "index": 3,
+    "cv fold": 0,
+    "fold info": {
+        "train distribution": 5836,
+        "test distribution": 1459,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.7164322733879089,
+        "micro_accuracy": 0.7164322733879089,
+        "accuracy_per_class": {
+            "0": 0.7164322733879089,
+            "1": 0.7164322733879089
+        },
+        "macro_precision": 0.7169111371040344,
+        "micro_precision": 0.7164322733879089,
+        "precision_per_class": {
+            "0": 0.7067198157310486,
+            "1": 0.7271024584770203
+        },
+        "macro_recall": 0.7164323329925537,
+        "micro_recall": 0.7164322733879089,
+        "recall_per_class": {
+            "0": 0.7399242520332336,
+            "1": 0.692940354347229
+        },
+        "macro_f1": 0.716275691986084,
+        "micro_f1": 0.7164322733879089,
+        "f1_per_class": {
+            "0": 0.7229409217834473,
+            "1": 0.7096104621887207
+        },
+        "MSE": 0.21927131712436676,
+        "LogLoss": 9.318717956542969,
+        "AUNU": 0.7456167936325073,
+        "micro_ROC-AUC": 0.7456167936325073
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "all-in-one_sentiment_balanced",
+    "class names": [
+        0,
+        1
+    ],
+    "model name": "decision_tree",
+    "index": 4,
+    "cv fold": 1,
+    "fold info": {
+        "train distribution": 5836,
+        "test distribution": 1459,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.7346768975257874,
+        "micro_accuracy": 0.7346768975257874,
+        "accuracy_per_class": {
+            "0": 0.7346768975257874,
+            "1": 0.7346768975257874
+        },
+        "macro_precision": 0.7349316477775574,
+        "micro_precision": 0.7346768975257874,
+        "precision_per_class": {
+            "0": 0.7271957397460938,
+            "1": 0.742667555809021
+        },
+        "macro_recall": 0.7346769571304321,
+        "micro_recall": 0.7346768975257874,
+        "recall_per_class": {
+            "0": 0.7511411309242249,
+            "1": 0.7182127237319946
+        },
+        "macro_f1": 0.7346049547195435,
+        "micro_f1": 0.7346768975257874,
+        "f1_per_class": {
+            "0": 0.7389745116233826,
+            "1": 0.7302354574203491
+        },
+        "MSE": 0.22485719621181488,
+        "LogLoss": 13.985709190368652,
+        "AUNU": 0.7381698489189148,
+        "micro_ROC-AUC": 0.7381698489189148
+    }
+}
