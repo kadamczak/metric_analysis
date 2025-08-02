@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "ceas_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "decision_tree",
+    "index": 0,
+    "cv fold": 3,
+    "fold info": {
+        "train distribution": 3195,
+        "test distribution": 798,
+        "train distribution pct": 50.007825950853025,
+        "test distribution pct": 49.96869129618034
+    },
+    "metrics": {
+        "macro_accuracy": 0.979921817779541,
+        "micro_accuracy": 0.979921817779541,
+        "accuracy_per_class": {
+            "1": 0.979921817779541,
+            "0": 0.979921817779541
+        },
+        "macro_precision": 0.9800525903701782,
+        "micro_precision": 0.979921817779541,
+        "precision_per_class": {
+            "1": 0.9879702925682068,
+            "0": 0.9721348881721497
+        },
+        "macro_recall": 0.9799216985702515,
+        "micro_recall": 0.979921817779541,
+        "recall_per_class": {
+            "1": 0.9716740846633911,
+            "0": 0.988169252872467
+        },
+        "macro_f1": 0.979920506477356,
+        "micro_f1": 0.979921817779541,
+        "f1_per_class": {
+            "1": 0.9797544479370117,
+            "0": 0.9800865054130554
+        },
+        "MSE": 0.017047539353370667,
+        "LogLoss": 0.660758912563324,
+        "AUNU": 0.9871340990066528,
+        "micro_ROC-AUC": 0.9871340990066528
+    }
+}

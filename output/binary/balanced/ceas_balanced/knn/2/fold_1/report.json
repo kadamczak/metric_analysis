@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "ceas_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "knn",
+    "index": 2,
+    "cv fold": 1,
+    "fold info": {
+        "train distribution": 3194,
+        "test distribution": 799,
+        "train distribution pct": 49.99217404914697,
+        "test distribution pct": 50.03130870381967
+    },
+    "metrics": {
+        "macro_accuracy": 0.9569075107574463,
+        "micro_accuracy": 0.9569075107574463,
+        "accuracy_per_class": {
+            "1": 0.9569075107574463,
+            "0": 0.9569075107574463
+        },
+        "macro_precision": 0.958228349685669,
+        "micro_precision": 0.9569075107574463,
+        "precision_per_class": {
+            "1": 0.9828283786773682,
+            "0": 0.9336283802986145
+        },
+        "macro_recall": 0.956907331943512,
+        "micro_recall": 0.9569075107574463,
+        "recall_per_class": {
+            "1": 0.9300642013549805,
+            "0": 0.9837504625320435
+        },
+        "macro_f1": 0.9568764567375183,
+        "micro_f1": 0.9569075107574463,
+        "f1_per_class": {
+            "1": 0.9557185769081116,
+            "0": 0.958034336566925
+        },
+        "MSE": 0.036294106394052505,
+        "LogLoss": 1.9806838035583496,
+        "AUNU": 0.9710106253623962,
+        "micro_ROC-AUC": 0.9710106253623962
+    }
+}
