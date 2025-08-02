@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "news-sarcasm_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "knn",
+    "index": 2,
+    "cv fold": 1,
+    "fold info": {
+        "train distribution": 1899,
+        "test distribution": 475,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.7517188191413879,
+        "micro_accuracy": 0.7517188191413879,
+        "accuracy_per_class": {
+            "1": 0.7517188191413879,
+            "0": 0.7517188191413879
+        },
+        "macro_precision": 0.7523293495178223,
+        "micro_precision": 0.7517188191413879,
+        "precision_per_class": {
+            "1": 0.764741837978363,
+            "0": 0.7399169206619263
+        },
+        "macro_recall": 0.7517187595367432,
+        "micro_recall": 0.7517188191413879,
+        "recall_per_class": {
+            "1": 0.7271230816841125,
+            "0": 0.7763144969940186
+        },
+        "macro_f1": 0.7515684962272644,
+        "micro_f1": 0.7517188191413879,
+        "f1_per_class": {
+            "1": 0.7454581260681152,
+            "0": 0.7576788663864136
+        },
+        "MSE": 0.1893472671508789,
+        "LogLoss": 6.734742641448975,
+        "AUNU": 0.7944617867469788,
+        "micro_ROC-AUC": 0.7944617867469788
+    }
+}

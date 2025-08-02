@@ -1,11 +1,12 @@
 from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
-    "ag-news_imbalanced",
+    #"ag-news_imbalanced",
     #"dbpedia-ontology_imbalanced",
     #"gas-drift_imbalanced",
     #"gtsrb-huelist_imbalanced",
     #"mfeat-karhunen_imbalanced",
+    #"news-category_imbalanced",
     #"usps_imbalanced",
     #"volkert_imbalanced"
 ]

@@ -1,0 +1,48 @@
+{
+    "classification type": "binary",
+    "class balance": "balanced",
+    "dataset name": "news-sarcasm_balanced",
+    "class names": [
+        1,
+        0
+    ],
+    "model name": "logistic_regression",
+    "index": 0,
+    "cv fold": 2,
+    "fold info": {
+        "train distribution": 1899,
+        "test distribution": 475,
+        "train distribution pct": 50.0,
+        "test distribution pct": 50.0
+    },
+    "metrics": {
+        "macro_accuracy": 0.8077192902565002,
+        "micro_accuracy": 0.8077192902565002,
+        "accuracy_per_class": {
+            "1": 0.8077192902565002,
+            "0": 0.8077192902565002
+        },
+        "macro_precision": 0.808692216873169,
+        "micro_precision": 0.8077192902565002,
+        "precision_per_class": {
+            "1": 0.8260223269462585,
+            "0": 0.7913621068000793
+        },
+        "macro_recall": 0.807719349861145,
+        "micro_recall": 0.8077192902565002,
+        "recall_per_class": {
+            "1": 0.7796491384506226,
+            "0": 0.8357895016670227
+        },
+        "macro_f1": 0.8075676560401917,
+        "micro_f1": 0.8077192902565002,
+        "f1_per_class": {
+            "1": 0.8021660447120667,
+            "0": 0.8129692673683167
+        },
+        "MSE": 0.1353679895401001,
+        "LogLoss": 0.4194145202636719,
+        "AUNU": 0.890158474445343,
+        "micro_ROC-AUC": 0.890158474445343
+    }
+}
