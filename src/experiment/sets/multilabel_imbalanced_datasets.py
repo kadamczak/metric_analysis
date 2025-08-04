@@ -2,8 +2,6 @@ from src.experiment.helpers.variables import dataset_root_dir
 
 dataset_names = [
     "bookmarks_imbalanced",
-    "corel16k009_imbalanced",
-    "delicious_imbalanced",
     "emotions_imbalanced",
     "imdb_imbalanced",
     "mediamill_imbalanced",

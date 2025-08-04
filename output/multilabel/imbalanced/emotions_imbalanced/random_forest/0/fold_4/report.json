@@ -1,0 +1,85 @@
+{
+    "classification type": "multilabel",
+    "class balance": "imbalanced",
+    "dataset name": "emotions_imbalanced",
+    "class names": [
+        "angry-aggresive",
+        "amazed-suprised",
+        "sad-lonely",
+        "happy-pleased"
+    ],
+    "model name": "random_forest",
+    "index": 0,
+    "cv fold": 4,
+    "fold info": {
+        "train distribution": [
+            152,
+            118,
+            134,
+            69
+        ],
+        "test distribution": [
+            37,
+            29,
+            33,
+            17
+        ],
+        "train distribution pct": [
+            43.67816091954023,
+            33.90804597701149,
+            38.50574712643678,
+            19.82758620689655
+        ],
+        "test distribution pct": [
+            42.04545454545455,
+            32.95454545454545,
+            37.5,
+            19.318181818181817
+        ]
+    },
+    "metrics": {
+        "macro_accuracy": 0.7554733110925772,
+        "micro_accuracy": 0.7554733110925771,
+        "accuracy_per_class": {
+            "angry-aggresive": 0.7837781484570475,
+            "amazed-suprised": 0.7164303586321935,
+            "sad-lonely": 0.7746038365304421,
+            "happy-pleased": 0.7470809007506255
+        },
+        "macro_precision": 0.5930661078953565,
+        "micro_precision": 0.6442866365397031,
+        "precision_per_class": {
+            "angry-aggresive": 0.7492822966507177,
+            "amazed-suprised": 0.5833874107722258,
+            "sad-lonely": 0.7114093959731543,
+            "happy-pleased": 0.3281853281853282
+        },
+        "macro_recall": 0.5678009838716664,
+        "micro_recall": 0.6161444667386943,
+        "recall_per_class": {
+            "angry-aggresive": 0.7532467532467533,
+            "amazed-suprised": 0.5559678416821274,
+            "sad-lonely": 0.6924333151878062,
+            "happy-pleased": 0.26955602536997886
+        },
+        "macro_f1": 0.5795988608972886,
+        "micro_f1": 0.6299013806706114,
+        "f1_per_class": {
+            "angry-aggresive": 0.7512592947949148,
+            "amazed-suprised": 0.5693476884103863,
+            "sad-lonely": 0.7017931034482758,
+            "happy-pleased": 0.2959953569355775
+        },
+        "MSE": 0.2132280468940735,
+        "LogLoss": 12.94483757019043,
+        "AUNU": 0.7086108326911926,
+        "micro_ROC-AUC": 0.7306324243545532,
+        "AUNP": 0.7263533473014832,
+        "ROC-AUC_per_class_vs_rest": {
+            "angry-aggresive": 0.7762940585907094,
+            "amazed-suprised": 0.6935001516406271,
+            "sad-lonely": 0.7629408300668012,
+            "happy-pleased": 0.6017083550698773
+        }
+    }
+}
