@@ -5,10 +5,10 @@ dataset_names = [
     #"dbpedia-ontology_imbalanced",
     #"gas-drift_imbalanced",
     #"gtsrb-huelist_imbalanced",
+    "irish-times_imbalanced",
     #"mfeat-karhunen_imbalanced",
     #"news-category_imbalanced",
     #"nyt-comments-april17_imbalanced",
-    "stocks_imbalanced",
     #"usps_imbalanced",
     #"volkert_imbalanced"
 ]
