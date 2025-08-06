@@ -1,13 +1,6 @@
 {
-  "classification_types": [
-    "binary",
-    "multiclass",
-    "multilabel"
-  ],
-  "class_balances": [
-    "balanced",
-    "imbalanced"
-  ],
+  "classification_types": ["binary", "multiclass", "multilabel"],
+  "class_balances": ["balanced", "imbalanced"],
   "correlation_type": "spearman",
   "datasets": [
     "all-in-one_sentiment_balanced",
