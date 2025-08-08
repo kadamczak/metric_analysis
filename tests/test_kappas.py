@@ -29,19 +29,19 @@ class TestMulticlassCohenKappa(MetricTestBase):
         self.metric_name = "kappa"
         self.multiclass_metric_calculator = MulticlassCohenKappa(num_classes=3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
 
 
@@ -51,28 +51,28 @@ class TestBinaryCohenKappa(MetricTestBase):
         self.metric_name = "kappa"
         self.metric_calculator = BinaryCohenKappa()
         
-    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+    def test_ShouldCalculate_WhenBinaryImbalanced(self):
         self.expected_matches_result(self.metric_calculator, binary_6)
 
-    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+    def test_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.metric_calculator, binary_7)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.metric_calculator, binary_8)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
         self.expected_matches_result(self.metric_calculator, binary_9)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
         self.expected_matches_result(self.metric_calculator, binary_10)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
         self.expected_matches_result(self.metric_calculator, binary_11)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
         self.expected_matches_result(self.metric_calculator, binary_12)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.metric_calculator, binary_13)
 
     

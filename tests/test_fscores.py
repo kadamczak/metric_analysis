@@ -95,46 +95,46 @@ class TestMacroF1(MetricTestBase):
         self.binary_metric_calculator = MacroF1(num_classes=2, task_type=TaskType.BINARY)
         self.multilabel_metric_calculator = MacroF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
         
-    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+    def test_ShouldCalculate_WhenBinaryImbalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_6)
 
-    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+    def test_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_7)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_8)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_9)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_10)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_11)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_12)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
+    def test_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
@@ -160,46 +160,46 @@ class TestMicroF1(MetricTestBase):
         self.binary_metric_calculator = MicroF1(num_classes=2, task_type=TaskType.BINARY)
         self.multilabel_metric_calculator = MicroF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
         
-    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+    def test_ShouldCalculate_WhenBinaryImbalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_6)
 
-    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+    def test_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_7)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_8)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_9)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_10)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_11)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_12)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
+    def test_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
 
 
@@ -225,46 +225,46 @@ class TestPerClassF1(MetricTestBase):
         self.binary_metric_calculator = PerClassF1(num_classes=2, task_type=TaskType.BINARY)
         self.multilabel_metric_calculator = PerClassF1(num_classes=3, task_type=TaskType.MULTILABEL)
     
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+    def test_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
         self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
         
-    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+    def test_ShouldCalculate_WhenBinaryImbalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_6)
 
-    def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
+    def test_ShouldCalculate_WhenBinaryBalanced(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_7)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_8)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_9)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_10)
 
-    def test_Compute_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0PredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_11)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_12)
         
-    def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
+    def test_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
         
-    def test_Compute_ShouldCalculate_WhenMultilabel1(self):
+    def test_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
         
     
