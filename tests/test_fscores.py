@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
-from src.experiment.metrics.qualitative.fscores import F1TorchEval, F1Sklearn
+from src.experiment.metrics.qualitative.fscores import F1Sklearn
 from src.experiment.metrics.qualitative.fscores import PerClassF1, MacroF1, MicroF1
 from src.experiment.helpers.task_type import TaskType
 
@@ -82,10 +82,6 @@ class TestMacroF1(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassF1Score(num_classes=3, average="macro")
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average="macro")
         
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = F1TorchEval(average="macro", num_classes=3)
-        #self.binary_metric_calculator = F1TorchEval(average="macro", num_classes=2)
-        
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average="macro", zero_division=np.nan)
         #self.binary_metric_calculator = F1Sklearn(num_classes=2, average="macro", zero_division=np.nan)
@@ -147,10 +143,6 @@ class TestMicroF1(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassF1Score(num_classes=3, average="micro")
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average="micro")
         
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = F1TorchEval(average="micro", num_classes=3)
-        #self.binary_metric_calculator = F1TorchEval(average="micro", num_classes=2)
-        
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average="micro", zero_division=np.nan)
         #self.binary_metric_calculator = F1Sklearn(num_classes=2, average="micro", zero_division=np.nan)
@@ -211,10 +203,6 @@ class TestPerClassF1(MetricTestBase):
         # TorchEval
         #self.multiclass_metric_calculator = MulticlassF1Score(num_classes=3, average=None)
         #self.binary_metric_calculator = MulticlassF1Score(num_classes=2, average=None)
-        
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = F1TorchEval(average=None, num_classes=3)
-        #self.binary_metric_calculator = F1TorchEval(average=None, num_classes=2)
         
         # Sklearn
         #self.multiclass_metric_calculator = F1Sklearn(num_classes=3, average=None, zero_division=np.nan)

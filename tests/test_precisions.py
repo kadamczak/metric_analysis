@@ -4,7 +4,7 @@ import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/experiment')))
 from src.experiment.helpers.task_type import TaskType
-from src.experiment.metrics.qualitative.precisions import PrecisionTorchEval, PrecisionSklearn
+from src.experiment.metrics.qualitative.precisions import PrecisionSklearn
 from src.experiment.metrics.qualitative.precisions import MacroPrecision, MicroPrecision, PerClassPrecision
 
 from helpers.metric_test_base import MetricTestBase
@@ -68,10 +68,6 @@ class TestMacroPrecision(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassPrecision(average="macro", num_classes=3)
         #self.binary_metric_calculator = MulticlassPrecision(average="macro", num_classes=2)
         
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = PrecisionTorchEval(average="macro", num_classes=3)
-        #self.binary_metric_calculator = PrecisionTorchEval(average="macro", num_classes=2)
-        
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average="macro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average="macro", num_classes=2, zero_division=np.nan)
@@ -133,10 +129,6 @@ class TestMicroPrecision(MetricTestBase):
         #self.multiclass_metric_calculator = MulticlassPrecision(average="micro", num_classes=3)
         #self.binary_metric_calculator = MulticlassPrecision(average="micro", num_classes=2)
         
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = PrecisionTorchEval(average="micro", num_classes=3)
-        #self.binary_metric_calculator = PrecisionTorchEval(average="micro", num_classes=2)
-        
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average="micro", num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average="micro", num_classes=2, zero_division=np.nan)
@@ -197,11 +189,7 @@ class TestPerClassPrecision(MetricTestBase):
         # TorchEval
         #self.multiclass_metric_calculator = MulticlassPrecision(average=None, num_classes=3)
         #self.binary_metric_calculator = MulticlassPrecision(average=None, num_classes=2)
-        
-        # TorchEval function-based
-        #self.multiclass_metric_calculator = PrecisionTorchEval(average=None, num_classes=3)
-        #self.binary_metric_calculator = PrecisionTorchEval(average=None, num_classes=2)
-        
+
         # Sklearn
         #self.multiclass_metric_calculator = PrecisionSklearn(average=None, num_classes=3, zero_division=np.nan)
         #self.binary_metric_calculator = PrecisionSklearn(average=None, num_classes=2, zero_division=np.nan)
