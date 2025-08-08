@@ -8,13 +8,13 @@ from src.experiment.metrics.rank.rocauc import ROCAUC
 
 from helpers.metric_test_base import MetricTestBase
 from helpers.sample_data import (
-    multiclass_imbalanced_1,
-    multiclass_balanced_2,
-    multiclass_balanced_3,
-    multiclass_balanced_4,
-    multiclass_balanced_5,
-    binary_imbalanced_6,
-    binary_balanced_7,
+    multiclass_1,
+    multiclass_2,
+    multiclass_3,
+    multiclass_4,
+    multiclass_5,
+    binary_6,
+    binary_7,
     binary_8,
     binary_9,
     binary_10,
@@ -29,11 +29,11 @@ class TestBinaryROC(MetricTestBase):
         self.metric_name = "roc"
         self.binary_metric_calculator = ROCAUC(comparison_method="raise", average="macro", task_type=TaskType.BINARY)
         
-    def test_Compute_ShouldCalculate_WhenBinaryimbalanced(self):
-        self.expected_matches_result(self.binary_metric_calculator, binary_imbalanced_6)
+    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_6)
 
     def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
-        self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)
+        self.expected_matches_result(self.binary_metric_calculator, binary_7)
 
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_8)
@@ -62,20 +62,20 @@ class TestAUNU(MetricTestBase):
         self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average="macro", task_type=TaskType.MULTICLASS)
         self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average="macro", task_type=TaskType.MULTILABEL)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
     
     def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
@@ -87,20 +87,20 @@ class TestAUNP(MetricTestBase):
         self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average="weighted", task_type=TaskType.MULTICLASS)
         self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average="weighted", task_type=TaskType.MULTILABEL)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
         
     def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
@@ -111,20 +111,21 @@ class TestAU1U(MetricTestBase):
         self.metric_name = "au1u"
         self.multiclass_metric_calculator = ROCAUC(comparison_method="ovo", average="macro", task_type=TaskType.MULTICLASS)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
+        
         
         
 class TestAU1P(MetricTestBase):
@@ -132,20 +133,21 @@ class TestAU1P(MetricTestBase):
         self.metric_name = "au1p"
         self.multiclass_metric_calculator= ROCAUC(comparison_method="ovo", average="weighted", task_type=TaskType.MULTICLASS)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
+        
     
         
 
@@ -155,20 +157,21 @@ class TestPerClassVsRest(MetricTestBase):
         self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average=None, task_type=TaskType.MULTICLASS)
         self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average=None, task_type=TaskType.MULTILABEL)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
+        
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0PredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_4)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_4)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesAndPredictionsInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_5)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesAndPredictionsInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_5)
+        
     
     def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)
@@ -181,20 +184,20 @@ class TestMicroROCAUC(MetricTestBase):
         self.multiclass_metric_calculator = ROCAUC(comparison_method="ovr", average="micro", task_type=TaskType.MULTICLASS)
         self.multilabel_metric_calculator = ROCAUC(comparison_method="ovr", average="micro", task_type=TaskType.MULTILABEL)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassimbalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_imbalanced_1)
-          
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_1)
+        
     def test_Compute_ShouldCalculate_WhenMulticlassBalanced(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_2)
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_2)
         
-    def test_Compute_ShouldCalculate_WhenMulticlassBalanced_When0TrueSamplesInClass(self):
-        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_balanced_3)
+    def test_Compute_ShouldCalculate_WhenMulticlassImbalanced_When0TrueSamplesInClass(self):
+        self.expected_matches_result(self.multiclass_metric_calculator, multiclass_3)
         
-    def test_Compute_ShouldCalculate_WhenBinaryimbalanced(self):
-        self.expected_matches_result(self.binary_metric_calculator, binary_imbalanced_6)
+    def test_Compute_ShouldCalculate_WhenBinaryImbalanced(self):
+        self.expected_matches_result(self.binary_metric_calculator, binary_6)
         
     def test_Compute_ShouldCalculate_WhenBinaryBalanced(self):
-        self.expected_matches_result(self.binary_metric_calculator, binary_balanced_7)
+        self.expected_matches_result(self.binary_metric_calculator, binary_7)
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesInPositiveClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_8)
@@ -213,7 +216,6 @@ class TestMicroROCAUC(MetricTestBase):
         
     def test_Compute_ShouldCalculate_WhenBinary_When0TrueSamplesAndPredictionsInNegativeClass(self):
         self.expected_matches_result(self.binary_metric_calculator, binary_13)
-
 
     def test_Compute_ShouldCalculate_WhenMultilabel1(self):
         self.expected_matches_result(self.multilabel_metric_calculator, multilabel_14)

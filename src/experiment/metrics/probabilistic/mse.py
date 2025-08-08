@@ -19,18 +19,6 @@ class MSE(Metric[torch.Tensor]):
 
     @torch.inference_mode()
     def update(self, probabilities, labels):
-        
-        # print(probabilities)
-        # print(probabilities.dtype)
-        
-        # # convert labels to torch.int32
-        # labels = labels.to(torch.int32)
-        
-        # print(labels)
-        # print(labels.dtype)
-
-        # print(self.n_classes)
-
         true = (
             labels.float()
             if self.task_type == TaskType.BINARY or self.task_type == TaskType.MULTILABEL
