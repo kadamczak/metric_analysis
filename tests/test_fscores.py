@@ -31,8 +31,6 @@ from torcheval.metrics import MulticlassF1Score
 # TorchEval
 #============
 
-# class-based MulticlassF1Score for binary case - does not accept binary logits (i.e [-0.5, 1.2, 0.3, 0.4, -2.3] where each number is one sample)
-
 # MACRO
 # no true samples -> counts as 0
 # no predicted samples -> counts as 0
